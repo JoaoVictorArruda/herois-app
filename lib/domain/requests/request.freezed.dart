@@ -16,7 +16,7 @@ class _$RequestTearOff {
 // ignore: unused_element
   _Request call(
       {@required UniqueId id,
-      @required StringSingleLine city,
+      StringSingleLine city,
       @required StringSingleLine name,
       @required StringSingleLine lat,
       @required StringSingleLine long,
@@ -157,7 +157,7 @@ class __$RequestCopyWithImpl<$Res> extends _$RequestCopyWithImpl<$Res>
 class _$_Request extends _Request {
   const _$_Request(
       {@required this.id,
-      @required this.city,
+      this.city,
       @required this.name,
       @required this.lat,
       @required this.long,
@@ -165,7 +165,6 @@ class _$_Request extends _Request {
       @required this.photoUrl,
       @required this.isOpen})
       : assert(id != null),
-        assert(city != null),
         assert(name != null),
         assert(lat != null),
         assert(long != null),
@@ -242,7 +241,7 @@ abstract class _Request extends Request {
   const _Request._() : super._();
   const factory _Request(
       {@required UniqueId id,
-      @required StringSingleLine city,
+      StringSingleLine city,
       @required StringSingleLine name,
       @required StringSingleLine lat,
       @required StringSingleLine long,

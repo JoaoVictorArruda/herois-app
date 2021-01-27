@@ -18,7 +18,7 @@ abstract class Info with _$Info {
     @required InfoBio bio,
     @required BloodType bloodType,
     @required Gender gender,
-    @required StringSingleLine city,
+    StringSingleLine city,
     @required StringSingleLine lat,
     @required StringSingleLine long,
     bool isVisible,

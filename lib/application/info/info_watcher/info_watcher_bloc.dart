@@ -80,8 +80,12 @@ class InfoWatcherBloc extends Bloc<InfoWatcherEvent, InfoWatcherState> {
 
   @override
   Future<void> close() async {
-    await _infoStreamSubscription.cancel();
-    await _infoListStreamSubscription.cancel();
+    if(_infoStreamSubscription != null) {
+      await _infoStreamSubscription.cancel();
+    }
+    if(_infoListStreamSubscription != null) {
+      await _infoListStreamSubscription.cancel();
+    }
     return super.close();
   }
 }

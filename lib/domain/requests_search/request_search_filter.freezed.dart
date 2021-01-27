@@ -15,7 +15,7 @@ class _$RequestSearchFilterTearOff {
 
 // ignore: unused_element
   _RequestSearchFilter call(
-      {@required StringSingleLine city,
+      {StringSingleLine city,
       @required StringSingleLine distance,
       @required StringSingleLine lat,
       @required StringSingleLine long,
@@ -139,13 +139,12 @@ class __$RequestSearchFilterCopyWithImpl<$Res>
 /// @nodoc
 class _$_RequestSearchFilter extends _RequestSearchFilter {
   const _$_RequestSearchFilter(
-      {@required this.city,
+      {this.city,
       @required this.distance,
       @required this.lat,
       @required this.long,
       @required this.bloodType})
-      : assert(city != null),
-        assert(distance != null),
+      : assert(distance != null),
         assert(lat != null),
         assert(long != null),
         assert(bloodType != null),
@@ -204,7 +203,7 @@ class _$_RequestSearchFilter extends _RequestSearchFilter {
 abstract class _RequestSearchFilter extends RequestSearchFilter {
   const _RequestSearchFilter._() : super._();
   const factory _RequestSearchFilter(
-      {@required StringSingleLine city,
+      {StringSingleLine city,
       @required StringSingleLine distance,
       @required StringSingleLine lat,
       @required StringSingleLine long,

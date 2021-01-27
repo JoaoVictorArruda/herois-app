@@ -36,6 +36,11 @@ class _$RequestSearchFilterFormEventTearOff {
   }
 
 // ignore: unused_element
+  _OnlyCompatibleClicked onlyCompatibleClicked() {
+    return const _OnlyCompatibleClicked();
+  }
+
+// ignore: unused_element
   _LocalizationChanged localizationChanged(
       String city, String lat, String long) {
     return _LocalizationChanged(
@@ -64,6 +69,7 @@ mixin _$RequestSearchFilterFormEvent {
             Option<RequestSearchFilter> initialRequestSearchFilterOption),
     @required TResult bloodTypeChanged(String bloodType),
     @required TResult distanceChanged(String distanceStr),
+    @required TResult onlyCompatibleClicked(),
     @required TResult localizationChanged(String city, String lat, String long),
     @required TResult saved(),
   });
@@ -73,6 +79,7 @@ mixin _$RequestSearchFilterFormEvent {
         Option<RequestSearchFilter> initialRequestSearchFilterOption),
     TResult bloodTypeChanged(String bloodType),
     TResult distanceChanged(String distanceStr),
+    TResult onlyCompatibleClicked(),
     TResult localizationChanged(String city, String lat, String long),
     TResult saved(),
     @required TResult orElse(),
@@ -82,6 +89,7 @@ mixin _$RequestSearchFilterFormEvent {
     @required TResult initialized(_Initialized value),
     @required TResult bloodTypeChanged(_BloodTypeChanged value),
     @required TResult distanceChanged(_DistanceChanged value),
+    @required TResult onlyCompatibleClicked(_OnlyCompatibleClicked value),
     @required TResult localizationChanged(_LocalizationChanged value),
     @required TResult saved(_Saved value),
   });
@@ -90,6 +98,7 @@ mixin _$RequestSearchFilterFormEvent {
     TResult initialized(_Initialized value),
     TResult bloodTypeChanged(_BloodTypeChanged value),
     TResult distanceChanged(_DistanceChanged value),
+    TResult onlyCompatibleClicked(_OnlyCompatibleClicked value),
     TResult localizationChanged(_LocalizationChanged value),
     TResult saved(_Saved value),
     @required TResult orElse(),
@@ -187,12 +196,14 @@ class _$_Initialized implements _Initialized {
             Option<RequestSearchFilter> initialRequestSearchFilterOption),
     @required TResult bloodTypeChanged(String bloodType),
     @required TResult distanceChanged(String distanceStr),
+    @required TResult onlyCompatibleClicked(),
     @required TResult localizationChanged(String city, String lat, String long),
     @required TResult saved(),
   }) {
     assert(initialized != null);
     assert(bloodTypeChanged != null);
     assert(distanceChanged != null);
+    assert(onlyCompatibleClicked != null);
     assert(localizationChanged != null);
     assert(saved != null);
     return initialized(initialRequestSearchFilterOption);
@@ -205,6 +216,7 @@ class _$_Initialized implements _Initialized {
         Option<RequestSearchFilter> initialRequestSearchFilterOption),
     TResult bloodTypeChanged(String bloodType),
     TResult distanceChanged(String distanceStr),
+    TResult onlyCompatibleClicked(),
     TResult localizationChanged(String city, String lat, String long),
     TResult saved(),
     @required TResult orElse(),
@@ -222,12 +234,14 @@ class _$_Initialized implements _Initialized {
     @required TResult initialized(_Initialized value),
     @required TResult bloodTypeChanged(_BloodTypeChanged value),
     @required TResult distanceChanged(_DistanceChanged value),
+    @required TResult onlyCompatibleClicked(_OnlyCompatibleClicked value),
     @required TResult localizationChanged(_LocalizationChanged value),
     @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
     assert(bloodTypeChanged != null);
     assert(distanceChanged != null);
+    assert(onlyCompatibleClicked != null);
     assert(localizationChanged != null);
     assert(saved != null);
     return initialized(this);
@@ -239,6 +253,7 @@ class _$_Initialized implements _Initialized {
     TResult initialized(_Initialized value),
     TResult bloodTypeChanged(_BloodTypeChanged value),
     TResult distanceChanged(_DistanceChanged value),
+    TResult onlyCompatibleClicked(_OnlyCompatibleClicked value),
     TResult localizationChanged(_LocalizationChanged value),
     TResult saved(_Saved value),
     @required TResult orElse(),
@@ -328,12 +343,14 @@ class _$_BloodTypeChanged implements _BloodTypeChanged {
             Option<RequestSearchFilter> initialRequestSearchFilterOption),
     @required TResult bloodTypeChanged(String bloodType),
     @required TResult distanceChanged(String distanceStr),
+    @required TResult onlyCompatibleClicked(),
     @required TResult localizationChanged(String city, String lat, String long),
     @required TResult saved(),
   }) {
     assert(initialized != null);
     assert(bloodTypeChanged != null);
     assert(distanceChanged != null);
+    assert(onlyCompatibleClicked != null);
     assert(localizationChanged != null);
     assert(saved != null);
     return bloodTypeChanged(bloodType);
@@ -346,6 +363,7 @@ class _$_BloodTypeChanged implements _BloodTypeChanged {
         Option<RequestSearchFilter> initialRequestSearchFilterOption),
     TResult bloodTypeChanged(String bloodType),
     TResult distanceChanged(String distanceStr),
+    TResult onlyCompatibleClicked(),
     TResult localizationChanged(String city, String lat, String long),
     TResult saved(),
     @required TResult orElse(),
@@ -363,12 +381,14 @@ class _$_BloodTypeChanged implements _BloodTypeChanged {
     @required TResult initialized(_Initialized value),
     @required TResult bloodTypeChanged(_BloodTypeChanged value),
     @required TResult distanceChanged(_DistanceChanged value),
+    @required TResult onlyCompatibleClicked(_OnlyCompatibleClicked value),
     @required TResult localizationChanged(_LocalizationChanged value),
     @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
     assert(bloodTypeChanged != null);
     assert(distanceChanged != null);
+    assert(onlyCompatibleClicked != null);
     assert(localizationChanged != null);
     assert(saved != null);
     return bloodTypeChanged(this);
@@ -380,6 +400,7 @@ class _$_BloodTypeChanged implements _BloodTypeChanged {
     TResult initialized(_Initialized value),
     TResult bloodTypeChanged(_BloodTypeChanged value),
     TResult distanceChanged(_DistanceChanged value),
+    TResult onlyCompatibleClicked(_OnlyCompatibleClicked value),
     TResult localizationChanged(_LocalizationChanged value),
     TResult saved(_Saved value),
     @required TResult orElse(),
@@ -467,12 +488,14 @@ class _$_DistanceChanged implements _DistanceChanged {
             Option<RequestSearchFilter> initialRequestSearchFilterOption),
     @required TResult bloodTypeChanged(String bloodType),
     @required TResult distanceChanged(String distanceStr),
+    @required TResult onlyCompatibleClicked(),
     @required TResult localizationChanged(String city, String lat, String long),
     @required TResult saved(),
   }) {
     assert(initialized != null);
     assert(bloodTypeChanged != null);
     assert(distanceChanged != null);
+    assert(onlyCompatibleClicked != null);
     assert(localizationChanged != null);
     assert(saved != null);
     return distanceChanged(distanceStr);
@@ -485,6 +508,7 @@ class _$_DistanceChanged implements _DistanceChanged {
         Option<RequestSearchFilter> initialRequestSearchFilterOption),
     TResult bloodTypeChanged(String bloodType),
     TResult distanceChanged(String distanceStr),
+    TResult onlyCompatibleClicked(),
     TResult localizationChanged(String city, String lat, String long),
     TResult saved(),
     @required TResult orElse(),
@@ -502,12 +526,14 @@ class _$_DistanceChanged implements _DistanceChanged {
     @required TResult initialized(_Initialized value),
     @required TResult bloodTypeChanged(_BloodTypeChanged value),
     @required TResult distanceChanged(_DistanceChanged value),
+    @required TResult onlyCompatibleClicked(_OnlyCompatibleClicked value),
     @required TResult localizationChanged(_LocalizationChanged value),
     @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
     assert(bloodTypeChanged != null);
     assert(distanceChanged != null);
+    assert(onlyCompatibleClicked != null);
     assert(localizationChanged != null);
     assert(saved != null);
     return distanceChanged(this);
@@ -519,6 +545,7 @@ class _$_DistanceChanged implements _DistanceChanged {
     TResult initialized(_Initialized value),
     TResult bloodTypeChanged(_BloodTypeChanged value),
     TResult distanceChanged(_DistanceChanged value),
+    TResult onlyCompatibleClicked(_OnlyCompatibleClicked value),
     TResult localizationChanged(_LocalizationChanged value),
     TResult saved(_Saved value),
     @required TResult orElse(),
@@ -537,6 +564,124 @@ abstract class _DistanceChanged implements RequestSearchFilterFormEvent {
   String get distanceStr;
   @JsonKey(ignore: true)
   _$DistanceChangedCopyWith<_DistanceChanged> get copyWith;
+}
+
+/// @nodoc
+abstract class _$OnlyCompatibleClickedCopyWith<$Res> {
+  factory _$OnlyCompatibleClickedCopyWith(_OnlyCompatibleClicked value,
+          $Res Function(_OnlyCompatibleClicked) then) =
+      __$OnlyCompatibleClickedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$OnlyCompatibleClickedCopyWithImpl<$Res>
+    extends _$RequestSearchFilterFormEventCopyWithImpl<$Res>
+    implements _$OnlyCompatibleClickedCopyWith<$Res> {
+  __$OnlyCompatibleClickedCopyWithImpl(_OnlyCompatibleClicked _value,
+      $Res Function(_OnlyCompatibleClicked) _then)
+      : super(_value, (v) => _then(v as _OnlyCompatibleClicked));
+
+  @override
+  _OnlyCompatibleClicked get _value => super._value as _OnlyCompatibleClicked;
+}
+
+/// @nodoc
+class _$_OnlyCompatibleClicked implements _OnlyCompatibleClicked {
+  const _$_OnlyCompatibleClicked();
+
+  @override
+  String toString() {
+    return 'RequestSearchFilterFormEvent.onlyCompatibleClicked()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _OnlyCompatibleClicked);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required
+        TResult initialized(
+            Option<RequestSearchFilter> initialRequestSearchFilterOption),
+    @required TResult bloodTypeChanged(String bloodType),
+    @required TResult distanceChanged(String distanceStr),
+    @required TResult onlyCompatibleClicked(),
+    @required TResult localizationChanged(String city, String lat, String long),
+    @required TResult saved(),
+  }) {
+    assert(initialized != null);
+    assert(bloodTypeChanged != null);
+    assert(distanceChanged != null);
+    assert(onlyCompatibleClicked != null);
+    assert(localizationChanged != null);
+    assert(saved != null);
+    return onlyCompatibleClicked();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(
+        Option<RequestSearchFilter> initialRequestSearchFilterOption),
+    TResult bloodTypeChanged(String bloodType),
+    TResult distanceChanged(String distanceStr),
+    TResult onlyCompatibleClicked(),
+    TResult localizationChanged(String city, String lat, String long),
+    TResult saved(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (onlyCompatibleClicked != null) {
+      return onlyCompatibleClicked();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult bloodTypeChanged(_BloodTypeChanged value),
+    @required TResult distanceChanged(_DistanceChanged value),
+    @required TResult onlyCompatibleClicked(_OnlyCompatibleClicked value),
+    @required TResult localizationChanged(_LocalizationChanged value),
+    @required TResult saved(_Saved value),
+  }) {
+    assert(initialized != null);
+    assert(bloodTypeChanged != null);
+    assert(distanceChanged != null);
+    assert(onlyCompatibleClicked != null);
+    assert(localizationChanged != null);
+    assert(saved != null);
+    return onlyCompatibleClicked(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult bloodTypeChanged(_BloodTypeChanged value),
+    TResult distanceChanged(_DistanceChanged value),
+    TResult onlyCompatibleClicked(_OnlyCompatibleClicked value),
+    TResult localizationChanged(_LocalizationChanged value),
+    TResult saved(_Saved value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (onlyCompatibleClicked != null) {
+      return onlyCompatibleClicked(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnlyCompatibleClicked implements RequestSearchFilterFormEvent {
+  const factory _OnlyCompatibleClicked() = _$_OnlyCompatibleClicked;
 }
 
 /// @nodoc
@@ -624,12 +769,14 @@ class _$_LocalizationChanged implements _LocalizationChanged {
             Option<RequestSearchFilter> initialRequestSearchFilterOption),
     @required TResult bloodTypeChanged(String bloodType),
     @required TResult distanceChanged(String distanceStr),
+    @required TResult onlyCompatibleClicked(),
     @required TResult localizationChanged(String city, String lat, String long),
     @required TResult saved(),
   }) {
     assert(initialized != null);
     assert(bloodTypeChanged != null);
     assert(distanceChanged != null);
+    assert(onlyCompatibleClicked != null);
     assert(localizationChanged != null);
     assert(saved != null);
     return localizationChanged(city, lat, long);
@@ -642,6 +789,7 @@ class _$_LocalizationChanged implements _LocalizationChanged {
         Option<RequestSearchFilter> initialRequestSearchFilterOption),
     TResult bloodTypeChanged(String bloodType),
     TResult distanceChanged(String distanceStr),
+    TResult onlyCompatibleClicked(),
     TResult localizationChanged(String city, String lat, String long),
     TResult saved(),
     @required TResult orElse(),
@@ -659,12 +807,14 @@ class _$_LocalizationChanged implements _LocalizationChanged {
     @required TResult initialized(_Initialized value),
     @required TResult bloodTypeChanged(_BloodTypeChanged value),
     @required TResult distanceChanged(_DistanceChanged value),
+    @required TResult onlyCompatibleClicked(_OnlyCompatibleClicked value),
     @required TResult localizationChanged(_LocalizationChanged value),
     @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
     assert(bloodTypeChanged != null);
     assert(distanceChanged != null);
+    assert(onlyCompatibleClicked != null);
     assert(localizationChanged != null);
     assert(saved != null);
     return localizationChanged(this);
@@ -676,6 +826,7 @@ class _$_LocalizationChanged implements _LocalizationChanged {
     TResult initialized(_Initialized value),
     TResult bloodTypeChanged(_BloodTypeChanged value),
     TResult distanceChanged(_DistanceChanged value),
+    TResult onlyCompatibleClicked(_OnlyCompatibleClicked value),
     TResult localizationChanged(_LocalizationChanged value),
     TResult saved(_Saved value),
     @required TResult orElse(),
@@ -741,12 +892,14 @@ class _$_Saved implements _Saved {
             Option<RequestSearchFilter> initialRequestSearchFilterOption),
     @required TResult bloodTypeChanged(String bloodType),
     @required TResult distanceChanged(String distanceStr),
+    @required TResult onlyCompatibleClicked(),
     @required TResult localizationChanged(String city, String lat, String long),
     @required TResult saved(),
   }) {
     assert(initialized != null);
     assert(bloodTypeChanged != null);
     assert(distanceChanged != null);
+    assert(onlyCompatibleClicked != null);
     assert(localizationChanged != null);
     assert(saved != null);
     return saved();
@@ -759,6 +912,7 @@ class _$_Saved implements _Saved {
         Option<RequestSearchFilter> initialRequestSearchFilterOption),
     TResult bloodTypeChanged(String bloodType),
     TResult distanceChanged(String distanceStr),
+    TResult onlyCompatibleClicked(),
     TResult localizationChanged(String city, String lat, String long),
     TResult saved(),
     @required TResult orElse(),
@@ -776,12 +930,14 @@ class _$_Saved implements _Saved {
     @required TResult initialized(_Initialized value),
     @required TResult bloodTypeChanged(_BloodTypeChanged value),
     @required TResult distanceChanged(_DistanceChanged value),
+    @required TResult onlyCompatibleClicked(_OnlyCompatibleClicked value),
     @required TResult localizationChanged(_LocalizationChanged value),
     @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
     assert(bloodTypeChanged != null);
     assert(distanceChanged != null);
+    assert(onlyCompatibleClicked != null);
     assert(localizationChanged != null);
     assert(saved != null);
     return saved(this);
@@ -793,6 +949,7 @@ class _$_Saved implements _Saved {
     TResult initialized(_Initialized value),
     TResult bloodTypeChanged(_BloodTypeChanged value),
     TResult distanceChanged(_DistanceChanged value),
+    TResult onlyCompatibleClicked(_OnlyCompatibleClicked value),
     TResult localizationChanged(_LocalizationChanged value),
     TResult saved(_Saved value),
     @required TResult orElse(),

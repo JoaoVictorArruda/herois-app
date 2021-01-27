@@ -12,7 +12,7 @@ abstract class Request implements _$Request {
 
   const factory Request({
     @required UniqueId id,
-    @required StringSingleLine city,
+    StringSingleLine city,
     @required StringSingleLine name,
     @required StringSingleLine lat,
     @required StringSingleLine long,

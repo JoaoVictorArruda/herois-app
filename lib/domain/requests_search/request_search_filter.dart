@@ -13,7 +13,7 @@ abstract class RequestSearchFilter implements _$RequestSearchFilter {
   const RequestSearchFilter._();
 
   const factory RequestSearchFilter({
-    @required StringSingleLine city,
+    StringSingleLine city,
     @required StringSingleLine distance,
     @required StringSingleLine lat,
     @required StringSingleLine long,

@@ -17,7 +17,7 @@ class _$RequestSearchTearOff {
   _RequestSearch call(
       {@required UniqueId id,
       @required StringSingleLine name,
-      @required StringSingleLine city,
+      StringSingleLine city,
       @required StringSingleLine lat,
       @required StringSingleLine long,
       @required BloodType bloodType,
@@ -173,7 +173,7 @@ class _$_RequestSearch extends _RequestSearch {
   const _$_RequestSearch(
       {@required this.id,
       @required this.name,
-      @required this.city,
+      this.city,
       @required this.lat,
       @required this.long,
       @required this.bloodType,
@@ -182,7 +182,6 @@ class _$_RequestSearch extends _RequestSearch {
       @required this.user})
       : assert(id != null),
         assert(name != null),
-        assert(city != null),
         assert(lat != null),
         assert(long != null),
         assert(bloodType != null),
@@ -265,7 +264,7 @@ abstract class _RequestSearch extends RequestSearch {
   const factory _RequestSearch(
       {@required UniqueId id,
       @required StringSingleLine name,
-      @required StringSingleLine city,
+      StringSingleLine city,
       @required StringSingleLine lat,
       @required StringSingleLine long,
       @required BloodType bloodType,

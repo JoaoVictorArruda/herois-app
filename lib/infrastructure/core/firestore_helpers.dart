@@ -46,7 +46,13 @@ extension FirestoreX on FirebaseFirestore {
   Future<Info> getInfo() async {
     final userOption = await getIt<IAuthFacade>().getSignedInUser();
     final user = userOption.getOrElse(() => throw NotAuthenticatedError());
-    final Info info = await collection('users').doc(user.id.getOrCrash()).collection('info').doc('data').get()
+    final Info info = await collection('users').doc(user.id.getOrCrash()).get()
+        .then((value) => InfoDto.fromFirestore(value).toDomain());
+    return info;
+  }
+
+  Future<Info> getOtherInfo(String userId) async {
+    final Info info = await collection('users').doc(userId).get()
         .then((value) => InfoDto.fromFirestore(value).toDomain());
     return info;
   }
@@ -60,4 +66,5 @@ extension DocumentReferenceX on DocumentReference {
   CollectionReference get requestSearchFilterCollection => collection('request_search_filter');
   CollectionReference get messageCollection => collection('message');
   CollectionReference get contactCollection => collection('contact');
+  CollectionReference get tokenCollection => collection('tokens');
 }

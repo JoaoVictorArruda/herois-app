@@ -7,9 +7,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:herois/injection.dart';
 import 'package:herois/application/requests_search/request_search_filter_form/request_search_filter_form_bloc.dart';
 import 'package:herois/domain/requests_search/request_search_filter.dart';
-import 'package:herois/presentation/requests_search/request_search_filter/widgets/blood_type_widget.dart';
-import 'package:herois/presentation/requests_search/request_search_filter/widgets/maps_picker_input_field.dart';
-import 'package:herois/presentation/requests_search/request_search_filter/widgets/range_slider_input.dart';
+import 'package:herois/presentation/requests_search/request_search_filter_form/widgets/blood_type_widget.dart';
+import 'package:herois/presentation/requests_search/request_search_filter_form/widgets/maps_picker_input_field.dart';
+import 'package:herois/presentation/requests_search/request_search_filter_form/widgets/only_compatibles_checkbox_input.dart';
+import 'package:herois/presentation/requests_search/request_search_filter_form/widgets/range_slider_input.dart';
 import 'package:herois/presentation/routes/router.gr.dart';
 
 class RequestSearchFilterFormPage extends StatelessWidget {
@@ -169,6 +170,7 @@ class RequestSearchFilterFormPageScaffold extends StatelessWidget {
                 slivers: <Widget>[
                    SliverToBoxAdapter(child: RangeSliderWidget()),
                    SliverToBoxAdapter(child: BloodTypeWidget()),
+                   SliverToBoxAdapter(child: OnlyCompatiblesInput()),
                    SliverToBoxAdapter(child: MapsPickerInputField()),
                 ],
               ),

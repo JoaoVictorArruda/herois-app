@@ -13,7 +13,7 @@ abstract class RequestSearch implements _$RequestSearch {
   const factory RequestSearch({
     @required UniqueId id,
     @required StringSingleLine name,
-    @required StringSingleLine city,
+    StringSingleLine city,
     @required StringSingleLine lat,
     @required StringSingleLine long,
     @required BloodType bloodType,

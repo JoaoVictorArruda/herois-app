@@ -8,7 +8,7 @@ import 'package:herois/presentation/notes/note_form/note_form_page.dart';
 import 'package:herois/presentation/notes/notes_overview/notes_overview_page.dart';
 import 'package:herois/presentation/requests/request_form/request_form_page.dart';
 import 'package:herois/presentation/requests/request_overview/request_overview_page.dart';
-import 'package:herois/presentation/requests_search/request_search_filter/request_search_filter_form.dart';
+import 'package:herois/presentation/requests_search/request_search_filter_form/request_search_filter_form.dart';
 import 'package:herois/presentation/requests_search/request_search_overview/request_search_overview_page.dart';
 import 'package:herois/presentation/sign_in/sign_in_page.dart';
 import 'package:herois/presentation/splash/splash_page.dart';

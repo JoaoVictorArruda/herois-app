@@ -1,14 +1,17 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:herois/domain/core/value_objects.dart';
+import 'package:herois/injection.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 import 'package:herois/domain/requests/request_failure.dart';
 import 'package:herois/domain/requests_search/i_request_search_filter_repository.dart';
 import 'package:herois/domain/requests_search/request_search_filter.dart';
+import 'package:herois/infrastructure/core/firestore_helpers.dart';
 
 part 'request_search_filter_form_event.dart';
 
@@ -64,6 +67,13 @@ class RequestSearchFilterFormBloc extends Bloc<RequestSearchFilterFormEvent, Req
       localizationChanged: (e) async* {
         yield state.copyWith(
           requestSearchFilter: state.requestSearchFilter.copyWith(city: StringSingleLine(e.city), lat: StringSingleLine(e.lat), long: StringSingleLine(e.long)),
+          saveFailureOrSuccessOption: none(),
+        );
+      },
+      onlyCompatibleClicked: (e) async* {
+        final info = await getIt<FirebaseFirestore>().getInfo();
+        yield state.copyWith(
+          requestSearchFilter: state.requestSearchFilter.copyWith(bloodType: StringSingleLine('|${info.bloodType.getOrCrash()}')),
           saveFailureOrSuccessOption: none(),
         );
       },

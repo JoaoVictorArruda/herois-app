@@ -129,8 +129,7 @@ class InfoRepository implements IInfoRepository {
       final infoDto = InfoDto.fromDomain(info);
       final Map<String, dynamic> json = infoDto.toJson();
       json.addAll({'position': _geoflutterfire.point(latitude: double.parse(info.lat.getOrCrash()), longitude: double.parse(info.long.getOrCrash())).data});
-      await userDoc
-          .set(json);
+      await userDoc.set(json);
 
       getIt<IRequestSearchFilterRepository>().create(RequestSearchFilter.fromInfo(info));
 
@@ -151,8 +150,10 @@ class InfoRepository implements IInfoRepository {
       final userDoc = await _firestore.userDocument();
       final infoDto = InfoDto.fromDomain(info);
 
-      await userDoc
-          .update(infoDto.toJson());
+      final Map<String, dynamic> json = infoDto.toJson();
+      json.addAll({'position': _geoflutterfire.point(latitude: double.parse(info.lat.getOrCrash()), longitude: double.parse(info.long.getOrCrash())).data, 'user': userDoc.id});
+
+      await userDoc.update(json);
 
       return right(unit);
     } on PlatformException catch (e) {

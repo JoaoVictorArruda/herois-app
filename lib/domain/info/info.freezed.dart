@@ -21,7 +21,7 @@ class _$InfoTearOff {
       @required InfoBio bio,
       @required BloodType bloodType,
       @required Gender gender,
-      @required StringSingleLine city,
+      StringSingleLine city,
       @required StringSingleLine lat,
       @required StringSingleLine long,
       bool isVisible}) {
@@ -180,7 +180,7 @@ class _$_Info extends _Info with DiagnosticableTreeMixin {
       @required this.bio,
       @required this.bloodType,
       @required this.gender,
-      @required this.city,
+      this.city,
       @required this.lat,
       @required this.long,
       this.isVisible})
@@ -190,7 +190,6 @@ class _$_Info extends _Info with DiagnosticableTreeMixin {
         assert(bio != null),
         assert(bloodType != null),
         assert(gender != null),
-        assert(city != null),
         assert(lat != null),
         assert(long != null),
         super._();
@@ -296,7 +295,7 @@ abstract class _Info extends Info {
       @required InfoBio bio,
       @required BloodType bloodType,
       @required Gender gender,
-      @required StringSingleLine city,
+      StringSingleLine city,
       @required StringSingleLine lat,
       @required StringSingleLine long,
       bool isVisible}) = _$_Info;

@@ -4,7 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:herois/application/requests_search/request_search_watcher/request_search_watcher_bloc.dart';
 import 'package:herois/domain/requests_search/request_search_filter.dart';
 import 'package:herois/infrastructure/requests_search/request_search_filter_repository.dart';
-import 'package:herois/presentation/requests_search/request_search_filter/request_search_filter_form.dart';
+import 'package:herois/presentation/requests_search/request_search_filter_form/request_search_filter_form.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FilterRequestWidget extends HookWidget {
