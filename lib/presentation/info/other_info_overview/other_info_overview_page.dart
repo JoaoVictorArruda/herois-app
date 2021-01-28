@@ -19,7 +19,9 @@ class OtherInfoOverviewPage extends StatelessWidget {
 
   final String userId;
 
-  const OtherInfoOverviewPage({Key key, this.userId}) : super(key: key);
+  final int index;
+
+  const OtherInfoOverviewPage({Key key, this.userId, this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +105,7 @@ class OtherInfoOverviewPage extends StatelessWidget {
                 // RequestOverviewBody()
               ],
             ),
-            bottomNavigationBar: const HomeBottomNavigationBar(index: 2)
+            bottomNavigationBar: HomeBottomNavigationBar(index: index)
         ),
       ),
     );

@@ -12,11 +12,15 @@ abstract class Contact implements _$Contact {
   const factory Contact({
     @required StringSingleLine userId,
     @required StringSingleLine lastMessage,
+    String photoUrl,
+    String name,
   }) = _Contact;
 
   factory Contact.empty() => Contact(
       userId: StringSingleLine(''),
       lastMessage: StringSingleLine(''),
+      photoUrl: '',
+      name: '',
   );
 
   Option<ValueFailure<dynamic>> get failureOption {

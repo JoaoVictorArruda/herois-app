@@ -2,9 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:herois/application/requests/request_actor/request_actor_bloc.dart';
 import 'package:herois/domain/requests/request.dart';
-import 'package:herois/presentation/routes/router.gr.dart';
 
 class RequestCard extends StatelessWidget {
   const RequestCard({
@@ -17,192 +17,130 @@ class RequestCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final requestActorBloc = context.bloc<RequestActorBloc>();
-    return GestureDetector(
-      onTap: () {
-        ExtendedNavigator.of(context).pushRequestFormPage(editedRequest: request);
-      },
-      onLongPress: () {
-        showDialog(
-          context: context,
-          builder: (context) {
-            return BlocProvider.value(
-              value: requestActorBloc,
-              child: AlertDialog(
-                title: const Text('Requisição selecionada: '),
-                content: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 12),
-                      child: Container(
-                        margin: const EdgeInsets.only(bottom: 10, top: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    String photoUrl = request.photoUrl;
+    if(photoUrl == "") {
+      photoUrl = "https://www.flaticon.com/br/premium-icon/icons/svg/1466/1466153.svg";
+    }
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      color: Colors.white,
+      elevation: 0,
+      child: BlocProvider.value(
+        value: requestActorBloc,
+        child: Padding(
+          padding: const EdgeInsets.all(14.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 40.0,
+                        backgroundColor: Colors.grey,
+                        backgroundImage: NetworkImage(photoUrl),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 18.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                            request.name.getOrCrash(),
+                            style: GoogleFonts.montserrat(
+                              textStyle: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.normal,
+                                  decoration: TextDecoration.none),
+                            )
+                        ),
+                        Row(
                           children: [
-                            Expanded(
-                              child: Column(
-                                children: [
-                                  Row(
-                                    children: [
-                                      const Icon(Icons.person),
-                                      Text(": ${request.name.getOrCrash()}", style: const TextStyle(fontSize: 18)),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      const Icon(Icons.location_on),
-                                      Text(": ${request.city.getOrCrash()}", overflow: TextOverflow.ellipsis ,style: const TextStyle(fontSize: 18)),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              width: 40,
-                              height: 40,
-                              decoration: !true
-                                  ? BoxDecoration(
-                                border: Border.all(width: 0.9),
-                                shape: BoxShape.circle,
-                                color: const Color(0xffffffff),
-                              )
-                                  : const BoxDecoration(
-                                borderRadius: BorderRadius.all(Radius.elliptical(40, 40)),
-                                gradient: LinearGradient(
-                                  begin: Alignment(-1.05, -1.0),
-                                  end: Alignment(0.64, 0.79),
-                                  colors: [Color(0xffff217a), Color(0xffff4d4d)],
-                                  stops: [0.0, 1.0],
-                                ),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(request.bloodType.getOrCrash(),
-                                    style: const TextStyle(
-                                        fontSize: 18, color: Colors.white),),
-                                ],
+                            Icon(Icons.location_on_outlined, color: Colors.black38, size: 14,),
+                            Text(
+                              request.city.getOrCrash(),
+                              style: GoogleFonts.montserrat(
+                                textStyle: const TextStyle(
+                                    color: Colors.black38,
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.normal,
+                                    decoration: TextDecoration.none),
                               ),
                             ),
                           ],
                         ),
-                      ),
+                        Container(
+                          width: MediaQuery.of(context).size.width / 1.7,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              OutlineButton(
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+                                  onPressed: () {
+                                    // ExtendedNavigator.of(context).pushOtherInfoOverviewPage(userId: request.user.getOrCrash());
+                                  },
+                                  child: Text(
+                                    "      VER PERFIL      ",
+                                    style: GoogleFonts.montserrat(
+                                      textStyle: const TextStyle(
+                                          color: Colors.redAccent,
+                                          fontSize: 11.0,
+                                          fontWeight: FontWeight.bold
+                                      ),
+                                    ),
+                                  )
+                              ),
+                              buildStatColumn(-1),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-                actions: <Widget>[
-                  FlatButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: const Text('Cancelar'),
-                  ),
-                  FlatButton(
-                    onPressed: () {
-                      requestActorBloc.add(RequestActorEvent.deleted(request));
-                      Navigator.pop(context);
-                    },
-                    child: const Text('Deletar'),
                   ),
                 ],
               ),
-            );
-          },
-        );
-      },
-      child: Card(
-        clipBehavior: Clip.antiAlias,
-        color: Colors.white,
-        elevation: 0,
-        child: BlocProvider.value(
-            value: requestActorBloc,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 12),
-              child: Container(
-                margin: const EdgeInsets.only(bottom: 10, top: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                            const Icon(Icons.person),
-                              Text(": ${request.name.getOrCrash()}", style: const TextStyle(fontSize: 18)),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              const Icon(Icons.location_on),
-                              Text(": ${request.city.getOrCrash()}", overflow: TextOverflow.ellipsis ,style: const TextStyle(fontSize: 18)),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: !true
-                          ? BoxDecoration(
-                        border: Border.all(width: 0.9),
-                        shape: BoxShape.circle,
-                        color: const Color(0xffffffff),
-                      )
-                          : const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.elliptical(40, 40)),
-                        gradient: LinearGradient(
-                          begin: Alignment(-1.05, -1.0),
-                          end: Alignment(0.64, 0.79),
-                          colors: [Color(0xffff217a), Color(0xffff4d4d)],
-                          stops: [0.0, 1.0],
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(request.bloodType.getOrCrash(),
-                            style: const TextStyle(
-                                fontSize: 18, color: Colors.white),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            )),
+            ],
+          ),
+        ),
       ),
     );
   }
-}
 
-class RequestActionOverviewBody extends StatelessWidget {
-  const RequestActionOverviewBody({
-    @required this.request,
-  });
-
-  final Request request;
-
-  @override
-  Widget build(BuildContext context) {
-    final requestActorBloc = context.bloc<RequestActorBloc>();
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 12),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.create),
-            onPressed: () {
-              ExtendedNavigator.of(context).pushRequestFormPage(editedRequest: request);
-            },
+  Widget buildStatColumn(int number) {
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: Container(
+        width: 40,
+        height: 40,
+        decoration: true
+            ? BoxDecoration(
+          border: Border.all(width: 0.9, color: Colors.black38),
+          shape: BoxShape.circle,
+          color: const Color(0xffffffff),
+        )
+            : const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.elliptical(20.5, 20.5)),
+          gradient: LinearGradient(
+            begin: Alignment(-1.05, -1.0),
+            end: Alignment(0.64, 0.79),
+            colors: [Color(0xffff217a), Color(0xffff4d4d)],
+            stops: [0.0, 1.0],
           ),
-          IconButton(
-            icon: const Icon(Icons.delete),
-            onPressed: () {
-              requestActorBloc.add(RequestActorEvent.deleted(request));
-            },
-          ),
-        ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(request.bloodType.getOrCrash()
+              ,style: const TextStyle(
+                  fontSize: 20, color: Colors.redAccent
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

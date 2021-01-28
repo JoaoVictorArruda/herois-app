@@ -18,10 +18,15 @@ class _$ContactDtoTearOff {
 
 // ignore: unused_element
   _ContactDto call(
-      {@JsonKey(ignore: true) String userId, @required String lastMessage}) {
+      {@JsonKey(ignore: true) String userId,
+      @required String lastMessage,
+      String photoUrl,
+      String name}) {
     return _ContactDto(
       userId: userId,
       lastMessage: lastMessage,
+      photoUrl: photoUrl,
+      name: name,
     );
   }
 
@@ -40,6 +45,8 @@ mixin _$ContactDto {
   @JsonKey(ignore: true)
   String get userId;
   String get lastMessage;
+  String get photoUrl;
+  String get name;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -51,7 +58,11 @@ abstract class $ContactDtoCopyWith<$Res> {
   factory $ContactDtoCopyWith(
           ContactDto value, $Res Function(ContactDto) then) =
       _$ContactDtoCopyWithImpl<$Res>;
-  $Res call({@JsonKey(ignore: true) String userId, String lastMessage});
+  $Res call(
+      {@JsonKey(ignore: true) String userId,
+      String lastMessage,
+      String photoUrl,
+      String name});
 }
 
 /// @nodoc
@@ -66,11 +77,15 @@ class _$ContactDtoCopyWithImpl<$Res> implements $ContactDtoCopyWith<$Res> {
   $Res call({
     Object userId = freezed,
     Object lastMessage = freezed,
+    Object photoUrl = freezed,
+    Object name = freezed,
   }) {
     return _then(_value.copyWith(
       userId: userId == freezed ? _value.userId : userId as String,
       lastMessage:
           lastMessage == freezed ? _value.lastMessage : lastMessage as String,
+      photoUrl: photoUrl == freezed ? _value.photoUrl : photoUrl as String,
+      name: name == freezed ? _value.name : name as String,
     ));
   }
 }
@@ -81,7 +96,11 @@ abstract class _$ContactDtoCopyWith<$Res> implements $ContactDtoCopyWith<$Res> {
           _ContactDto value, $Res Function(_ContactDto) then) =
       __$ContactDtoCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(ignore: true) String userId, String lastMessage});
+  $Res call(
+      {@JsonKey(ignore: true) String userId,
+      String lastMessage,
+      String photoUrl,
+      String name});
 }
 
 /// @nodoc
@@ -98,11 +117,15 @@ class __$ContactDtoCopyWithImpl<$Res> extends _$ContactDtoCopyWithImpl<$Res>
   $Res call({
     Object userId = freezed,
     Object lastMessage = freezed,
+    Object photoUrl = freezed,
+    Object name = freezed,
   }) {
     return _then(_ContactDto(
       userId: userId == freezed ? _value.userId : userId as String,
       lastMessage:
           lastMessage == freezed ? _value.lastMessage : lastMessage as String,
+      photoUrl: photoUrl == freezed ? _value.photoUrl : photoUrl as String,
+      name: name == freezed ? _value.name : name as String,
     ));
   }
 }
@@ -112,7 +135,10 @@ class __$ContactDtoCopyWithImpl<$Res> extends _$ContactDtoCopyWithImpl<$Res>
 /// @nodoc
 class _$_ContactDto extends _ContactDto {
   _$_ContactDto(
-      {@JsonKey(ignore: true) this.userId, @required this.lastMessage})
+      {@JsonKey(ignore: true) this.userId,
+      @required this.lastMessage,
+      this.photoUrl,
+      this.name})
       : assert(lastMessage != null),
         super._();
 
@@ -124,10 +150,14 @@ class _$_ContactDto extends _ContactDto {
   final String userId;
   @override
   final String lastMessage;
+  @override
+  final String photoUrl;
+  @override
+  final String name;
 
   @override
   String toString() {
-    return 'ContactDto(userId: $userId, lastMessage: $lastMessage)';
+    return 'ContactDto(userId: $userId, lastMessage: $lastMessage, photoUrl: $photoUrl, name: $name)';
   }
 
   @override
@@ -138,14 +168,21 @@ class _$_ContactDto extends _ContactDto {
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
             (identical(other.lastMessage, lastMessage) ||
                 const DeepCollectionEquality()
-                    .equals(other.lastMessage, lastMessage)));
+                    .equals(other.lastMessage, lastMessage)) &&
+            (identical(other.photoUrl, photoUrl) ||
+                const DeepCollectionEquality()
+                    .equals(other.photoUrl, photoUrl)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(userId) ^
-      const DeepCollectionEquality().hash(lastMessage);
+      const DeepCollectionEquality().hash(lastMessage) ^
+      const DeepCollectionEquality().hash(photoUrl) ^
+      const DeepCollectionEquality().hash(name);
 
   @JsonKey(ignore: true)
   @override
@@ -162,7 +199,9 @@ abstract class _ContactDto extends ContactDto {
   _ContactDto._() : super._();
   factory _ContactDto(
       {@JsonKey(ignore: true) String userId,
-      @required String lastMessage}) = _$_ContactDto;
+      @required String lastMessage,
+      String photoUrl,
+      String name}) = _$_ContactDto;
 
   factory _ContactDto.fromJson(Map<String, dynamic> json) =
       _$_ContactDto.fromJson;
@@ -172,6 +211,10 @@ abstract class _ContactDto extends ContactDto {
   String get userId;
   @override
   String get lastMessage;
+  @override
+  String get photoUrl;
+  @override
+  String get name;
   @override
   @JsonKey(ignore: true)
   _$ContactDtoCopyWith<_ContactDto> get copyWith;

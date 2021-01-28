@@ -172,6 +172,7 @@ class Router extends RouterBase {
         builder: (context) => OtherInfoOverviewPage(
           key: args.key,
           userId: args.userId,
+          index: args.index,
         ),
         settings: data,
       );
@@ -261,10 +262,12 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushOtherInfoOverviewPage({
     Key key,
     String userId,
+    int index,
   }) =>
       push<dynamic>(
         Routes.otherInfoOverviewPage,
-        arguments: OtherInfoOverviewPageArguments(key: key, userId: userId),
+        arguments: OtherInfoOverviewPageArguments(
+            key: key, userId: userId, index: index),
       );
 
   Future<dynamic> pushContactOverviewPage() =>
@@ -319,7 +322,8 @@ class RequestSearchFilterFormPageArguments {
 class OtherInfoOverviewPageArguments {
   final Key key;
   final String userId;
-  OtherInfoOverviewPageArguments({this.key, this.userId});
+  final int index;
+  OtherInfoOverviewPageArguments({this.key, this.userId, this.index});
 }
 
 /// MessageOverviewPage arguments holder class

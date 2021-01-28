@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:herois/domain/core/value_objects.dart';
 import 'package:herois/domain/messages/message.dart';
 import 'package:herois/domain/messages/value_objects.dart';
+import 'package:herois/infrastructure/notes/note_dtos.dart';
 
 part 'message_dtos.freezed.dart';
 part 'message_dtos.g.dart';
@@ -15,16 +16,18 @@ abstract class MessageDto with _$MessageDto {
   factory MessageDto({
     @JsonKey(ignore: true) String id,
     @required String text,
-    @required String dateTime,
+    // @required String dateTime,
     @required bool sentByMe,
+    @required @ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _MessageDto;
 
   factory MessageDto.fromDomain(Message message) {
     return MessageDto(
-      dateTime: DateTime.now().toIso8601String(),
+      // dateTime: DateTime.now().toIso8601String(),
       text: message.text.getOrCrash(),
       id: message.id.getOrCrash(),
       sentByMe: message.sentByMe,
+      serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
 
@@ -33,7 +36,7 @@ abstract class MessageDto with _$MessageDto {
 
   Message toDomain() {
     return Message(
-      dateTime: DateTime.parse(dateTime),
+      // dateTime: DateTime.parse(dateTime),
       text: MessageText(text),
       id: UniqueId.fromUniqueString(id),
       sentByMe: sentByMe

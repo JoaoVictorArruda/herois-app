@@ -17,6 +17,9 @@ class ContactOverviewBody extends StatelessWidget {
               ),
               // (_) => Container(),
               loadSuccess: (state) {
+                if(state.contacts.size == 0) {
+                  return Center(child: Text("Você não possui mensagens"));
+                }
                   return ListView.builder(
                     shrinkWrap: true,
                     itemBuilder: (context, index) {

@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:herois/domain/contact/contact.dart';
@@ -14,6 +15,20 @@ class ContactCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final timestamp = DateTime.parse(contact.timestamp);
+    // final now = DateTime.now();
+    // final difference = now.difference(timestamp);
+    String textTime = "";
+    // if(difference.inMinutes <= 1) {
+    //   textTime = "Agora";
+    // } else if(difference.inDays <= 1) {
+    //   textTime = timestamp.hour.toString().padLeft(2, '0') + ':' + timestamp.minute.toString().padLeft(2, '0');
+    // } else if(difference.inDays > 1) {
+    //   final weekDays = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
+    //   textTime = weekDays[timestamp.weekday];
+    // } else if(difference.inDays >= 7){
+    //   textTime = timestamp.day.toString().padLeft(2, '0') + '/' + timestamp.month.toString().padLeft(2, '0');
+    // }
     // final contactActorBloc = context.bloc<ContactActorBloc>();
     return GestureDetector(
       onTap: () {
@@ -28,26 +43,45 @@ class ContactCard extends StatelessWidget {
           child: Container(
             margin: const EdgeInsets.only(bottom: 10, top: 10),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                Container(
+                  width: 60.0,
+                  height: 60.0,
+                  decoration: new BoxDecoration(
+                    image: new DecorationImage(
+                      image: new NetworkImage(contact.photoUrl),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: new BorderRadius.all(new Radius.circular(50.0)),
+                  ),
+                ),
                 Expanded(
-                  child: Column(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: [
-                        const Icon(Icons.person),
-                          Text(": ${contact.userId.getOrCrash()}", style: const TextStyle(fontSize: 18)),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          const Icon(Icons.location_on),
-                          Text(": ${contact.lastMessage.getOrCrash()}", overflow: TextOverflow.ellipsis ,style: const TextStyle(fontSize: 18)),
-                        ],
+                      Padding(
+                        padding: const EdgeInsets.only(left: 12.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(contact.name,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold
+                              ),
+                            ),
+                            Padding(padding: EdgeInsets.symmetric(vertical: 4)),
+                            Text(contact.lastMessage.getOrCrash()),
+                          ],
+                        ),
                       ),
                     ],
                   ),
                 ),
+                Container(
+                    padding: const EdgeInsets.only(bottom: 20.0),
+                  child: Text(textTime)
+                )
               ],
             ),
           ),

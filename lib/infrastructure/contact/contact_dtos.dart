@@ -15,12 +15,18 @@ abstract class ContactDto with _$ContactDto {
   factory ContactDto({
     @JsonKey(ignore: true) String userId,
     @required String lastMessage,
+    String photoUrl,
+    String name,
+    // String dateTime
   }) = _ContactDto;
 
   factory ContactDto.fromDomain(Contact contact) {
     return ContactDto(
       userId: contact.userId.getOrCrash(),
       lastMessage: contact.lastMessage.getOrCrash(),
+      photoUrl: contact.photoUrl,
+      name: contact.name,
+      // dateTime: FieldValue.serverTimestamp().toString()
     );
   }
 
@@ -28,6 +34,9 @@ abstract class ContactDto with _$ContactDto {
     return Contact(
       userId: StringSingleLine(userId),
       lastMessage: StringSingleLine(lastMessage),
+      photoUrl: photoUrl,
+      // dateTime: dateTime,
+      name: name,
     );
   }
 

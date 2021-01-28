@@ -9,17 +9,25 @@ class InfoSearchInputField extends HookWidget {
     final textEditingController = useTextEditingController();
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: TextFormField(
-        controller: textEditingController,
-        decoration: const InputDecoration(
-          labelText: 'Buscar',
-          counterText: '',
-          filled: true,
-          fillColor: Color.fromARGB(255, 239, 239, 239),
-        ),
-        onChanged: (value) => context
+      child: FocusScope(
+        onFocusChange: (value) => context
             .bloc<InfoWatcherBloc>()
             .add(InfoWatcherEvent.watchInfoSearchFiltered(textEditingController.text)),
+        child: TextFormField(
+          controller: textEditingController,
+          decoration: const InputDecoration(
+            labelText: 'Buscar',
+            counterText: '',
+            filled: true,
+            fillColor: Color.fromARGB(255, 239, 239, 239),
+          ),
+          onChanged: (value) => context
+              .bloc<InfoWatcherBloc>()
+              .add(InfoWatcherEvent.watchInfoSearchFiltered(textEditingController.text)),
+          onFieldSubmitted: (value) => context
+              .bloc<InfoWatcherBloc>()
+              .add(InfoWatcherEvent.watchInfoSearchFiltered(textEditingController.text)),
+        ),
       ),
     );
   }

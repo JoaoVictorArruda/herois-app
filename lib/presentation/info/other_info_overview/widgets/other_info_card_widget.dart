@@ -20,15 +20,24 @@ class OtherInfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Request request;
     final infoActorBloc = context.bloc<InfoActorBloc>();
     if (info == null) {
       return Center(
         child: Column(
           children: [
-              Text(
-              "\n\n\n\n\n\n\nPerfil não encontrado",
+            const Text(
+              "\n\n\n\n\nVocê ainda não criou um perfil\n"
+                  "Suas requisições só\n"
+                  "serão vistas pelos outros \n"
+                  "após o cadastro",
               overflow: TextOverflow.clip,
+            ),
+            FlatButton(
+              color: Colors.red,
+              onPressed: () {
+                ExtendedNavigator.of(context).pushInfoFormPage(editedInfo: info);
+              },
+              child: const Text("Criar"),
             ),
           ],
         ),
@@ -59,14 +68,15 @@ class OtherInfoCard extends StatelessWidget {
                           fontSize: 20.0,
                           fontWeight: FontWeight.normal,
                           decoration: TextDecoration.none),
-                    )),
+                    )
+                ),
               ),
               Row(
                 children: <Widget>[
                   Column(
                     children: [
                       CircleAvatar(
-                        radius: 70.0,
+                        radius: 50.0,
                         backgroundColor: Colors.grey,
                         backgroundImage: NetworkImage(photoUrl),
                       ),
@@ -82,7 +92,7 @@ class OtherInfoCard extends StatelessWidget {
                             buildStatColumn("Requisições", 3),
                           ],
                         ),
-                        OtherInfoActionOverviewBody(info: info, userId: userId)
+                        OtherInfoActionOverviewBody(info: info, userId: userId,)
                       ],
                     ),
                   )

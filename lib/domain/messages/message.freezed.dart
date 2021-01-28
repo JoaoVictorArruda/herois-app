@@ -17,12 +17,10 @@ class _$MessageTearOff {
   _Message call(
       {@required UniqueId id,
       @required MessageText text,
-      @required DateTime dateTime,
       @required bool sentByMe}) {
     return _Message(
       id: id,
       text: text,
-      dateTime: dateTime,
       sentByMe: sentByMe,
     );
   }
@@ -35,8 +33,7 @@ const $Message = _$MessageTearOff();
 /// @nodoc
 mixin _$Message {
   UniqueId get id;
-  MessageText get text;
-  DateTime get dateTime;
+  MessageText get text; // @required DateTime dateTime,
   bool get sentByMe;
 
   @JsonKey(ignore: true)
@@ -47,7 +44,7 @@ mixin _$Message {
 abstract class $MessageCopyWith<$Res> {
   factory $MessageCopyWith(Message value, $Res Function(Message) then) =
       _$MessageCopyWithImpl<$Res>;
-  $Res call({UniqueId id, MessageText text, DateTime dateTime, bool sentByMe});
+  $Res call({UniqueId id, MessageText text, bool sentByMe});
 }
 
 /// @nodoc
@@ -62,13 +59,11 @@ class _$MessageCopyWithImpl<$Res> implements $MessageCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object text = freezed,
-    Object dateTime = freezed,
     Object sentByMe = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as UniqueId,
       text: text == freezed ? _value.text : text as MessageText,
-      dateTime: dateTime == freezed ? _value.dateTime : dateTime as DateTime,
       sentByMe: sentByMe == freezed ? _value.sentByMe : sentByMe as bool,
     ));
   }
@@ -79,7 +74,7 @@ abstract class _$MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
   factory _$MessageCopyWith(_Message value, $Res Function(_Message) then) =
       __$MessageCopyWithImpl<$Res>;
   @override
-  $Res call({UniqueId id, MessageText text, DateTime dateTime, bool sentByMe});
+  $Res call({UniqueId id, MessageText text, bool sentByMe});
 }
 
 /// @nodoc
@@ -95,13 +90,11 @@ class __$MessageCopyWithImpl<$Res> extends _$MessageCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object text = freezed,
-    Object dateTime = freezed,
     Object sentByMe = freezed,
   }) {
     return _then(_Message(
       id: id == freezed ? _value.id : id as UniqueId,
       text: text == freezed ? _value.text : text as MessageText,
-      dateTime: dateTime == freezed ? _value.dateTime : dateTime as DateTime,
       sentByMe: sentByMe == freezed ? _value.sentByMe : sentByMe as bool,
     ));
   }
@@ -110,13 +103,9 @@ class __$MessageCopyWithImpl<$Res> extends _$MessageCopyWithImpl<$Res>
 /// @nodoc
 class _$_Message extends _Message {
   const _$_Message(
-      {@required this.id,
-      @required this.text,
-      @required this.dateTime,
-      @required this.sentByMe})
+      {@required this.id, @required this.text, @required this.sentByMe})
       : assert(id != null),
         assert(text != null),
-        assert(dateTime != null),
         assert(sentByMe != null),
         super._();
 
@@ -124,14 +113,12 @@ class _$_Message extends _Message {
   final UniqueId id;
   @override
   final MessageText text;
-  @override
-  final DateTime dateTime;
-  @override
+  @override // @required DateTime dateTime,
   final bool sentByMe;
 
   @override
   String toString() {
-    return 'Message(id: $id, text: $text, dateTime: $dateTime, sentByMe: $sentByMe)';
+    return 'Message(id: $id, text: $text, sentByMe: $sentByMe)';
   }
 
   @override
@@ -142,9 +129,6 @@ class _$_Message extends _Message {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.text, text) ||
                 const DeepCollectionEquality().equals(other.text, text)) &&
-            (identical(other.dateTime, dateTime) ||
-                const DeepCollectionEquality()
-                    .equals(other.dateTime, dateTime)) &&
             (identical(other.sentByMe, sentByMe) ||
                 const DeepCollectionEquality()
                     .equals(other.sentByMe, sentByMe)));
@@ -155,7 +139,6 @@ class _$_Message extends _Message {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(text) ^
-      const DeepCollectionEquality().hash(dateTime) ^
       const DeepCollectionEquality().hash(sentByMe);
 
   @JsonKey(ignore: true)
@@ -169,16 +152,13 @@ abstract class _Message extends Message {
   const factory _Message(
       {@required UniqueId id,
       @required MessageText text,
-      @required DateTime dateTime,
       @required bool sentByMe}) = _$_Message;
 
   @override
   UniqueId get id;
   @override
   MessageText get text;
-  @override
-  DateTime get dateTime;
-  @override
+  @override // @required DateTime dateTime,
   bool get sentByMe;
   @override
   @JsonKey(ignore: true)

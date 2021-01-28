@@ -1,33 +1,47 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:herois/application/requests/request_actor/request_actor_bloc.dart';
-import 'package:herois/domain/requests_search/request_search.dart';
+import 'package:herois/application/info/info_actor/info_actor_bloc.dart';
+import 'package:herois/domain/info/info.dart';
 import 'package:herois/presentation/routes/router.gr.dart';
 
-class RequestSearchCard extends StatelessWidget {
-  const RequestSearchCard({
+class InfoSearchCard extends StatelessWidget {
+
+  final String userId;
+
+  const InfoSearchCard({
     Key key,
-    @required this.request,
+    @required this.info, this.userId,
   }) : super(key: key);
 
-  final RequestSearch request;
+  final Info info;
 
   @override
   Widget build(BuildContext context) {
-    final requestActorBloc = context.bloc<RequestActorBloc>();
-    String photoUrl = request.photoUrl;
+    final infoActorBloc = context.bloc<InfoActorBloc>();
+    if (info == null) {
+      return Center(
+        child: Column(
+          children: [
+            Text(
+              "\n\n\n\n\n\n\nPerfil não encontrado",
+              overflow: TextOverflow.clip,
+            ),
+          ],
+        ),
+      );
+    }
+    String photoUrl = info.photoUrl;
     if(photoUrl == "") {
-      photoUrl = "https://www.flaticon.com/br/premium-icon/icons/svg/1466/1466153.svg";
+      photoUrl = "http://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png";
     }
     return Card(
       clipBehavior: Clip.antiAlias,
       color: Colors.white,
       elevation: 0,
       child: BlocProvider.value(
-        value: requestActorBloc,
+        value: infoActorBloc,
         child: Padding(
           padding: const EdgeInsets.all(14.0),
           child: Column(
@@ -50,7 +64,7 @@ class RequestSearchCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                            request.name.getOrCrash(),
+                            info.name.getOrCrash(),
                             style: GoogleFonts.montserrat(
                               textStyle: const TextStyle(
                                   color: Colors.black,
@@ -63,7 +77,7 @@ class RequestSearchCard extends StatelessWidget {
                           children: [
                             Icon(Icons.location_on_outlined, color: Colors.black38, size: 14,),
                             Text(
-                              request.city.getOrCrash(),
+                              info.city.getOrCrash(),
                               style: GoogleFonts.montserrat(
                                 textStyle: const TextStyle(
                                     color: Colors.black38,
@@ -82,7 +96,7 @@ class RequestSearchCard extends StatelessWidget {
                               OutlineButton(
                                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
                                   onPressed: () {
-                                    ExtendedNavigator.of(context).pushOtherInfoOverviewPage(userId: request.user.getOrCrash(), index: 2);
+                                    ExtendedNavigator.of(context).pushOtherInfoOverviewPage(userId: userId, index: 1);
                                   },
                                   child: Text(
                                     "      VER PERFIL      ",
@@ -112,37 +126,37 @@ class RequestSearchCard extends StatelessWidget {
   }
 
   Widget buildStatColumn(int number) {
-    return Padding(
-      padding: const EdgeInsets.all(4.0),
-      child: Container(
-        width: 40,
-        height: 40,
-        decoration: true
-            ? BoxDecoration(
-          border: Border.all(width: 0.9, color: Colors.black38),
-          shape: BoxShape.circle,
-          color: const Color(0xffffffff),
-        )
-            : const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.elliptical(20.5, 20.5)),
-          gradient: LinearGradient(
-            begin: Alignment(-1.05, -1.0),
-            end: Alignment(0.64, 0.79),
-            colors: [Color(0xffff217a), Color(0xffff4d4d)],
-            stops: [0.0, 1.0],
+      return Padding(
+        padding: const EdgeInsets.all(4.0),
+        child: Container(
+          width: 40,
+          height: 40,
+          decoration: true
+              ? BoxDecoration(
+            border: Border.all(width: 0.9, color: Colors.black38),
+            shape: BoxShape.circle,
+            color: const Color(0xffffffff),
+          )
+              : const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.elliptical(20.5, 20.5)),
+            gradient: LinearGradient(
+              begin: Alignment(-1.05, -1.0),
+              end: Alignment(0.64, 0.79),
+              colors: [Color(0xffff217a), Color(0xffff4d4d)],
+              stops: [0.0, 1.0],
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(info.bloodType.getOrCrash()
+                ,style: const TextStyle(
+                    fontSize: 20, color: Colors.redAccent
+                ),
+              ),
+            ],
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(request.bloodType.getOrCrash()
-              ,style: const TextStyle(
-                  fontSize: 20, color: Colors.redAccent
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+      );
   }
 }

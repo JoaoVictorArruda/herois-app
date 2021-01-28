@@ -17,7 +17,7 @@ abstract class RequestSearch implements _$RequestSearch {
     @required StringSingleLine lat,
     @required StringSingleLine long,
     @required BloodType bloodType,
-    @required String photoUrl,
+    String photoUrl,
     @required bool isOpen,
     @required StringSingleLine user,
   }) = _RequestSearch;

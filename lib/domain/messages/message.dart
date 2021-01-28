@@ -13,14 +13,14 @@ abstract class Message implements _$Message {
   const factory Message({
     @required UniqueId id,
     @required MessageText text,
-    @required DateTime dateTime,
+    // @required DateTime dateTime,
     @required bool sentByMe,
   }) = _Message;
 
   factory Message.empty() => Message(
       id: UniqueId(),
       text: MessageText(''),
-      dateTime: DateTime.now(),
+      // dateTime: DateTime.now(),
       sentByMe: true,
   );
 

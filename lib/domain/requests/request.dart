@@ -17,7 +17,7 @@ abstract class Request implements _$Request {
     @required StringSingleLine lat,
     @required StringSingleLine long,
     @required BloodType bloodType,
-    @required String photoUrl,
+    String photoUrl,
     @required bool isOpen,
   }) = _Request;
 

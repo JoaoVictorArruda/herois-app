@@ -4,6 +4,7 @@ import 'package:herois/application/info/info_watcher/info_watcher_bloc.dart';
 import 'package:herois/presentation/info/info_overview/widgets/critical_failure_display_widget.dart';
 import 'package:herois/presentation/info/info_overview/widgets/error_info_card_widget.dart';
 import 'package:herois/presentation/info/info_overview/widgets/info_card_widget.dart';
+import 'package:herois/presentation/info/info_search_overview/widgets/info_search_card.dart';
 import 'package:herois/presentation/info/other_info_overview/widgets/other_info_card_widget.dart';
 
 class InfoOverviewBody extends StatelessWidget {
@@ -72,7 +73,7 @@ class InfoOverviewBody extends StatelessWidget {
                       } else if(info.id.getOrCrash() == state.userId) {
                         return Container();
                       }
-                      return OtherInfoCard(info: info);
+                      return InfoSearchCard(info: info, userId: state.userId,);
                     },
                     itemCount: state.info.size,
                   );

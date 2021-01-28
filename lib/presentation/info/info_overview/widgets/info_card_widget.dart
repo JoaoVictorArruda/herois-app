@@ -17,7 +17,6 @@ class InfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Request request;
     final infoActorBloc = context.bloc<InfoActorBloc>();
     if (info == null) {
       return Center(
@@ -66,14 +65,15 @@ class InfoCard extends StatelessWidget {
                           fontSize: 20.0,
                           fontWeight: FontWeight.normal,
                           decoration: TextDecoration.none),
-                    )),
+                    )
+                ),
               ),
               Row(
                 children: <Widget>[
                   Column(
                     children: [
                       CircleAvatar(
-                        radius: 70.0,
+                        radius: 50.0,
                         backgroundColor: Colors.grey,
                         backgroundImage: NetworkImage(photoUrl),
                       ),
@@ -135,24 +135,28 @@ class InfoCard extends StatelessWidget {
   }
 
   Column buildStatColumn(String label, int number) {
-     Widget marcador = Text(
-             number.toString(),
-             style: const TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
-         );
-     Widget texto = Text(
-       label,
-       style: const TextStyle(
-           color: Colors.black,
-           fontSize: 15.0,
-           fontWeight: FontWeight.w400),
-     );
+    Widget marcador =
+    Flexible(child: Text(
+      number.toString(),
+      overflow: TextOverflow.ellipsis,
+      style: const TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
+    )
+    );
+    Widget texto =
+    Text(
+      label,
+      style: const TextStyle(
+          color: Colors.black,
+          fontSize: 14.0,
+          fontWeight: FontWeight.w400),
+    );
     if (number < 0) {
       marcador = Padding(
         padding: const EdgeInsets.all(4.0),
         child: Container(
           width: 40,
           height: 40,
-          decoration: !true
+          decoration: false
               ? BoxDecoration(
             border: Border.all(width: 0.9),
             shape: BoxShape.circle,
@@ -170,10 +174,12 @@ class InfoCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(info.bloodType.getOrCrash()
-                ,style: const TextStyle(
+              Text(info.bloodType.getOrCrash(),
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
                     fontSize: 20, color: Colors.white
-                ),),
+                ),
+              ),
             ],
           ),
         ),
@@ -181,6 +187,7 @@ class InfoCard extends StatelessWidget {
     } else {
       marcador = Text(
         number.toString(),
+        overflow: TextOverflow.ellipsis,
         style: GoogleFonts.montserrat(
           textStyle: const TextStyle(
               color: Colors.redAccent,
@@ -225,34 +232,40 @@ class InfoActionOverviewBody extends StatelessWidget {
             child: Row(
               children: [
                 const Icon(Icons.add, size: 14,),
-                Text(
-                  " REQUISIÇÃO",
-                  style: GoogleFonts.montserrat(
-                    textStyle: const TextStyle(
-                      color: Colors.redAccent,
-                      fontSize: 11.0,
-                        fontWeight: FontWeight.bold
+                Container(
+                  child: Text(
+                    " REQUISIÇÃO",
+                    overflow: TextOverflow.ellipsis,
+                    style: GoogleFonts.montserrat(
+                      textStyle: const TextStyle(
+                        color: Colors.redAccent,
+                        fontSize: 11.0,
+                          fontWeight: FontWeight.bold
+                      ),
                     ),
                   ),
                 ),
               ],
             )
         ),
-        OutlineButton(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-            onPressed: () {
-              ExtendedNavigator.of(context).pushInfoFormPage(editedInfo: info);
-            },
-            child: Text(
-              "MINHA CONTA",
-              style: GoogleFonts.montserrat(
-                textStyle: const TextStyle(
-                    color: Colors.redAccent,
-                    fontSize: 11.0,
-                    fontWeight: FontWeight.bold
+        Flexible(
+          child: OutlineButton(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+              onPressed: () {
+                ExtendedNavigator.of(context).pushInfoFormPage(editedInfo: info);
+              },
+              child: Text(
+                "DADOS",
+                overflow: TextOverflow.ellipsis,
+                style: GoogleFonts.montserrat(
+                  textStyle: const TextStyle(
+                      color: Colors.redAccent,
+                      fontSize: 11.0,
+                      fontWeight: FontWeight.bold
+                  ),
                 ),
-              ),
-            )
+              )
+          ),
         ),
       ],
     );

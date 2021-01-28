@@ -14,7 +14,7 @@ abstract class Info with _$Info {
   const factory Info({
     @required UniqueId id,
     @required StringSingleLine name,
-    @required String photoUrl,
+    String photoUrl,
     @required InfoBio bio,
     @required BloodType bloodType,
     @required Gender gender,

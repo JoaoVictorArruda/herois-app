@@ -59,15 +59,16 @@ class MessageFormBloc extends Bloc<MessageFormEvent, MessageFormState> {
           saveFailureOrSuccessOption: none(),
         );
 
+        final userOption = await getIt<IAuthFacade>().getSignedInUser();
+        final user = userOption.getOrElse(() => throw NotAuthenticatedError());
+        final info = await getIt<FirebaseFirestore>().getOtherInfo(user.id.getOrCrash());
+
         if (state.message.failureOption.isNone()) {
           // failureOrSuccess = state.isEditing
           //     ? await _messageRepository.update(state.message, e.userId)
           //     :
-          await _messageRepository.create(state.message, e.userId);
+          await _messageRepository.create(state.message, e.userId, info);
 
-          final userOption = await getIt<IAuthFacade>().getSignedInUser();
-          final user = userOption.getOrElse(() => throw NotAuthenticatedError());
-          final info = await getIt<FirebaseFirestore>().getOtherInfo(user.id.getOrCrash());
           getIt<Notifications>().sendNotification(e.userId, info.name.getOrCrash(), state.message.text.getOrCrash());
         }
 

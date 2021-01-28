@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:herois/domain/info/info.dart';
 import 'package:injectable/injectable.dart';
 import 'package:dartz/dartz.dart';
 import 'package:kt_dart/kt.dart';
@@ -22,7 +23,7 @@ class MessageRepository implements IMessageRepository {
     yield* userDoc.messageCollection
         .doc('data')
         .collection(userId)
-        .orderBy('dateTime')
+        .orderBy('timestamp', descending: false)
         .snapshots()
         .map(
           (snapshot) => right<MessageFailure, KtList<Message>>(
@@ -41,19 +42,20 @@ class MessageRepository implements IMessageRepository {
   }
 
   @override
-  Future<Either<MessageFailure, Unit>> create(Message message, String userId) async {
+  Future<Either<MessageFailure, Unit>> create(Message message, String userId, Info info) async {
     try {
       final userDoc = await _firestore.userDocument();
       final otherUserDoc = await _firestore.otherUserDocument(userId);
       final messageDto = MessageDto.fromDomain(message);
 
       Map<String, dynamic> json = messageDto.toJson();
+      json['timestamp'] = FieldValue.serverTimestamp();
       await userDoc.messageCollection.doc('data').collection(userId).doc(messageDto.id).set(json);
       json['sentByMe'] = false;
       await otherUserDoc.messageCollection.doc('data').collection(userDoc.id).doc(messageDto.id).set(json);
 
-      await userDoc.messageCollection.doc(userId).set({'lastMessage': messageDto.id});
-      await otherUserDoc.messageCollection.doc(userDoc.id).set({'lastMessage': messageDto.id});
+      await userDoc.messageCollection.doc(userId).set({'lastMessage': messageDto.text, 'photoUrl': info.photoUrl, 'name': info.name.getOrCrash(), 'timestamp': FieldValue.serverTimestamp()});
+      await otherUserDoc.messageCollection.doc(userDoc.id).set({'lastMessage': messageDto.text, 'photoUrl': info.photoUrl, 'name': info.name.getOrCrash(), 'timestamp': FieldValue.serverTimestamp()});
 
       return right(unit);
     } on PlatformException catch (e) {

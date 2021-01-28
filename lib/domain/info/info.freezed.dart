@@ -17,7 +17,7 @@ class _$InfoTearOff {
   _Info call(
       {@required UniqueId id,
       @required StringSingleLine name,
-      @required String photoUrl,
+      String photoUrl,
       @required InfoBio bio,
       @required BloodType bloodType,
       @required Gender gender,
@@ -176,7 +176,7 @@ class _$_Info extends _Info with DiagnosticableTreeMixin {
   const _$_Info(
       {@required this.id,
       @required this.name,
-      @required this.photoUrl,
+      this.photoUrl,
       @required this.bio,
       @required this.bloodType,
       @required this.gender,
@@ -186,7 +186,6 @@ class _$_Info extends _Info with DiagnosticableTreeMixin {
       this.isVisible})
       : assert(id != null),
         assert(name != null),
-        assert(photoUrl != null),
         assert(bio != null),
         assert(bloodType != null),
         assert(gender != null),
@@ -291,7 +290,7 @@ abstract class _Info extends Info {
   const factory _Info(
       {@required UniqueId id,
       @required StringSingleLine name,
-      @required String photoUrl,
+      String photoUrl,
       @required InfoBio bio,
       @required BloodType bloodType,
       @required Gender gender,

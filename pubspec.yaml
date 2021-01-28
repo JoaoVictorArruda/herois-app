@@ -53,6 +53,7 @@ dependencies:
   geoflutterfire: ^2.2.1
   geolocator: ^6.1.14
   firebase_messaging: ^7.0.3
+  cached_network_image: ^2.5.0
 #  dio: ^3.0.10
   ###########
 

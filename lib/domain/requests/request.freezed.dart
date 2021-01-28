@@ -21,7 +21,7 @@ class _$RequestTearOff {
       @required StringSingleLine lat,
       @required StringSingleLine long,
       @required BloodType bloodType,
-      @required String photoUrl,
+      String photoUrl,
       @required bool isOpen}) {
     return _Request(
       id: id,
@@ -162,14 +162,13 @@ class _$_Request extends _Request {
       @required this.lat,
       @required this.long,
       @required this.bloodType,
-      @required this.photoUrl,
+      this.photoUrl,
       @required this.isOpen})
       : assert(id != null),
         assert(name != null),
         assert(lat != null),
         assert(long != null),
         assert(bloodType != null),
-        assert(photoUrl != null),
         assert(isOpen != null),
         super._();
 
@@ -246,7 +245,7 @@ abstract class _Request extends Request {
       @required StringSingleLine lat,
       @required StringSingleLine long,
       @required BloodType bloodType,
-      @required String photoUrl,
+      String photoUrl,
       @required bool isOpen}) = _$_Request;
 
   @override

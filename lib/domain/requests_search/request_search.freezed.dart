@@ -21,7 +21,7 @@ class _$RequestSearchTearOff {
       @required StringSingleLine lat,
       @required StringSingleLine long,
       @required BloodType bloodType,
-      @required String photoUrl,
+      String photoUrl,
       @required bool isOpen,
       @required StringSingleLine user}) {
     return _RequestSearch(
@@ -177,7 +177,7 @@ class _$_RequestSearch extends _RequestSearch {
       @required this.lat,
       @required this.long,
       @required this.bloodType,
-      @required this.photoUrl,
+      this.photoUrl,
       @required this.isOpen,
       @required this.user})
       : assert(id != null),
@@ -185,7 +185,6 @@ class _$_RequestSearch extends _RequestSearch {
         assert(lat != null),
         assert(long != null),
         assert(bloodType != null),
-        assert(photoUrl != null),
         assert(isOpen != null),
         assert(user != null),
         super._();
@@ -268,7 +267,7 @@ abstract class _RequestSearch extends RequestSearch {
       @required StringSingleLine lat,
       @required StringSingleLine long,
       @required BloodType bloodType,
-      @required String photoUrl,
+      String photoUrl,
       @required bool isOpen,
       @required StringSingleLine user}) = _$_RequestSearch;
 

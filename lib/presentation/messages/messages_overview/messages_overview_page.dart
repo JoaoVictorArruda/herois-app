@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:herois/application/auth/auth_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:herois/application/message/message_form/message_form_bloc.dart';
@@ -88,17 +89,45 @@ class MessageOverviewPage extends StatelessWidget {
             },
           ),
         ],
-        child: Scaffold(
-            resizeToAvoidBottomInset: true,
-            body: SingleChildScrollView(
-              child: Column(
+        child: SafeArea(
+          child: Scaffold(
+              resizeToAvoidBottomInset: true,
+              appBar: AppBar(
+                title: Text(
+                    'Mensagens',
+                    style: GoogleFonts.montserrat(
+                      textStyle: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.none),
+                    )
+                ),
+                leading: IconButton(
+                  icon: Icon(Icons.arrow_back, color: Colors.black),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+                centerTitle: true,
+                elevation: 0,
+                backgroundColor: Colors.white,
+              ),
+              body: Stack(
                 children: [
-                  MessageOverviewBody(),
-                  MessageInputField(userId),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      MessageOverviewBody(),
+                      MessageInputField(userId)
+                    ],
+                  )
                 ],
               ),
-            ),
-            bottomNavigationBar: const HomeBottomNavigationBar(index: 0)
+              bottomNavigationBar: HomeBottomNavigationBar(index: 0)
+          ),
         ),
       ),
     );

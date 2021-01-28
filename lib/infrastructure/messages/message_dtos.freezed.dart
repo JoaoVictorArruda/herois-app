@@ -20,13 +20,13 @@ class _$MessageDtoTearOff {
   _MessageDto call(
       {@JsonKey(ignore: true) String id,
       @required String text,
-      @required String dateTime,
-      @required bool sentByMe}) {
+      @required bool sentByMe,
+      @required @ServerTimestampConverter() FieldValue serverTimeStamp}) {
     return _MessageDto(
       id: id,
       text: text,
-      dateTime: dateTime,
       sentByMe: sentByMe,
+      serverTimeStamp: serverTimeStamp,
     );
   }
 
@@ -44,9 +44,10 @@ const $MessageDto = _$MessageDtoTearOff();
 mixin _$MessageDto {
   @JsonKey(ignore: true)
   String get id;
-  String get text;
-  String get dateTime;
+  String get text; // @required String dateTime,
   bool get sentByMe;
+  @ServerTimestampConverter()
+  FieldValue get serverTimeStamp;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -61,8 +62,8 @@ abstract class $MessageDtoCopyWith<$Res> {
   $Res call(
       {@JsonKey(ignore: true) String id,
       String text,
-      String dateTime,
-      bool sentByMe});
+      bool sentByMe,
+      @ServerTimestampConverter() FieldValue serverTimeStamp});
 }
 
 /// @nodoc
@@ -77,14 +78,16 @@ class _$MessageDtoCopyWithImpl<$Res> implements $MessageDtoCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object text = freezed,
-    Object dateTime = freezed,
     Object sentByMe = freezed,
+    Object serverTimeStamp = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
       text: text == freezed ? _value.text : text as String,
-      dateTime: dateTime == freezed ? _value.dateTime : dateTime as String,
       sentByMe: sentByMe == freezed ? _value.sentByMe : sentByMe as bool,
+      serverTimeStamp: serverTimeStamp == freezed
+          ? _value.serverTimeStamp
+          : serverTimeStamp as FieldValue,
     ));
   }
 }
@@ -98,8 +101,8 @@ abstract class _$MessageDtoCopyWith<$Res> implements $MessageDtoCopyWith<$Res> {
   $Res call(
       {@JsonKey(ignore: true) String id,
       String text,
-      String dateTime,
-      bool sentByMe});
+      bool sentByMe,
+      @ServerTimestampConverter() FieldValue serverTimeStamp});
 }
 
 /// @nodoc
@@ -116,14 +119,16 @@ class __$MessageDtoCopyWithImpl<$Res> extends _$MessageDtoCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object text = freezed,
-    Object dateTime = freezed,
     Object sentByMe = freezed,
+    Object serverTimeStamp = freezed,
   }) {
     return _then(_MessageDto(
       id: id == freezed ? _value.id : id as String,
       text: text == freezed ? _value.text : text as String,
-      dateTime: dateTime == freezed ? _value.dateTime : dateTime as String,
       sentByMe: sentByMe == freezed ? _value.sentByMe : sentByMe as bool,
+      serverTimeStamp: serverTimeStamp == freezed
+          ? _value.serverTimeStamp
+          : serverTimeStamp as FieldValue,
     ));
   }
 }
@@ -135,11 +140,11 @@ class _$_MessageDto extends _MessageDto {
   _$_MessageDto(
       {@JsonKey(ignore: true) this.id,
       @required this.text,
-      @required this.dateTime,
-      @required this.sentByMe})
+      @required this.sentByMe,
+      @required @ServerTimestampConverter() this.serverTimeStamp})
       : assert(text != null),
-        assert(dateTime != null),
         assert(sentByMe != null),
+        assert(serverTimeStamp != null),
         super._();
 
   factory _$_MessageDto.fromJson(Map<String, dynamic> json) =>
@@ -150,14 +155,15 @@ class _$_MessageDto extends _MessageDto {
   final String id;
   @override
   final String text;
-  @override
-  final String dateTime;
-  @override
+  @override // @required String dateTime,
   final bool sentByMe;
+  @override
+  @ServerTimestampConverter()
+  final FieldValue serverTimeStamp;
 
   @override
   String toString() {
-    return 'MessageDto(id: $id, text: $text, dateTime: $dateTime, sentByMe: $sentByMe)';
+    return 'MessageDto(id: $id, text: $text, sentByMe: $sentByMe, serverTimeStamp: $serverTimeStamp)';
   }
 
   @override
@@ -168,12 +174,12 @@ class _$_MessageDto extends _MessageDto {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.text, text) ||
                 const DeepCollectionEquality().equals(other.text, text)) &&
-            (identical(other.dateTime, dateTime) ||
-                const DeepCollectionEquality()
-                    .equals(other.dateTime, dateTime)) &&
             (identical(other.sentByMe, sentByMe) ||
                 const DeepCollectionEquality()
-                    .equals(other.sentByMe, sentByMe)));
+                    .equals(other.sentByMe, sentByMe)) &&
+            (identical(other.serverTimeStamp, serverTimeStamp) ||
+                const DeepCollectionEquality()
+                    .equals(other.serverTimeStamp, serverTimeStamp)));
   }
 
   @override
@@ -181,8 +187,8 @@ class _$_MessageDto extends _MessageDto {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(text) ^
-      const DeepCollectionEquality().hash(dateTime) ^
-      const DeepCollectionEquality().hash(sentByMe);
+      const DeepCollectionEquality().hash(sentByMe) ^
+      const DeepCollectionEquality().hash(serverTimeStamp);
 
   @JsonKey(ignore: true)
   @override
@@ -198,10 +204,11 @@ class _$_MessageDto extends _MessageDto {
 abstract class _MessageDto extends MessageDto {
   _MessageDto._() : super._();
   factory _MessageDto(
-      {@JsonKey(ignore: true) String id,
-      @required String text,
-      @required String dateTime,
-      @required bool sentByMe}) = _$_MessageDto;
+          {@JsonKey(ignore: true) String id,
+          @required String text,
+          @required bool sentByMe,
+          @required @ServerTimestampConverter() FieldValue serverTimeStamp}) =
+      _$_MessageDto;
 
   factory _MessageDto.fromJson(Map<String, dynamic> json) =
       _$_MessageDto.fromJson;
@@ -211,10 +218,11 @@ abstract class _MessageDto extends MessageDto {
   String get id;
   @override
   String get text;
-  @override
-  String get dateTime;
-  @override
+  @override // @required String dateTime,
   bool get sentByMe;
+  @override
+  @ServerTimestampConverter()
+  FieldValue get serverTimeStamp;
   @override
   @JsonKey(ignore: true)
   _$MessageDtoCopyWith<_MessageDto> get copyWith;
