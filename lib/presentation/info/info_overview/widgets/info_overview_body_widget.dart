@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:herois/application/auth/auth_bloc.dart';
 import 'package:herois/application/info/info_watcher/info_watcher_bloc.dart';
 import 'package:herois/presentation/info/info_overview/widgets/critical_failure_display_widget.dart';
 import 'package:herois/presentation/info/info_overview/widgets/error_info_card_widget.dart';
@@ -40,6 +41,33 @@ class InfoOverviewBody extends StatelessWidget {
                       return Column(
                         children: [
                           AppBar(
+                            actions: [
+                              IconButton(
+                                icon: const Icon(Icons.exit_to_app, color: Colors.black,),
+                                onPressed: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        title: const Text('Sair?'),
+                                        actions: <Widget>[
+                                          FlatButton(
+                                            onPressed: () => Navigator.pop(context),
+                                            child: const Text('NÃO'),
+                                          ),
+                                          FlatButton(
+                                            onPressed: () {
+                                              context.bloc<AuthBloc>().add(const AuthEvent.signedOut());
+                                            },
+                                            child: const Text('SIM'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                },
+                              ),
+                            ],
                             title: const Text(""),
                             elevation: 0,
                             backgroundColor: Colors.white,

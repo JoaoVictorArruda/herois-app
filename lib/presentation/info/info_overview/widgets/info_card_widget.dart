@@ -135,15 +135,13 @@ class InfoCard extends StatelessWidget {
   }
 
   Column buildStatColumn(String label, int number) {
-    Widget marcador =
-    Flexible(child: Text(
+    Widget marcador = Flexible(child: Text(
       number.toString(),
       overflow: TextOverflow.ellipsis,
       style: const TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
     )
     );
-    Widget texto =
-    Text(
+    Widget texto = Text(
       label,
       style: const TextStyle(
           color: Colors.black,

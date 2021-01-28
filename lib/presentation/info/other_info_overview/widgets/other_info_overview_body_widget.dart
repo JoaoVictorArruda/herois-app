@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:herois/application/info/info_watcher/info_watcher_bloc.dart';
@@ -46,6 +47,12 @@ class OtherInfoOverviewBody extends StatelessWidget {
                             title: const Text(""),
                             elevation: 0,
                             backgroundColor: Colors.white,
+                            leading: IconButton(
+                              icon: const Icon(Icons.arrow_back, color: Colors.black,),
+                              onPressed: () {
+                                ExtendedNavigator.of(context).pop();
+                              },
+                            ),
                           ),
                             OtherInfoCard(info: info, userId: userId)
                           // AppBar(

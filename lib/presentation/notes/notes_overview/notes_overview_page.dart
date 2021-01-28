@@ -58,12 +58,6 @@ class NotesOverviewPage extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             title: const Text('Notes'),
-            leading: IconButton(
-              icon: const Icon(Icons.exit_to_app),
-              onPressed: () {
-                context.bloc<AuthBloc>().add(const AuthEvent.signedOut());
-              },
-            ),
             actions: <Widget>[
               UncompletedSwitch(),
             ],

@@ -24,7 +24,7 @@ class RequestSearchOverviewBody extends StatelessWidget {
                   if (request.failureOption.isSome()) {
                     return ErrorRequestSearchCard(request: request);
                   }
-                  if(state.userId == request.user.getOrCrash() || !state.requestSearchFilter.bloodType.getOrCrash().contains(request.bloodType.getOrCrash())) {
+                  if(state.userId == request.user.getOrCrash() || !state.requestSearchFilter.bloodType.getOrCrash().contains('|'+request.bloodType.getOrCrash()+'|')) {
                     return Container();
                   }
                   return RequestSearchCard(request: request);

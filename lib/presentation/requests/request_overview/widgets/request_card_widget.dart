@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:herois/application/requests/request_actor/request_actor_bloc.dart';
+import 'package:herois/application/requests/request_form/request_form_bloc.dart';
 import 'package:herois/domain/requests/request.dart';
+import 'package:herois/presentation/routes/router.gr.dart';
 
 class RequestCard extends StatelessWidget {
   const RequestCard({
@@ -21,89 +23,123 @@ class RequestCard extends StatelessWidget {
     if(photoUrl == "") {
       photoUrl = "https://www.flaticon.com/br/premium-icon/icons/svg/1466/1466153.svg";
     }
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      color: Colors.white,
-      elevation: 0,
-      child: BlocProvider.value(
-        value: requestActorBloc,
-        child: Padding(
-          padding: const EdgeInsets.all(14.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 40.0,
-                        backgroundColor: Colors.grey,
-                        backgroundImage: NetworkImage(photoUrl),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 18.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+    return GestureDetector(
+      onTap: () {
+        ExtendedNavigator.of(context).pushRequestFormPage(editedRequest: request);
+      },
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        color: Colors.white,
+        elevation: 0,
+        child: BlocProvider.value(
+          value: requestActorBloc,
+          child: Padding(
+            padding: const EdgeInsets.all(14.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Column(
                       children: [
-                        Text(
-                            request.name.getOrCrash(),
-                            style: GoogleFonts.montserrat(
-                              textStyle: const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.normal,
-                                  decoration: TextDecoration.none),
-                            )
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.location_on_outlined, color: Colors.black38, size: 14,),
-                            Text(
-                              request.city.getOrCrash(),
-                              style: GoogleFonts.montserrat(
-                                textStyle: const TextStyle(
-                                    color: Colors.black38,
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.normal,
-                                    decoration: TextDecoration.none),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          width: MediaQuery.of(context).size.width / 1.7,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              OutlineButton(
-                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-                                  onPressed: () {
-                                    // ExtendedNavigator.of(context).pushOtherInfoOverviewPage(userId: request.user.getOrCrash());
-                                  },
-                                  child: Text(
-                                    "      VER PERFIL      ",
-                                    style: GoogleFonts.montserrat(
-                                      textStyle: const TextStyle(
-                                          color: Colors.redAccent,
-                                          fontSize: 11.0,
-                                          fontWeight: FontWeight.bold
-                                      ),
-                                    ),
-                                  )
-                              ),
-                              buildStatColumn(-1),
-                            ],
-                          ),
+                        CircleAvatar(
+                          radius: 40.0,
+                          backgroundColor: Colors.grey,
+                          backgroundImage: NetworkImage(photoUrl),
                         ),
                       ],
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    Padding(
+                      padding: const EdgeInsets.only(left: 18.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              // CheckboxListTile(value: true, onChanged: null),
+                              Text(
+                                  request.name.getOrCrash(),
+                                  style: GoogleFonts.montserrat(
+                                    textStyle: const TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 20.0,
+                                        fontWeight: FontWeight.normal,
+                                        decoration: TextDecoration.none),
+                                  )
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.location_on_outlined, color: Colors.black38, size: 14,),
+                              Text(
+                                request.city.getOrCrash(),
+                                style: GoogleFonts.montserrat(
+                                  textStyle: const TextStyle(
+                                      color: Colors.black38,
+                                      fontSize: 15.0,
+                                      fontWeight: FontWeight.normal,
+                                      decoration: TextDecoration.none),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width / 1.7,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                OutlineButton(
+                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+                                    onPressed: () {
+                                      showDialog(
+                                        context: context,
+                                        builder: (context) {
+                                          return AlertDialog(
+                                            title: const Text('Requisição selecionada:'),
+                                            content: Text(
+                                              request.name.getOrCrash() + "\n" + request.bloodType.getOrCrash(),
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                            actions: <Widget>[
+                                              FlatButton(
+                                                onPressed: () => Navigator.pop(context),
+                                                child: const Text('CANCELAR'),
+                                              ),
+                                              FlatButton(
+                                                onPressed: () {
+                                                  context.bloc<RequestActorBloc>().add(RequestActorEvent.deleted(request));
+                                                  Navigator.pop(context);
+                                                },
+                                                child: const Text('DELETAR'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    },
+                                    child: Text(
+                                      "        EXCLUIR       ",
+                                      style: GoogleFonts.montserrat(
+                                        textStyle: const TextStyle(
+                                            color: Colors.redAccent,
+                                            fontSize: 11.0,
+                                            fontWeight: FontWeight.bold
+                                        ),
+                                      ),
+                                    )
+                                ),
+                                buildStatColumn(-1),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -134,8 +170,8 @@ class RequestCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(request.bloodType.getOrCrash()
-              ,style: const TextStyle(
+            Text(request.bloodType.getOrCrash(),
+              style: const TextStyle(
                   fontSize: 20, color: Colors.redAccent
               ),
             ),

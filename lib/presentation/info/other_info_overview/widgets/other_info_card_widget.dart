@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:herois/application/info/info_actor/info_actor_bloc.dart';
+import 'package:herois/domain/contact/contact.dart';
+import 'package:herois/domain/core/value_objects.dart';
 import 'package:herois/domain/info/info.dart';
 import 'package:herois/domain/messages/message.dart';
 import 'package:herois/presentation/routes/router.gr.dart';
@@ -224,7 +226,7 @@ class OtherInfoActionOverviewBody extends StatelessWidget {
         OutlineButton(
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
             onPressed: () {
-              ExtendedNavigator.of(context).pushMessageOverviewPage(userId: userId);
+              ExtendedNavigator.of(context).pushMessageOverviewPage(contact: Contact(userId: StringSingleLine(userId), lastMessage: StringSingleLine(""), photoUrl: info.photoUrl, name: info.name.getOrCrash()));
             },
             child: Text(
               "ENVIAR MENSAGEM",

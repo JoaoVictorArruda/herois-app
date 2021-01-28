@@ -11,5 +11,5 @@ abstract class IMessageRepository {
 
   // Future<Either<MessageFailure, Unit>> update(Message message, String userId);
 
-  Future<Either<MessageFailure, Unit>> delete(Message message, String userId);
+  // Future<Either<MessageFailure, Unit>> delete(Message message, String userId);
 }

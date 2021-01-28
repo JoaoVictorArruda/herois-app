@@ -54,8 +54,8 @@ class RequestRepository implements IRequestRepository {
         snapshot.docs
             .map((doc) => RequestDto.fromFirestore(doc).toDomain())
             .toImmutableList(),
-      ),
-    )
+          ),
+        )
         .onErrorReturnWith((e) {
       if (e is PlatformException && e.message.contains('PERMISSION_DENIED')) {
         return left(const RequestFailure.insufficientPermission());
@@ -105,7 +105,7 @@ class RequestRepository implements IRequestRepository {
       json.addAll({'user': userDoc.id});
       locationDoc.doc(requestDto.id).set(json);
 
-      getIt<Notifications>().sendNotificationToNearbyUsers(request, "Precisamos de você", "Uma pessoa precisa do seu tipo sanguineo");
+      getIt<Notifications>().sendNotificationToNearbyUsersWithCompatibleBloodRequest(request, "Precisamos de você", "Uma pessoa precisa do seu tipo sanguineo");
 
       return right(unit);
     } on PlatformException catch (e) {
@@ -132,7 +132,7 @@ class RequestRepository implements IRequestRepository {
       final locationDoc = await _firestore.locationCollection();
       locationDoc.doc(requestDto.id).update(json);
 
-      getIt<Notifications>().sendNotificationToNearbyUsers(request, "Precisamos de você", "Uma pessoa precisa do seu tipo sanguineo");
+      getIt<Notifications>().sendNotificationToNearbyUsersWithCompatibleBloodRequest(request, "Precisamos de você", "Uma pessoa precisa do seu tipo sanguineo");
       return right(unit);
     } on PlatformException catch (e) {
       // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.

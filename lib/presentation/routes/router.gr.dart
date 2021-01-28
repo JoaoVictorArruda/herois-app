@@ -9,6 +9,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import '../../domain/contact/contact.dart';
 import '../../domain/info/info.dart';
 import '../../domain/messages/message.dart';
 import '../../domain/notes/note.dart';
@@ -190,7 +191,7 @@ class Router extends RouterBase {
       return MaterialPageRoute<dynamic>(
         builder: (context) => MessageOverviewPage(
           key: args.key,
-          userId: args.userId,
+          contact: args.contact,
           editedMessage: args.editedMessage,
         ),
         settings: data,
@@ -275,13 +276,13 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushMessageOverviewPage({
     Key key,
-    String userId,
+    Contact contact,
     Message editedMessage,
   }) =>
       push<dynamic>(
         Routes.messageOverviewPage,
         arguments: MessageOverviewPageArguments(
-            key: key, userId: userId, editedMessage: editedMessage),
+            key: key, contact: contact, editedMessage: editedMessage),
       );
 }
 
@@ -329,7 +330,7 @@ class OtherInfoOverviewPageArguments {
 /// MessageOverviewPage arguments holder class
 class MessageOverviewPageArguments {
   final Key key;
-  final String userId;
+  final Contact contact;
   final Message editedMessage;
-  MessageOverviewPageArguments({this.key, this.userId, this.editedMessage});
+  MessageOverviewPageArguments({this.key, this.contact, this.editedMessage});
 }

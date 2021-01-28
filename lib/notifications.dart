@@ -6,7 +6,9 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:herois/domain/core/errors.dart';
+import 'package:herois/domain/info/info.dart';
 import 'package:herois/domain/requests/request.dart';
+import 'package:herois/infrastructure/info/info_dtos.dart';
 import 'package:herois/infrastructure/requests_search/request_search_dtos.dart';
 import 'package:herois/injection.dart';
 import 'package:injectable/injectable.dart';
@@ -129,6 +131,74 @@ class Notifications {
     );
   }
 
+  Future<void> sendNotificationToNearbyUsersWithCompatibleBloodRequest(Request request, String title, String body) async {
+    FirebaseFirestore _firestore = getIt<FirebaseFirestore>();
+    Geoflutterfire _geoflutterfire = getIt<Geoflutterfire>();
+
+    final usersCollection = await _firestore.usersCollection();
+    final double radius = 500;
+    final GeoFirePoint center = _geoflutterfire.point(latitude: double.parse(request.lat.getOrCrash()), longitude: double.parse(request.long.getOrCrash()));
+
+    final key = "AAAAtzU9koU:APA91bFL2s6r-Av77aSS0pHBm2uaHeN-tNmzwOvIxodDPntZynMtnIddes2X8g-IzSBsJPAJLJn_-ae7pFAkzJ73Bj13Qt8prOEsq_ez5UleJmwYJjpu3LEwUO7xEW4J51vfy-Xk2SKY";
+    // BaseOptions options = new BaseOptions(
+    //   connectTimeout: 5000,
+    //   receiveTimeout: 3000,
+    //   headers: headers,
+    // );
+    // var postUrl = "https://fcm.googleapis.com/fcm/send";
+    _geoflutterfire
+        .collection(collectionRef: usersCollection)
+        .within(center: center, radius: radius, field: 'position', strictMode: false)
+        .forEach(
+            (snapshot) {
+              snapshot.forEach(
+                (doc) {
+                  _firestore.collection('users')
+                      .doc(doc.id).tokenCollection
+                      .orderBy('createdAt', descending: true)
+                      .limit(1)
+                      .get()
+                      .then(
+                          (value) {
+                              value.docs.forEach((e) {
+                                  Info info = InfoDto.fromFirestore(e).toDomain();
+                                  String token = info.id.getOrCrash();
+                                  if(donateTo(request.bloodType.getOrCrash(), info.bloodType.getOrCrash())) {
+                                    try {
+                                      http.post(
+                                        'https://fcm.googleapis.com/fcm/send',
+                                        headers: <String, String>{
+                                          'Content-Type': 'application/json',
+                                          'Authorization': 'key=$key',
+                                        },
+                                        body: jsonEncode(
+                                        <String, dynamic>{
+                                        'notification': <String, dynamic>{
+                                        'body': body,
+                                        'title': title
+                                        },
+                                        'priority': 'high',
+                                        'data': <String, dynamic>{
+                                        'click_action': 'FLUTTER_NOTIFICATION_CLICK',
+                                        'id': '1',
+                                        'status': 'done'
+                                        },
+                                        'to': token,
+                                        },
+                                        ),
+                                      );
+                                    } catch (e) {
+                                      print('exception $e');
+                                    }
+                                  }
+                          });
+                      });
+              }
+            );
+          }
+    );
+  }
+
   Future<String> getTokenWithUserId(String userId) async {
     final FirebaseFirestore _db = FirebaseFirestore.instance;
 
@@ -165,5 +235,19 @@ class Notifications {
       'createdAt': FieldValue.serverTimestamp(), // optional
       'platform': Platform.operatingSystem // optional
     });
+  }
+
+  bool donateTo(String bloodType, String isCompatible) {
+    const bloods = {
+      'A+': ['A+', 'A-', 'O+', 'O-'],
+      'A-': ['A-', 'O-'],
+      'B+': ['B+', 'B-', 'O+', 'O-'],
+      'B-': ['B-', 'O-'],
+      'AB+': ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
+      'AB-': ['A-', 'B-', 'AB-', 'O-'],
+      'O+': ['O+', 'O-'],
+      'O-': ['O-'],
+    };
+    return bloods[bloodType].contains(isCompatible);
   }
 }

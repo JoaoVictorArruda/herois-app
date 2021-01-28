@@ -28,13 +28,25 @@ abstract class RequestSearchFilter implements _$RequestSearchFilter {
       bloodType: StringSingleLine('A+'),
   );
 
-  factory RequestSearchFilter.fromInfo(Info info) => RequestSearchFilter(
-    city: info.city,
-    distance: StringSingleLine('50'),
-    lat: info.lat,
-    long: info.long,
-    bloodType: StringSingleLine('|${info.bloodType.getOrCrash()}|')
-  );
+  factory RequestSearchFilter.fromInfo(Info info) {
+    const bloods = {
+      'A+': ['A+', 'AB+'],
+      'A-': ['A+', 'A-', 'AB+', 'AB-'],
+      'B+': ['B+', 'AB+'],
+      'B-': ['B+', 'B-', 'AB+', 'AB-'],
+      'AB+': ['AB+'],
+      'AB-': ['AB+', 'AB-'],
+      'O+': ['O+', 'O-'],
+      'O-': ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
+    };
+    return RequestSearchFilter(
+      city: info.city,
+      distance: StringSingleLine('50'),
+      lat: info.lat,
+      long: info.long,
+      bloodType: StringSingleLine("|"+bloods[info.bloodType.getOrCrash()].join("||") + "|")
+    );
+  }
 
   Option<ValueFailure<dynamic>> get failureOption {
     return city.failureOrUnit

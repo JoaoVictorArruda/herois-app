@@ -99,6 +99,15 @@ class OtherInfoOverviewPage extends StatelessWidget {
           // )
         ],
         child: Scaffold(
+          // appBar: AppBar(
+          //   backgroundColor: Colors.white,
+          //   leading: IconButton(
+          //     icon: const Icon(Icons.arrow_back, color: Colors.black,),
+          //     onPressed: () {
+          //       ExtendedNavigator.of(context).pop();
+          //     },
+          //   ),
+          // ),
             body: Column(
               children: [
                 OtherInfoOverviewBody(userId: userId),

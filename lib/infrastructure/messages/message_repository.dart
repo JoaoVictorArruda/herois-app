@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:herois/domain/core/errors.dart';
 import 'package:herois/domain/info/info.dart';
+import 'package:herois/injection.dart';
 import 'package:injectable/injectable.dart';
 import 'package:dartz/dartz.dart';
 import 'package:kt_dart/kt.dart';
@@ -10,6 +12,8 @@ import 'package:herois/domain/messages/message_failure.dart';
 import 'package:herois/infrastructure/messages/message_dtos.dart';
 import 'package:herois/infrastructure/core/firestore_helpers.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:herois/domain/auth/i_auth_facade.dart';
+import 'package:herois/notifications.dart';
 
 @LazySingleton(as: IMessageRepository)
 class MessageRepository implements IMessageRepository {
@@ -55,52 +59,14 @@ class MessageRepository implements IMessageRepository {
       await otherUserDoc.messageCollection.doc('data').collection(userDoc.id).doc(messageDto.id).set(json);
 
       await userDoc.messageCollection.doc(userId).set({'lastMessage': messageDto.text, 'photoUrl': info.photoUrl, 'name': info.name.getOrCrash(), 'timestamp': FieldValue.serverTimestamp()});
-      await otherUserDoc.messageCollection.doc(userDoc.id).set({'lastMessage': messageDto.text, 'photoUrl': info.photoUrl, 'name': info.name.getOrCrash(), 'timestamp': FieldValue.serverTimestamp()});
-
+      final userOption = await getIt<IAuthFacade>().getSignedInUser();
+      final user = userOption.getOrElse(() => throw NotAuthenticatedError());
+      final infoLogged = await getIt<FirebaseFirestore>().getOtherInfo(user.id.getOrCrash());
+      await otherUserDoc.messageCollection.doc(userDoc.id).set({'lastMessage': messageDto.text, 'photoUrl': infoLogged.photoUrl, 'name': infoLogged.name.getOrCrash(), 'timestamp': FieldValue.serverTimestamp()});
+      getIt<Notifications>().sendNotification(info.id.getOrCrash(), infoLogged.name.getOrCrash(), messageDto.text);
       return right(unit);
     } on PlatformException catch (e) {
       // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
-      if (e.message.contains('PERMISSION_DENIED')) {
-        return left(const MessageFailure.insufficientPermission());
-      } else {
-        return left(const MessageFailure.unexpected());
-      }
-    }
-  }
-
-  @override
-  Future<Either<MessageFailure, Unit>> update(Message message, String userId) async {
-    try {
-      final userDoc = await _firestore.userDocument();
-      final messageDto = MessageDto.fromDomain(message);
-
-      await userDoc.messageCollection
-          .doc('data')
-          .update(messageDto.toJson());
-
-      return right(unit);
-    } on PlatformException catch (e) {
-      // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
-      if (e.message.contains('PERMISSION_DENIED')) {
-        return left(const MessageFailure.insufficientPermission());
-      } else if (e.message.contains('NOT_FOUND')) {
-        return left(const MessageFailure.unableToUpdate());
-      } else {
-        return left(const MessageFailure.unexpected());
-      }
-    }
-  }
-
-  @override
-  Future<Either<MessageFailure, Unit>> delete(Message message, String userId) async {
-    try {
-      final userDoc = await _firestore.userDocument();
-      final messageId = message.id.getOrCrash();
-
-      await userDoc.messageCollection.doc(messageId).delete();
-
-      return right(unit);
-    } on PlatformException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
         return left(const MessageFailure.insufficientPermission());
       } else {

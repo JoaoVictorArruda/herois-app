@@ -32,7 +32,7 @@ class ContactCard extends StatelessWidget {
     // final contactActorBloc = context.bloc<ContactActorBloc>();
     return GestureDetector(
       onTap: () {
-        ExtendedNavigator.of(context).pushMessageOverviewPage(userId: contact.userId.getOrCrash());
+        ExtendedNavigator.of(context).pushMessageOverviewPage(contact: contact);
       },
       child: Card(
         clipBehavior: Clip.antiAlias,

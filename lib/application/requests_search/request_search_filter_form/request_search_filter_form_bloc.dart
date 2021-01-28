@@ -71,9 +71,20 @@ class RequestSearchFilterFormBloc extends Bloc<RequestSearchFilterFormEvent, Req
         );
       },
       onlyCompatibleClicked: (e) async* {
+        const bloods = {
+          'A+': ['A+', 'AB+'],
+          'A-': ['A+', 'A-', 'AB+', 'AB-'],
+          'B+': ['B+', 'AB+'],
+          'B-': ['B+', 'B-', 'AB+', 'AB-'],
+          'AB+': ['AB+'],
+          'AB-': ['AB+', 'AB-'],
+          'O+': ['O+', 'O-'],
+          'O-': ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
+        };
+
         final info = await getIt<FirebaseFirestore>().getInfo();
         yield state.copyWith(
-          requestSearchFilter: state.requestSearchFilter.copyWith(bloodType: StringSingleLine('|${info.bloodType.getOrCrash()}')),
+          requestSearchFilter: state.requestSearchFilter.copyWith(bloodType: StringSingleLine("|"+bloods[info.bloodType.getOrCrash()].join("||") + "|")),
           saveFailureOrSuccessOption: none(),
         );
       },

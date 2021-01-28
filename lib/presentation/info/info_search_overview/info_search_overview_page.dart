@@ -79,13 +79,7 @@ class InfoSearchOverviewPage extends StatelessWidget {
         ],
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('Pessoas'),
-            leading: IconButton(
-              icon: const Icon(Icons.exit_to_app),
-              onPressed: () {
-                context.bloc<AuthBloc>().add(const AuthEvent.signedOut());
-              },
-            ),
+            title: InfoSearchInputField(),
             // actions: <Widget>[
               // UncompletedSwitch(),
             // ],
@@ -93,7 +87,7 @@ class InfoSearchOverviewPage extends StatelessWidget {
           body: SingleChildScrollView(
             child: Column(
               children: [
-                InfoSearchInputField(),
+                // InfoSearchInputField(),
                 InfoSearchOverviewBody(),
               ],
             ),

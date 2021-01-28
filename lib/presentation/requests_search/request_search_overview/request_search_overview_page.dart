@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:herois/application/auth/auth_bloc.dart';
 import 'package:herois/application/info/info_actor/info_actor_bloc.dart';
 import 'package:herois/application/requests/request_actor/request_actor_bloc.dart';
@@ -80,6 +81,17 @@ class RequestSearchOverviewPage extends StatelessWidget {
         ],
         child: Scaffold(
           appBar: AppBar(
+            centerTitle: true,
+            title: Text(
+                'Requisições',
+                style: GoogleFonts.montserrat(
+                  textStyle: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none),
+                )
+            ),
             actions: [
               FilterRequestWidget()
             ],
