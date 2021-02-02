@@ -7,10 +7,12 @@ import 'package:herois/domain/messages/message.dart';
 class MessageCard extends StatelessWidget {
   const MessageCard({
     Key key,
-    @required this.message,
+    @required this.message, this.photoUrl,
   }) : super(key: key);
 
   final Message message;
+
+  final String photoUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -50,13 +52,14 @@ class MessageCard extends StatelessWidget {
           Container(
             child: Text(
               message.text.getOrCrash(),
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: Colors.white),
             ),
             padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
             width: 200.0,
             decoration: BoxDecoration(
-                color: Color(0xffE8E8E8),
-                borderRadius: BorderRadius.circular(8.0)),
+                color: Colors.redAccent,
+                borderRadius: BorderRadius.circular(8.0)
+            ),
             margin: EdgeInsets.only(
                 bottom: 10.0,
                 right: 10.0),
@@ -77,13 +80,13 @@ class MessageCard extends StatelessWidget {
                       child: CircularProgressIndicator(
                         strokeWidth: 1.0,
                         valueColor:
-                        AlwaysStoppedAnimation<Color>(Colors.blue),
+                        AlwaysStoppedAnimation<Color>(Colors.redAccent),
                       ),
                       width: 35.0,
                       height: 35.0,
                       padding: EdgeInsets.all(10.0),
                     ),
-                    imageUrl: "https://i.imgur.com/YTAKJHx.jpeg",
+                    imageUrl: photoUrl,
                     width: 35.0,
                     height: 35.0,
                     fit: BoxFit.cover,
@@ -96,12 +99,12 @@ class MessageCard extends StatelessWidget {
                 Container(
                   child: Text(
                     message.text.getOrCrash(),
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.black),
                   ),
                   padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
                   width: 200.0,
                   decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: Colors.black12,
                       borderRadius: BorderRadius.circular(8.0)),
                   margin: EdgeInsets.only(left: 10.0),
                 ),

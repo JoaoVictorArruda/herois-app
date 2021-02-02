@@ -96,7 +96,7 @@ class InfoSearchCard extends StatelessWidget {
                               OutlineButton(
                                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
                                   onPressed: () {
-                                    ExtendedNavigator.of(context).pushOtherInfoOverviewPage(userId: userId, index: 1);
+                                    ExtendedNavigator.of(context).pushOtherInfoOverviewPage(userId: info.id.getOrCrash(), index: 1);
                                   },
                                   child: Text(
                                     "      VER PERFIL      ",

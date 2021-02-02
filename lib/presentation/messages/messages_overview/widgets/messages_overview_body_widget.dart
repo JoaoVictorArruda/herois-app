@@ -7,7 +7,11 @@ import 'package:herois/presentation/requests/request_overview/widgets/error_requ
 
 class MessageOverviewBody extends StatelessWidget {
 
+  final String photoUrl;
+
   bool needScroll = true;
+
+  MessageOverviewBody({Key key, this.photoUrl}) : super(key: key);
 
   _scrollToEnd(ScrollController scrollController) async {
     if(needScroll && scrollController.position != null) {
@@ -38,7 +42,7 @@ class MessageOverviewBody extends StatelessWidget {
                     if (message.failureOption.isSome()) {
                       return ErrorRequestCard(request: null);
                     }
-                    return MessageCard(message: message);
+                    return MessageCard(message: message, photoUrl: photoUrl);
                   },
                   itemCount: state.messages.size,
                 )

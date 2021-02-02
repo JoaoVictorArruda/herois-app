@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get_it/get_it.dart';
+import 'package:herois/domain/info/value_objects.dart';
 import 'package:injectable/injectable.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
@@ -125,6 +126,14 @@ class InfoRepository implements IInfoRepository {
   @override
   Future<Either<InfoFailure, Unit>> create(Info info) async {
     try {
+      if(!info.neverDonated && info.isVisible == null ? false: true) {
+        final dateLastDonate = DateTime.parse(info.dateLastDonate.getOrCrash());
+        final difference = dateLastDonate.difference(DateTime.now());
+        final days = info.gender.getOrCrash() == Gender.predefinedGender[0]? 90 : 60;
+        if((difference.inDays * -1) < days) {
+          return left(InfoFailure.unavailableToDonate());
+        }
+      }
       final userDoc = await _firestore.userDocument();
       final infoDto = InfoDto.fromDomain(info);
       final Map<String, dynamic> json = infoDto.toJson();
@@ -147,6 +156,14 @@ class InfoRepository implements IInfoRepository {
   @override
   Future<Either<InfoFailure, Unit>> update(Info info) async {
     try {
+      if(!info.neverDonated) {
+        final dateLastDonate = DateTime.parse(info.dateLastDonate.getOrCrash());
+        final difference = dateLastDonate.difference(DateTime.now());
+        final days = info.gender.getOrCrash() == Gender.predefinedGender[0]? 90 : 60;
+        if((difference.inDays * -1) < days) {
+          return left(InfoFailure.unavailableToDonate());
+        }
+      }
       final userDoc = await _firestore.userDocument();
       final infoDto = InfoDto.fromDomain(info);
 
@@ -179,6 +196,31 @@ class InfoRepository implements IInfoRepository {
     } on PlatformException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
         return left(const InfoFailure.insufficientPermissions());
+      } else {
+        return left(const InfoFailure.unexpected());
+      }
+    }
+  }
+
+  @override
+  Future<Either<InfoFailure, Unit>> addRequestCounter(int value) async {
+    try {
+      final userDoc = await _firestore.userDocument();
+      Info info = await _firestore.getInfo();
+      final infoDto = InfoDto.fromDomain(info);
+
+      final Map<String, dynamic> json = infoDto.toJson();
+      json.addAll({'totalRequests': infoDto.totalRequests + value,'position': _geoflutterfire.point(latitude: double.parse(info.lat.getOrCrash()), longitude: double.parse(info.long.getOrCrash())).data, 'user': userDoc.id});
+
+      await userDoc.update(json);
+
+      return right(unit);
+    } on PlatformException catch (e) {
+      // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
+      if (e.message.contains('PERMISSION_DENIED')) {
+        return left(const InfoFailure.insufficientPermissions());
+      } else if (e.message.contains('NOT_FOUND')) {
+        return left(const InfoFailure.unableToUpdate());
       } else {
         return left(const InfoFailure.unexpected());
       }

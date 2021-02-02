@@ -6,18 +6,18 @@ import 'package:herois/domain/core/failures.dart';
 import 'package:herois/domain/core/value_validators.dart';
 
 @immutable
-abstract class ValueObject<T> {
+abstract class ValueObject<T, J> {
   const ValueObject();
 
-  Either<ValueFailure<T>, T> get value;
+  Either<ValueFailure<T>, J> get value;
 
   /// Throws [UnexpectedValueError] containing the [ValueFailure]
-  T getOrCrash() {
+  J getOrCrash() {
     // id = identity - same as writing (right) => right
     return value.fold((f) => throw UnexpectedValueError(f), id);
   }
 
-  T getOrElse(T dflt) {
+  J getOrElse(J dflt) {
     return value.getOrElse(() => dflt);
   }
 
@@ -36,7 +36,7 @@ abstract class ValueObject<T> {
   @override
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
-    return o is ValueObject<T> && o.value == value;
+    return o is ValueObject<T, J> && o.value == value;
   }
 
   @override
@@ -46,7 +46,7 @@ abstract class ValueObject<T> {
   String toString() => 'Value($value)';
 }
 
-class UniqueId extends ValueObject<String> {
+class UniqueId extends ValueObject<String, String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
@@ -68,12 +68,11 @@ class UniqueId extends ValueObject<String> {
   const UniqueId._(this.value);
 }
 
-class StringSingleLine extends ValueObject<String> {
+class StringSingleLine extends ValueObject<String, String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
   factory StringSingleLine(String input) {
-    assert(input != null);
     return StringSingleLine._(
       validateSingleLine(input).flatMap(validateStringNotEmpty),
     );

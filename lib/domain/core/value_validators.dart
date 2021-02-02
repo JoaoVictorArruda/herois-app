@@ -86,4 +86,3 @@ Either<ValueFailure<String>, String> validateGender(String input) {
     return left(ValueFailure.invalidGender(failedValue: input));
   }
 }
-

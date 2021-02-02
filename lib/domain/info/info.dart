@@ -21,7 +21,10 @@ abstract class Info with _$Info {
     StringSingleLine city,
     @required StringSingleLine lat,
     @required StringSingleLine long,
+    StringSingleLine dateLastDonate,
     bool isVisible,
+    bool neverDonated,
+    int totalRequests
   }) = _Info;
 
   factory Info.empty() => Info(
@@ -29,12 +32,15 @@ abstract class Info with _$Info {
     name: StringSingleLine(""),
     bio: InfoBio(""),
     photoUrl: "",
-    bloodType: BloodType(BloodType.predefinedBloodTypes[8]),
+    bloodType: BloodType(BloodType.predefinedBloodTypes[0]),
     isVisible: null,
+    neverDonated: false,
     gender: Gender(Gender.predefinedGender[0]),
     city: StringSingleLine(""),
     lat: StringSingleLine(""),
     long: StringSingleLine(""),
+    dateLastDonate: StringSingleLine(DateTime.now().toIso8601String()),
+    totalRequests: 0,
   );
 
   Option<ValueFailure<dynamic>> get failureOption {

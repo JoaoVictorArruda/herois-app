@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
@@ -98,15 +99,46 @@ class MessageOverviewPage extends StatelessWidget {
                   onTap: () {
                     ExtendedNavigator.of(context).pushOtherInfoOverviewPage(userId: contact.userId.getOrCrash(), index: 0);
                   },
-                  child: Text(
-                      contact.name,
-                      style: GoogleFonts.montserrat(
-                        textStyle: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.none),
-                      )
+                  child: Row(
+                    children: [
+                      Material(
+                        child: CachedNetworkImage(
+                          placeholder: (context, url) => Container(
+                            child: CircularProgressIndicator(
+                              strokeWidth: 1.0,
+                              valueColor:
+                              AlwaysStoppedAnimation<Color>(Colors.redAccent),
+                            ),
+                            width: 35.0,
+                            height: 35.0,
+                            padding: EdgeInsets.all(10.0),
+                          ),
+                          imageUrl: contact.photoUrl,
+                          width: 35.0,
+                          height: 35.0,
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(18.0),
+                        ),
+                        clipBehavior: Clip.hardEdge,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 12.0),
+                        child: Text(
+                            contact.name.length > 20 ?
+                            contact.name.substring(0, 20) + '...'
+                            : contact.name,
+                            style: GoogleFonts.montserrat(
+                              textStyle: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.none),
+                            )
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 leading: IconButton(
@@ -119,18 +151,21 @@ class MessageOverviewPage extends StatelessWidget {
                 elevation: 0,
                 backgroundColor: Colors.white,
               ),
-              body: Stack(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      MessageOverviewBody(),
-                      MessageInputField(contact.userId.getOrCrash())
-                    ],
-                  )
-                ],
+              body: Container(
+                color: Colors.white,
+                child: Stack(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        MessageOverviewBody(photoUrl: contact.photoUrl),
+                        MessageInputField(contact.userId.getOrCrash())
+                      ],
+                    )
+                  ],
+                ),
               ),
               bottomNavigationBar: HomeBottomNavigationBar(index: 0)
           ),

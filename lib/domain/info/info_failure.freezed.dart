@@ -27,6 +27,11 @@ class _$InfoFailureTearOff {
   UnableToUpdate unableToUpdate() {
     return const UnableToUpdate();
   }
+
+// ignore: unused_element
+  UnavailableToDonate unavailableToDonate() {
+    return const UnavailableToDonate();
+  }
 }
 
 /// @nodoc
@@ -40,12 +45,14 @@ mixin _$InfoFailure {
     @required TResult unexpected(),
     @required TResult insufficientPermissions(),
     @required TResult unableToUpdate(),
+    @required TResult unavailableToDonate(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult unexpected(),
     TResult insufficientPermissions(),
     TResult unableToUpdate(),
+    TResult unavailableToDonate(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -53,12 +60,14 @@ mixin _$InfoFailure {
     @required TResult unexpected(Unexpected value),
     @required TResult insufficientPermissions(InsufficientPermissions value),
     @required TResult unableToUpdate(UnableToUpdate value),
+    @required TResult unavailableToDonate(UnavailableToDonate value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult unexpected(Unexpected value),
     TResult insufficientPermissions(InsufficientPermissions value),
     TResult unableToUpdate(UnableToUpdate value),
+    TResult unavailableToDonate(UnavailableToDonate value),
     @required TResult orElse(),
   });
 }
@@ -119,10 +128,12 @@ class _$Unexpected implements Unexpected {
     @required TResult unexpected(),
     @required TResult insufficientPermissions(),
     @required TResult unableToUpdate(),
+    @required TResult unavailableToDonate(),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
     assert(unableToUpdate != null);
+    assert(unavailableToDonate != null);
     return unexpected();
   }
 
@@ -132,6 +143,7 @@ class _$Unexpected implements Unexpected {
     TResult unexpected(),
     TResult insufficientPermissions(),
     TResult unableToUpdate(),
+    TResult unavailableToDonate(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -147,10 +159,12 @@ class _$Unexpected implements Unexpected {
     @required TResult unexpected(Unexpected value),
     @required TResult insufficientPermissions(InsufficientPermissions value),
     @required TResult unableToUpdate(UnableToUpdate value),
+    @required TResult unavailableToDonate(UnavailableToDonate value),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
     assert(unableToUpdate != null);
+    assert(unavailableToDonate != null);
     return unexpected(this);
   }
 
@@ -160,6 +174,7 @@ class _$Unexpected implements Unexpected {
     TResult unexpected(Unexpected value),
     TResult insufficientPermissions(InsufficientPermissions value),
     TResult unableToUpdate(UnableToUpdate value),
+    TResult unavailableToDonate(UnavailableToDonate value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -216,10 +231,12 @@ class _$InsufficientPermissions implements InsufficientPermissions {
     @required TResult unexpected(),
     @required TResult insufficientPermissions(),
     @required TResult unableToUpdate(),
+    @required TResult unavailableToDonate(),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
     assert(unableToUpdate != null);
+    assert(unavailableToDonate != null);
     return insufficientPermissions();
   }
 
@@ -229,6 +246,7 @@ class _$InsufficientPermissions implements InsufficientPermissions {
     TResult unexpected(),
     TResult insufficientPermissions(),
     TResult unableToUpdate(),
+    TResult unavailableToDonate(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -244,10 +262,12 @@ class _$InsufficientPermissions implements InsufficientPermissions {
     @required TResult unexpected(Unexpected value),
     @required TResult insufficientPermissions(InsufficientPermissions value),
     @required TResult unableToUpdate(UnableToUpdate value),
+    @required TResult unavailableToDonate(UnavailableToDonate value),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
     assert(unableToUpdate != null);
+    assert(unavailableToDonate != null);
     return insufficientPermissions(this);
   }
 
@@ -257,6 +277,7 @@ class _$InsufficientPermissions implements InsufficientPermissions {
     TResult unexpected(Unexpected value),
     TResult insufficientPermissions(InsufficientPermissions value),
     TResult unableToUpdate(UnableToUpdate value),
+    TResult unavailableToDonate(UnavailableToDonate value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -312,10 +333,12 @@ class _$UnableToUpdate implements UnableToUpdate {
     @required TResult unexpected(),
     @required TResult insufficientPermissions(),
     @required TResult unableToUpdate(),
+    @required TResult unavailableToDonate(),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
     assert(unableToUpdate != null);
+    assert(unavailableToDonate != null);
     return unableToUpdate();
   }
 
@@ -325,6 +348,7 @@ class _$UnableToUpdate implements UnableToUpdate {
     TResult unexpected(),
     TResult insufficientPermissions(),
     TResult unableToUpdate(),
+    TResult unavailableToDonate(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -340,10 +364,12 @@ class _$UnableToUpdate implements UnableToUpdate {
     @required TResult unexpected(Unexpected value),
     @required TResult insufficientPermissions(InsufficientPermissions value),
     @required TResult unableToUpdate(UnableToUpdate value),
+    @required TResult unavailableToDonate(UnavailableToDonate value),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
     assert(unableToUpdate != null);
+    assert(unavailableToDonate != null);
     return unableToUpdate(this);
   }
 
@@ -353,6 +379,7 @@ class _$UnableToUpdate implements UnableToUpdate {
     TResult unexpected(Unexpected value),
     TResult insufficientPermissions(InsufficientPermissions value),
     TResult unableToUpdate(UnableToUpdate value),
+    TResult unavailableToDonate(UnavailableToDonate value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -365,4 +392,107 @@ class _$UnableToUpdate implements UnableToUpdate {
 
 abstract class UnableToUpdate implements InfoFailure {
   const factory UnableToUpdate() = _$UnableToUpdate;
+}
+
+/// @nodoc
+abstract class $UnavailableToDonateCopyWith<$Res> {
+  factory $UnavailableToDonateCopyWith(
+          UnavailableToDonate value, $Res Function(UnavailableToDonate) then) =
+      _$UnavailableToDonateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UnavailableToDonateCopyWithImpl<$Res>
+    extends _$InfoFailureCopyWithImpl<$Res>
+    implements $UnavailableToDonateCopyWith<$Res> {
+  _$UnavailableToDonateCopyWithImpl(
+      UnavailableToDonate _value, $Res Function(UnavailableToDonate) _then)
+      : super(_value, (v) => _then(v as UnavailableToDonate));
+
+  @override
+  UnavailableToDonate get _value => super._value as UnavailableToDonate;
+}
+
+/// @nodoc
+class _$UnavailableToDonate implements UnavailableToDonate {
+  const _$UnavailableToDonate();
+
+  @override
+  String toString() {
+    return 'InfoFailure.unavailableToDonate()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is UnavailableToDonate);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult unexpected(),
+    @required TResult insufficientPermissions(),
+    @required TResult unableToUpdate(),
+    @required TResult unavailableToDonate(),
+  }) {
+    assert(unexpected != null);
+    assert(insufficientPermissions != null);
+    assert(unableToUpdate != null);
+    assert(unavailableToDonate != null);
+    return unavailableToDonate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult unexpected(),
+    TResult insufficientPermissions(),
+    TResult unableToUpdate(),
+    TResult unavailableToDonate(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (unavailableToDonate != null) {
+      return unavailableToDonate();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult unexpected(Unexpected value),
+    @required TResult insufficientPermissions(InsufficientPermissions value),
+    @required TResult unableToUpdate(UnableToUpdate value),
+    @required TResult unavailableToDonate(UnavailableToDonate value),
+  }) {
+    assert(unexpected != null);
+    assert(insufficientPermissions != null);
+    assert(unableToUpdate != null);
+    assert(unavailableToDonate != null);
+    return unavailableToDonate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult unexpected(Unexpected value),
+    TResult insufficientPermissions(InsufficientPermissions value),
+    TResult unableToUpdate(UnableToUpdate value),
+    TResult unavailableToDonate(UnavailableToDonate value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (unavailableToDonate != null) {
+      return unavailableToDonate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UnavailableToDonate implements InfoFailure {
+  const factory UnavailableToDonate() = _$UnavailableToDonate;
 }

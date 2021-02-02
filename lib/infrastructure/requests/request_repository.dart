@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
+import 'package:herois/domain/info/i_info_repository.dart';
+import 'package:herois/infrastructure/info/info_repository.dart';
 import 'package:herois/injection.dart';
 import 'package:herois/notifications.dart';
 import 'package:injectable/injectable.dart';
@@ -105,6 +107,7 @@ class RequestRepository implements IRequestRepository {
       json.addAll({'user': userDoc.id});
       locationDoc.doc(requestDto.id).set(json);
 
+      getIt<IInfoRepository>().addRequestCounter(1);
       getIt<Notifications>().sendNotificationToNearbyUsersWithCompatibleBloodRequest(request, "Precisamos de você", "Uma pessoa precisa do seu tipo sanguineo");
 
       return right(unit);
@@ -131,7 +134,6 @@ class RequestRepository implements IRequestRepository {
 
       final locationDoc = await _firestore.locationCollection();
       locationDoc.doc(requestDto.id).update(json);
-
       getIt<Notifications>().sendNotificationToNearbyUsersWithCompatibleBloodRequest(request, "Precisamos de você", "Uma pessoa precisa do seu tipo sanguineo");
       return right(unit);
     } on PlatformException catch (e) {
@@ -156,6 +158,7 @@ class RequestRepository implements IRequestRepository {
 
       final locationDoc = await _firestore.locationCollection();
       locationDoc.doc(requestId).delete();
+      getIt<IInfoRepository>().addRequestCounter(-1);
       return right(unit);
     } on PlatformException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {

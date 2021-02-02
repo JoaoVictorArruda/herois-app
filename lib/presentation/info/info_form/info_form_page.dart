@@ -9,11 +9,13 @@ import 'package:herois/application/info/info_form/info_form_bloc.dart';
 import 'package:herois/domain/info/info.dart';
 import 'package:herois/presentation/info/info_form/widgets/bio_field_widget.dart';
 import 'package:herois/presentation/info/info_form/widgets/blood_type_widget.dart';
+import 'package:herois/presentation/info/info_form/widgets/date_picker_input_field.dart';
 import 'package:herois/presentation/info/info_form/widgets/gender_widget.dart';
 import 'package:herois/presentation/info/info_form/widgets/image_picker_field.dart';
 import 'package:herois/presentation/info/info_form/widgets/is_visible_input_field.dart';
 import 'package:herois/presentation/info/info_form/widgets/maps_picker_input_field.dart';
 import 'package:herois/presentation/info/info_form/widgets/name_input_field.dart';
+import 'package:herois/presentation/info/info_form/widgets/never_donated_input_field.dart';
 import 'package:herois/presentation/routes/router.gr.dart';
 
 import 'package:herois/injection.dart';
@@ -49,7 +51,9 @@ class InfoFormPage extends HookWidget {
                         unableToUpdate: (_) =>
                             "Couldn't update the note. Was it deleted from another device?",
                         unexpected: (_) =>
-                            'Unexpected error occured, please contact support.'),
+                            'Unexpected error occured, please contact support.',
+                        unavailableToDonate: (_) => "Unavailable to donate"
+                    ),
                   ).show(context);
                 },
                 (_) {
@@ -135,7 +139,7 @@ class InfoFormPageScaffold extends StatelessWidget {
           title: BlocBuilder<InfoFormBloc, InfoFormState>(
             buildWhen: (p, c) => p.isEditing != c.isEditing,
             builder: (context, state) => Text(
-              state.isEditing ? 'Editar perfil' : 'Criar perfil',
+              state.isEditing ? 'Editar perfil' : 'Seja um herói',
               style: GoogleFonts.montserrat(
                 textStyle: const TextStyle(
                     color: Colors.black,
@@ -169,17 +173,71 @@ class InfoFormPageScaffold extends StatelessWidget {
               child: CustomScrollView(
                 slivers: <Widget>[
                   const SliverToBoxAdapter(child: ImagePickerField()),
+                   SliverToBoxAdapter(
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 12.0, left: 12),
+                        child: Text(
+                            "Gênero",
+                            style: GoogleFonts.montserrat(
+                              textStyle: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.none),
+                            )
+                        ),
+                      ),
+                  ),
                   SliverToBoxAdapter(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[const GenderWidget()],
                     ),
                   ),
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 12.0, left: 12),
+                      child: Text(
+                          "Tipo Sanguíneo",
+                          style: GoogleFonts.montserrat(
+                            textStyle: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.none),
+                          )
+                      ),
+                    ),
+                  ),
                   const SliverToBoxAdapter(child: BloodTypeWidget()),
                   const SliverToBoxAdapter(child: NameInputField()),
                   const SliverToBoxAdapter(child: MapsPickerInputField()),
+                  const SliverToBoxAdapter(child: DatePickerInputField()),
+                  const SliverToBoxAdapter(child: NeverDonatedInputField()),
                   const SliverToBoxAdapter(child: BioField()),
                   const SliverToBoxAdapter(child: IsVisibleInputField()),
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: RaisedButton(
+                        color: Colors.redAccent,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                        onPressed: () {
+                          context
+                              .bloc<InfoFormBloc>()
+                              .add(const InfoFormEvent.saved());
+                        },
+                        child: Text(
+                            "CONFIRMAR",
+                          style: GoogleFonts.montserrat(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
             );

@@ -19,5 +19,9 @@ abstract class InfoFormEvent with _$InfoFormEvent {
 
   const factory InfoFormEvent.isVisibleChanged(bool isVisibleBool) = _IsVisibleChanged;
 
+  const factory InfoFormEvent.dateLastDonateChange(String dateLastDonateStr) = _DateLastDonateChange;
+
+  const factory InfoFormEvent.neverDonatedChange(bool neverDonatedBool) = _NeverDonatedChange;
+
   const factory InfoFormEvent.saved() = _Saved;
 }

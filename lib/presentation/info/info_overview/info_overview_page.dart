@@ -57,6 +57,7 @@ class InfoOverviewPage extends StatelessWidget {
                       insufficientPermissions: (_) =>
                       'Insufficient permissions ❌',
                       unableToUpdate: (_) => 'Impossible error',
+                      unavailableToDonate: (_) => 'Unavaiable to donate',
                     ),
                   ).show(context);
                 },

@@ -16,7 +16,7 @@ class IsOpenInputField extends StatelessWidget {
         buildWhen: (p, c) => p.request.isOpen != c.request.isOpen,
         builder: (context, state) {
           return CheckboxListTile(
-            title: const Text("Estou disponivel para salvar vidas"),
+            title: const Text("Aberto"),
             value: state.request.isOpen,
             onChanged: (newValue) {
               context.bloc<RequestFormBloc>() .add(RequestFormEvent.isOpenChanged(!state.request.isOpen));

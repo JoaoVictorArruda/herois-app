@@ -22,12 +22,15 @@ class _$InfoDtoTearOff {
       @required String bloodType,
       @required String gender,
       @required String bio,
-      @required String photoUrl,
+      String photoUrl,
       @required String lat,
       @required String long,
-      @required String city,
+      String city,
       @required String name,
-      @required bool isVisible}) {
+      bool isVisible,
+      bool neverDonated,
+      int totalRequests,
+      String dateLastDonate}) {
     return _InfoDto(
       id: id,
       bloodType: bloodType,
@@ -39,6 +42,9 @@ class _$InfoDtoTearOff {
       city: city,
       name: name,
       isVisible: isVisible,
+      neverDonated: neverDonated,
+      totalRequests: totalRequests,
+      dateLastDonate: dateLastDonate,
     );
   }
 
@@ -65,6 +71,9 @@ mixin _$InfoDto {
   String get city;
   String get name;
   bool get isVisible;
+  bool get neverDonated;
+  int get totalRequests;
+  String get dateLastDonate;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -85,7 +94,10 @@ abstract class $InfoDtoCopyWith<$Res> {
       String long,
       String city,
       String name,
-      bool isVisible});
+      bool isVisible,
+      bool neverDonated,
+      int totalRequests,
+      String dateLastDonate});
 }
 
 /// @nodoc
@@ -108,6 +120,9 @@ class _$InfoDtoCopyWithImpl<$Res> implements $InfoDtoCopyWith<$Res> {
     Object city = freezed,
     Object name = freezed,
     Object isVisible = freezed,
+    Object neverDonated = freezed,
+    Object totalRequests = freezed,
+    Object dateLastDonate = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
@@ -120,6 +135,14 @@ class _$InfoDtoCopyWithImpl<$Res> implements $InfoDtoCopyWith<$Res> {
       city: city == freezed ? _value.city : city as String,
       name: name == freezed ? _value.name : name as String,
       isVisible: isVisible == freezed ? _value.isVisible : isVisible as bool,
+      neverDonated:
+          neverDonated == freezed ? _value.neverDonated : neverDonated as bool,
+      totalRequests: totalRequests == freezed
+          ? _value.totalRequests
+          : totalRequests as int,
+      dateLastDonate: dateLastDonate == freezed
+          ? _value.dateLastDonate
+          : dateLastDonate as String,
     ));
   }
 }
@@ -139,7 +162,10 @@ abstract class _$InfoDtoCopyWith<$Res> implements $InfoDtoCopyWith<$Res> {
       String long,
       String city,
       String name,
-      bool isVisible});
+      bool isVisible,
+      bool neverDonated,
+      int totalRequests,
+      String dateLastDonate});
 }
 
 /// @nodoc
@@ -163,6 +189,9 @@ class __$InfoDtoCopyWithImpl<$Res> extends _$InfoDtoCopyWithImpl<$Res>
     Object city = freezed,
     Object name = freezed,
     Object isVisible = freezed,
+    Object neverDonated = freezed,
+    Object totalRequests = freezed,
+    Object dateLastDonate = freezed,
   }) {
     return _then(_InfoDto(
       id: id == freezed ? _value.id : id as String,
@@ -175,6 +204,14 @@ class __$InfoDtoCopyWithImpl<$Res> extends _$InfoDtoCopyWithImpl<$Res>
       city: city == freezed ? _value.city : city as String,
       name: name == freezed ? _value.name : name as String,
       isVisible: isVisible == freezed ? _value.isVisible : isVisible as bool,
+      neverDonated:
+          neverDonated == freezed ? _value.neverDonated : neverDonated as bool,
+      totalRequests: totalRequests == freezed
+          ? _value.totalRequests
+          : totalRequests as int,
+      dateLastDonate: dateLastDonate == freezed
+          ? _value.dateLastDonate
+          : dateLastDonate as String,
     ));
   }
 }
@@ -188,21 +225,21 @@ class _$_InfoDto extends _InfoDto {
       @required this.bloodType,
       @required this.gender,
       @required this.bio,
-      @required this.photoUrl,
+      this.photoUrl,
       @required this.lat,
       @required this.long,
-      @required this.city,
+      this.city,
       @required this.name,
-      @required this.isVisible})
+      this.isVisible,
+      this.neverDonated,
+      this.totalRequests,
+      this.dateLastDonate})
       : assert(bloodType != null),
         assert(gender != null),
         assert(bio != null),
-        assert(photoUrl != null),
         assert(lat != null),
         assert(long != null),
-        assert(city != null),
         assert(name != null),
-        assert(isVisible != null),
         super._();
 
   factory _$_InfoDto.fromJson(Map<String, dynamic> json) =>
@@ -229,10 +266,16 @@ class _$_InfoDto extends _InfoDto {
   final String name;
   @override
   final bool isVisible;
+  @override
+  final bool neverDonated;
+  @override
+  final int totalRequests;
+  @override
+  final String dateLastDonate;
 
   @override
   String toString() {
-    return 'InfoDto(id: $id, bloodType: $bloodType, gender: $gender, bio: $bio, photoUrl: $photoUrl, lat: $lat, long: $long, city: $city, name: $name, isVisible: $isVisible)';
+    return 'InfoDto(id: $id, bloodType: $bloodType, gender: $gender, bio: $bio, photoUrl: $photoUrl, lat: $lat, long: $long, city: $city, name: $name, isVisible: $isVisible, neverDonated: $neverDonated, totalRequests: $totalRequests, dateLastDonate: $dateLastDonate)';
   }
 
   @override
@@ -261,7 +304,16 @@ class _$_InfoDto extends _InfoDto {
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.isVisible, isVisible) ||
                 const DeepCollectionEquality()
-                    .equals(other.isVisible, isVisible)));
+                    .equals(other.isVisible, isVisible)) &&
+            (identical(other.neverDonated, neverDonated) ||
+                const DeepCollectionEquality()
+                    .equals(other.neverDonated, neverDonated)) &&
+            (identical(other.totalRequests, totalRequests) ||
+                const DeepCollectionEquality()
+                    .equals(other.totalRequests, totalRequests)) &&
+            (identical(other.dateLastDonate, dateLastDonate) ||
+                const DeepCollectionEquality()
+                    .equals(other.dateLastDonate, dateLastDonate)));
   }
 
   @override
@@ -276,7 +328,10 @@ class _$_InfoDto extends _InfoDto {
       const DeepCollectionEquality().hash(long) ^
       const DeepCollectionEquality().hash(city) ^
       const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(isVisible);
+      const DeepCollectionEquality().hash(isVisible) ^
+      const DeepCollectionEquality().hash(neverDonated) ^
+      const DeepCollectionEquality().hash(totalRequests) ^
+      const DeepCollectionEquality().hash(dateLastDonate);
 
   @JsonKey(ignore: true)
   @override
@@ -296,12 +351,15 @@ abstract class _InfoDto extends InfoDto {
       @required String bloodType,
       @required String gender,
       @required String bio,
-      @required String photoUrl,
+      String photoUrl,
       @required String lat,
       @required String long,
-      @required String city,
+      String city,
       @required String name,
-      @required bool isVisible}) = _$_InfoDto;
+      bool isVisible,
+      bool neverDonated,
+      int totalRequests,
+      String dateLastDonate}) = _$_InfoDto;
 
   factory _InfoDto.fromJson(Map<String, dynamic> json) = _$_InfoDto.fromJson;
 
@@ -326,6 +384,12 @@ abstract class _InfoDto extends InfoDto {
   String get name;
   @override
   bool get isVisible;
+  @override
+  bool get neverDonated;
+  @override
+  int get totalRequests;
+  @override
+  String get dateLastDonate;
   @override
   @JsonKey(ignore: true)
   _$InfoDtoCopyWith<_InfoDto> get copyWith;

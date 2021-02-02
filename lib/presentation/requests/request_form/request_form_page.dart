@@ -132,7 +132,7 @@ class RequestFormPageScaffold extends StatelessWidget {
           title: BlocBuilder<RequestFormBloc, RequestFormState>(
             buildWhen: (p, c) => p.isEditing != c.isEditing,
             builder: (context, state) => Text(
-              state.isEditing ? 'Editar Requisição' : 'Nova Requisição',
+              state.isEditing ? 'Editar solicitação' : 'Solicitar sangue',
               style: GoogleFonts.montserrat(
                 textStyle: const TextStyle(
                     color: Colors.black,
@@ -166,9 +166,9 @@ class RequestFormPageScaffold extends StatelessWidget {
               child: CustomScrollView(
                 slivers: <Widget>[
                   const SliverToBoxAdapter(child: ImagePickerField()),
-                  const SliverToBoxAdapter(child: BloodTypeWidget()),
                   const SliverToBoxAdapter(child: NameInputField()),
                   const SliverToBoxAdapter(child: MapsPickerInputField()),
+                  const SliverToBoxAdapter(child: BloodTypeWidget()),
                   const SliverToBoxAdapter(child: IsOpenInputField()),
                 ],
               ),

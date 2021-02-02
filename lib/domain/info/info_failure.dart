@@ -9,4 +9,6 @@ abstract class InfoFailure with _$InfoFailure {
   const factory InfoFailure.insufficientPermissions() = InsufficientPermissions;
 
   const factory InfoFailure.unableToUpdate() = UnableToUpdate;
+
+  const factory InfoFailure.unavailableToDonate() = UnavailableToDonate;
 }

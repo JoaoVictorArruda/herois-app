@@ -73,6 +73,20 @@ class _$InfoFormEventTearOff {
   }
 
 // ignore: unused_element
+  _DateLastDonateChange dateLastDonateChange(String dateLastDonateStr) {
+    return _DateLastDonateChange(
+      dateLastDonateStr,
+    );
+  }
+
+// ignore: unused_element
+  _NeverDonatedChange neverDonatedChange(bool neverDonatedBool) {
+    return _NeverDonatedChange(
+      neverDonatedBool,
+    );
+  }
+
+// ignore: unused_element
   _Saved saved() {
     return const _Saved();
   }
@@ -94,6 +108,8 @@ mixin _$InfoFormEvent {
     @required TResult photoUrlChanged(String photoUrl),
     @required TResult bioChanged(String bioStr),
     @required TResult isVisibleChanged(bool isVisibleBool),
+    @required TResult dateLastDonateChange(String dateLastDonateStr),
+    @required TResult neverDonatedChange(bool neverDonatedBool),
     @required TResult saved(),
   });
   @optionalTypeArgs
@@ -106,6 +122,8 @@ mixin _$InfoFormEvent {
     TResult photoUrlChanged(String photoUrl),
     TResult bioChanged(String bioStr),
     TResult isVisibleChanged(bool isVisibleBool),
+    TResult dateLastDonateChange(String dateLastDonateStr),
+    TResult neverDonatedChange(bool neverDonatedBool),
     TResult saved(),
     @required TResult orElse(),
   });
@@ -119,6 +137,8 @@ mixin _$InfoFormEvent {
     @required TResult photoUrlChanged(_PhotoUrlChanged value),
     @required TResult bioChanged(_BioChanged value),
     @required TResult isVisibleChanged(_IsVisibleChanged value),
+    @required TResult dateLastDonateChange(_DateLastDonateChange value),
+    @required TResult neverDonatedChange(_NeverDonatedChange value),
     @required TResult saved(_Saved value),
   });
   @optionalTypeArgs
@@ -131,6 +151,8 @@ mixin _$InfoFormEvent {
     TResult photoUrlChanged(_PhotoUrlChanged value),
     TResult bioChanged(_BioChanged value),
     TResult isVisibleChanged(_IsVisibleChanged value),
+    TResult dateLastDonateChange(_DateLastDonateChange value),
+    TResult neverDonatedChange(_NeverDonatedChange value),
     TResult saved(_Saved value),
     @required TResult orElse(),
   });
@@ -226,6 +248,8 @@ class _$_Initialized implements _Initialized {
     @required TResult photoUrlChanged(String photoUrl),
     @required TResult bioChanged(String bioStr),
     @required TResult isVisibleChanged(bool isVisibleBool),
+    @required TResult dateLastDonateChange(String dateLastDonateStr),
+    @required TResult neverDonatedChange(bool neverDonatedBool),
     @required TResult saved(),
   }) {
     assert(initialized != null);
@@ -236,6 +260,8 @@ class _$_Initialized implements _Initialized {
     assert(photoUrlChanged != null);
     assert(bioChanged != null);
     assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
     assert(saved != null);
     return initialized(initialInfoOption);
   }
@@ -251,6 +277,8 @@ class _$_Initialized implements _Initialized {
     TResult photoUrlChanged(String photoUrl),
     TResult bioChanged(String bioStr),
     TResult isVisibleChanged(bool isVisibleBool),
+    TResult dateLastDonateChange(String dateLastDonateStr),
+    TResult neverDonatedChange(bool neverDonatedBool),
     TResult saved(),
     @required TResult orElse(),
   }) {
@@ -272,6 +300,8 @@ class _$_Initialized implements _Initialized {
     @required TResult photoUrlChanged(_PhotoUrlChanged value),
     @required TResult bioChanged(_BioChanged value),
     @required TResult isVisibleChanged(_IsVisibleChanged value),
+    @required TResult dateLastDonateChange(_DateLastDonateChange value),
+    @required TResult neverDonatedChange(_NeverDonatedChange value),
     @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
@@ -282,6 +312,8 @@ class _$_Initialized implements _Initialized {
     assert(photoUrlChanged != null);
     assert(bioChanged != null);
     assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
     assert(saved != null);
     return initialized(this);
   }
@@ -297,6 +329,8 @@ class _$_Initialized implements _Initialized {
     TResult photoUrlChanged(_PhotoUrlChanged value),
     TResult bioChanged(_BioChanged value),
     TResult isVisibleChanged(_IsVisibleChanged value),
+    TResult dateLastDonateChange(_DateLastDonateChange value),
+    TResult neverDonatedChange(_NeverDonatedChange value),
     TResult saved(_Saved value),
     @required TResult orElse(),
   }) {
@@ -386,6 +420,8 @@ class _$_GenderChanged implements _GenderChanged {
     @required TResult photoUrlChanged(String photoUrl),
     @required TResult bioChanged(String bioStr),
     @required TResult isVisibleChanged(bool isVisibleBool),
+    @required TResult dateLastDonateChange(String dateLastDonateStr),
+    @required TResult neverDonatedChange(bool neverDonatedBool),
     @required TResult saved(),
   }) {
     assert(initialized != null);
@@ -396,6 +432,8 @@ class _$_GenderChanged implements _GenderChanged {
     assert(photoUrlChanged != null);
     assert(bioChanged != null);
     assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
     assert(saved != null);
     return genderChanged(genderStr);
   }
@@ -411,6 +449,8 @@ class _$_GenderChanged implements _GenderChanged {
     TResult photoUrlChanged(String photoUrl),
     TResult bioChanged(String bioStr),
     TResult isVisibleChanged(bool isVisibleBool),
+    TResult dateLastDonateChange(String dateLastDonateStr),
+    TResult neverDonatedChange(bool neverDonatedBool),
     TResult saved(),
     @required TResult orElse(),
   }) {
@@ -432,6 +472,8 @@ class _$_GenderChanged implements _GenderChanged {
     @required TResult photoUrlChanged(_PhotoUrlChanged value),
     @required TResult bioChanged(_BioChanged value),
     @required TResult isVisibleChanged(_IsVisibleChanged value),
+    @required TResult dateLastDonateChange(_DateLastDonateChange value),
+    @required TResult neverDonatedChange(_NeverDonatedChange value),
     @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
@@ -442,6 +484,8 @@ class _$_GenderChanged implements _GenderChanged {
     assert(photoUrlChanged != null);
     assert(bioChanged != null);
     assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
     assert(saved != null);
     return genderChanged(this);
   }
@@ -457,6 +501,8 @@ class _$_GenderChanged implements _GenderChanged {
     TResult photoUrlChanged(_PhotoUrlChanged value),
     TResult bioChanged(_BioChanged value),
     TResult isVisibleChanged(_IsVisibleChanged value),
+    TResult dateLastDonateChange(_DateLastDonateChange value),
+    TResult neverDonatedChange(_NeverDonatedChange value),
     TResult saved(_Saved value),
     @required TResult orElse(),
   }) {
@@ -546,6 +592,8 @@ class _$_BloodTypeChanged implements _BloodTypeChanged {
     @required TResult photoUrlChanged(String photoUrl),
     @required TResult bioChanged(String bioStr),
     @required TResult isVisibleChanged(bool isVisibleBool),
+    @required TResult dateLastDonateChange(String dateLastDonateStr),
+    @required TResult neverDonatedChange(bool neverDonatedBool),
     @required TResult saved(),
   }) {
     assert(initialized != null);
@@ -556,6 +604,8 @@ class _$_BloodTypeChanged implements _BloodTypeChanged {
     assert(photoUrlChanged != null);
     assert(bioChanged != null);
     assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
     assert(saved != null);
     return bloodTypeChanged(bloodType);
   }
@@ -571,6 +621,8 @@ class _$_BloodTypeChanged implements _BloodTypeChanged {
     TResult photoUrlChanged(String photoUrl),
     TResult bioChanged(String bioStr),
     TResult isVisibleChanged(bool isVisibleBool),
+    TResult dateLastDonateChange(String dateLastDonateStr),
+    TResult neverDonatedChange(bool neverDonatedBool),
     TResult saved(),
     @required TResult orElse(),
   }) {
@@ -592,6 +644,8 @@ class _$_BloodTypeChanged implements _BloodTypeChanged {
     @required TResult photoUrlChanged(_PhotoUrlChanged value),
     @required TResult bioChanged(_BioChanged value),
     @required TResult isVisibleChanged(_IsVisibleChanged value),
+    @required TResult dateLastDonateChange(_DateLastDonateChange value),
+    @required TResult neverDonatedChange(_NeverDonatedChange value),
     @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
@@ -602,6 +656,8 @@ class _$_BloodTypeChanged implements _BloodTypeChanged {
     assert(photoUrlChanged != null);
     assert(bioChanged != null);
     assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
     assert(saved != null);
     return bloodTypeChanged(this);
   }
@@ -617,6 +673,8 @@ class _$_BloodTypeChanged implements _BloodTypeChanged {
     TResult photoUrlChanged(_PhotoUrlChanged value),
     TResult bioChanged(_BioChanged value),
     TResult isVisibleChanged(_IsVisibleChanged value),
+    TResult dateLastDonateChange(_DateLastDonateChange value),
+    TResult neverDonatedChange(_NeverDonatedChange value),
     TResult saved(_Saved value),
     @required TResult orElse(),
   }) {
@@ -704,6 +762,8 @@ class _$_NameChanged implements _NameChanged {
     @required TResult photoUrlChanged(String photoUrl),
     @required TResult bioChanged(String bioStr),
     @required TResult isVisibleChanged(bool isVisibleBool),
+    @required TResult dateLastDonateChange(String dateLastDonateStr),
+    @required TResult neverDonatedChange(bool neverDonatedBool),
     @required TResult saved(),
   }) {
     assert(initialized != null);
@@ -714,6 +774,8 @@ class _$_NameChanged implements _NameChanged {
     assert(photoUrlChanged != null);
     assert(bioChanged != null);
     assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
     assert(saved != null);
     return nameChanged(nameStr);
   }
@@ -729,6 +791,8 @@ class _$_NameChanged implements _NameChanged {
     TResult photoUrlChanged(String photoUrl),
     TResult bioChanged(String bioStr),
     TResult isVisibleChanged(bool isVisibleBool),
+    TResult dateLastDonateChange(String dateLastDonateStr),
+    TResult neverDonatedChange(bool neverDonatedBool),
     TResult saved(),
     @required TResult orElse(),
   }) {
@@ -750,6 +814,8 @@ class _$_NameChanged implements _NameChanged {
     @required TResult photoUrlChanged(_PhotoUrlChanged value),
     @required TResult bioChanged(_BioChanged value),
     @required TResult isVisibleChanged(_IsVisibleChanged value),
+    @required TResult dateLastDonateChange(_DateLastDonateChange value),
+    @required TResult neverDonatedChange(_NeverDonatedChange value),
     @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
@@ -760,6 +826,8 @@ class _$_NameChanged implements _NameChanged {
     assert(photoUrlChanged != null);
     assert(bioChanged != null);
     assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
     assert(saved != null);
     return nameChanged(this);
   }
@@ -775,6 +843,8 @@ class _$_NameChanged implements _NameChanged {
     TResult photoUrlChanged(_PhotoUrlChanged value),
     TResult bioChanged(_BioChanged value),
     TResult isVisibleChanged(_IsVisibleChanged value),
+    TResult dateLastDonateChange(_DateLastDonateChange value),
+    TResult neverDonatedChange(_NeverDonatedChange value),
     TResult saved(_Saved value),
     @required TResult orElse(),
   }) {
@@ -882,6 +952,8 @@ class _$_LocalizationChanged implements _LocalizationChanged {
     @required TResult photoUrlChanged(String photoUrl),
     @required TResult bioChanged(String bioStr),
     @required TResult isVisibleChanged(bool isVisibleBool),
+    @required TResult dateLastDonateChange(String dateLastDonateStr),
+    @required TResult neverDonatedChange(bool neverDonatedBool),
     @required TResult saved(),
   }) {
     assert(initialized != null);
@@ -892,6 +964,8 @@ class _$_LocalizationChanged implements _LocalizationChanged {
     assert(photoUrlChanged != null);
     assert(bioChanged != null);
     assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
     assert(saved != null);
     return localizationChanged(city, lat, long);
   }
@@ -907,6 +981,8 @@ class _$_LocalizationChanged implements _LocalizationChanged {
     TResult photoUrlChanged(String photoUrl),
     TResult bioChanged(String bioStr),
     TResult isVisibleChanged(bool isVisibleBool),
+    TResult dateLastDonateChange(String dateLastDonateStr),
+    TResult neverDonatedChange(bool neverDonatedBool),
     TResult saved(),
     @required TResult orElse(),
   }) {
@@ -928,6 +1004,8 @@ class _$_LocalizationChanged implements _LocalizationChanged {
     @required TResult photoUrlChanged(_PhotoUrlChanged value),
     @required TResult bioChanged(_BioChanged value),
     @required TResult isVisibleChanged(_IsVisibleChanged value),
+    @required TResult dateLastDonateChange(_DateLastDonateChange value),
+    @required TResult neverDonatedChange(_NeverDonatedChange value),
     @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
@@ -938,6 +1016,8 @@ class _$_LocalizationChanged implements _LocalizationChanged {
     assert(photoUrlChanged != null);
     assert(bioChanged != null);
     assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
     assert(saved != null);
     return localizationChanged(this);
   }
@@ -953,6 +1033,8 @@ class _$_LocalizationChanged implements _LocalizationChanged {
     TResult photoUrlChanged(_PhotoUrlChanged value),
     TResult bioChanged(_BioChanged value),
     TResult isVisibleChanged(_IsVisibleChanged value),
+    TResult dateLastDonateChange(_DateLastDonateChange value),
+    TResult neverDonatedChange(_NeverDonatedChange value),
     TResult saved(_Saved value),
     @required TResult orElse(),
   }) {
@@ -1045,6 +1127,8 @@ class _$_PhotoUrlChanged implements _PhotoUrlChanged {
     @required TResult photoUrlChanged(String photoUrl),
     @required TResult bioChanged(String bioStr),
     @required TResult isVisibleChanged(bool isVisibleBool),
+    @required TResult dateLastDonateChange(String dateLastDonateStr),
+    @required TResult neverDonatedChange(bool neverDonatedBool),
     @required TResult saved(),
   }) {
     assert(initialized != null);
@@ -1055,6 +1139,8 @@ class _$_PhotoUrlChanged implements _PhotoUrlChanged {
     assert(photoUrlChanged != null);
     assert(bioChanged != null);
     assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
     assert(saved != null);
     return photoUrlChanged(photoUrl);
   }
@@ -1070,6 +1156,8 @@ class _$_PhotoUrlChanged implements _PhotoUrlChanged {
     TResult photoUrlChanged(String photoUrl),
     TResult bioChanged(String bioStr),
     TResult isVisibleChanged(bool isVisibleBool),
+    TResult dateLastDonateChange(String dateLastDonateStr),
+    TResult neverDonatedChange(bool neverDonatedBool),
     TResult saved(),
     @required TResult orElse(),
   }) {
@@ -1091,6 +1179,8 @@ class _$_PhotoUrlChanged implements _PhotoUrlChanged {
     @required TResult photoUrlChanged(_PhotoUrlChanged value),
     @required TResult bioChanged(_BioChanged value),
     @required TResult isVisibleChanged(_IsVisibleChanged value),
+    @required TResult dateLastDonateChange(_DateLastDonateChange value),
+    @required TResult neverDonatedChange(_NeverDonatedChange value),
     @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
@@ -1101,6 +1191,8 @@ class _$_PhotoUrlChanged implements _PhotoUrlChanged {
     assert(photoUrlChanged != null);
     assert(bioChanged != null);
     assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
     assert(saved != null);
     return photoUrlChanged(this);
   }
@@ -1116,6 +1208,8 @@ class _$_PhotoUrlChanged implements _PhotoUrlChanged {
     TResult photoUrlChanged(_PhotoUrlChanged value),
     TResult bioChanged(_BioChanged value),
     TResult isVisibleChanged(_IsVisibleChanged value),
+    TResult dateLastDonateChange(_DateLastDonateChange value),
+    TResult neverDonatedChange(_NeverDonatedChange value),
     TResult saved(_Saved value),
     @required TResult orElse(),
   }) {
@@ -1203,6 +1297,8 @@ class _$_BioChanged implements _BioChanged {
     @required TResult photoUrlChanged(String photoUrl),
     @required TResult bioChanged(String bioStr),
     @required TResult isVisibleChanged(bool isVisibleBool),
+    @required TResult dateLastDonateChange(String dateLastDonateStr),
+    @required TResult neverDonatedChange(bool neverDonatedBool),
     @required TResult saved(),
   }) {
     assert(initialized != null);
@@ -1213,6 +1309,8 @@ class _$_BioChanged implements _BioChanged {
     assert(photoUrlChanged != null);
     assert(bioChanged != null);
     assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
     assert(saved != null);
     return bioChanged(bioStr);
   }
@@ -1228,6 +1326,8 @@ class _$_BioChanged implements _BioChanged {
     TResult photoUrlChanged(String photoUrl),
     TResult bioChanged(String bioStr),
     TResult isVisibleChanged(bool isVisibleBool),
+    TResult dateLastDonateChange(String dateLastDonateStr),
+    TResult neverDonatedChange(bool neverDonatedBool),
     TResult saved(),
     @required TResult orElse(),
   }) {
@@ -1249,6 +1349,8 @@ class _$_BioChanged implements _BioChanged {
     @required TResult photoUrlChanged(_PhotoUrlChanged value),
     @required TResult bioChanged(_BioChanged value),
     @required TResult isVisibleChanged(_IsVisibleChanged value),
+    @required TResult dateLastDonateChange(_DateLastDonateChange value),
+    @required TResult neverDonatedChange(_NeverDonatedChange value),
     @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
@@ -1259,6 +1361,8 @@ class _$_BioChanged implements _BioChanged {
     assert(photoUrlChanged != null);
     assert(bioChanged != null);
     assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
     assert(saved != null);
     return bioChanged(this);
   }
@@ -1274,6 +1378,8 @@ class _$_BioChanged implements _BioChanged {
     TResult photoUrlChanged(_PhotoUrlChanged value),
     TResult bioChanged(_BioChanged value),
     TResult isVisibleChanged(_IsVisibleChanged value),
+    TResult dateLastDonateChange(_DateLastDonateChange value),
+    TResult neverDonatedChange(_NeverDonatedChange value),
     TResult saved(_Saved value),
     @required TResult orElse(),
   }) {
@@ -1363,6 +1469,8 @@ class _$_IsVisibleChanged implements _IsVisibleChanged {
     @required TResult photoUrlChanged(String photoUrl),
     @required TResult bioChanged(String bioStr),
     @required TResult isVisibleChanged(bool isVisibleBool),
+    @required TResult dateLastDonateChange(String dateLastDonateStr),
+    @required TResult neverDonatedChange(bool neverDonatedBool),
     @required TResult saved(),
   }) {
     assert(initialized != null);
@@ -1373,6 +1481,8 @@ class _$_IsVisibleChanged implements _IsVisibleChanged {
     assert(photoUrlChanged != null);
     assert(bioChanged != null);
     assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
     assert(saved != null);
     return isVisibleChanged(isVisibleBool);
   }
@@ -1388,6 +1498,8 @@ class _$_IsVisibleChanged implements _IsVisibleChanged {
     TResult photoUrlChanged(String photoUrl),
     TResult bioChanged(String bioStr),
     TResult isVisibleChanged(bool isVisibleBool),
+    TResult dateLastDonateChange(String dateLastDonateStr),
+    TResult neverDonatedChange(bool neverDonatedBool),
     TResult saved(),
     @required TResult orElse(),
   }) {
@@ -1409,6 +1521,8 @@ class _$_IsVisibleChanged implements _IsVisibleChanged {
     @required TResult photoUrlChanged(_PhotoUrlChanged value),
     @required TResult bioChanged(_BioChanged value),
     @required TResult isVisibleChanged(_IsVisibleChanged value),
+    @required TResult dateLastDonateChange(_DateLastDonateChange value),
+    @required TResult neverDonatedChange(_NeverDonatedChange value),
     @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
@@ -1419,6 +1533,8 @@ class _$_IsVisibleChanged implements _IsVisibleChanged {
     assert(photoUrlChanged != null);
     assert(bioChanged != null);
     assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
     assert(saved != null);
     return isVisibleChanged(this);
   }
@@ -1434,6 +1550,8 @@ class _$_IsVisibleChanged implements _IsVisibleChanged {
     TResult photoUrlChanged(_PhotoUrlChanged value),
     TResult bioChanged(_BioChanged value),
     TResult isVisibleChanged(_IsVisibleChanged value),
+    TResult dateLastDonateChange(_DateLastDonateChange value),
+    TResult neverDonatedChange(_NeverDonatedChange value),
     TResult saved(_Saved value),
     @required TResult orElse(),
   }) {
@@ -1451,6 +1569,361 @@ abstract class _IsVisibleChanged implements InfoFormEvent {
   bool get isVisibleBool;
   @JsonKey(ignore: true)
   _$IsVisibleChangedCopyWith<_IsVisibleChanged> get copyWith;
+}
+
+/// @nodoc
+abstract class _$DateLastDonateChangeCopyWith<$Res> {
+  factory _$DateLastDonateChangeCopyWith(_DateLastDonateChange value,
+          $Res Function(_DateLastDonateChange) then) =
+      __$DateLastDonateChangeCopyWithImpl<$Res>;
+  $Res call({String dateLastDonateStr});
+}
+
+/// @nodoc
+class __$DateLastDonateChangeCopyWithImpl<$Res>
+    extends _$InfoFormEventCopyWithImpl<$Res>
+    implements _$DateLastDonateChangeCopyWith<$Res> {
+  __$DateLastDonateChangeCopyWithImpl(
+      _DateLastDonateChange _value, $Res Function(_DateLastDonateChange) _then)
+      : super(_value, (v) => _then(v as _DateLastDonateChange));
+
+  @override
+  _DateLastDonateChange get _value => super._value as _DateLastDonateChange;
+
+  @override
+  $Res call({
+    Object dateLastDonateStr = freezed,
+  }) {
+    return _then(_DateLastDonateChange(
+      dateLastDonateStr == freezed
+          ? _value.dateLastDonateStr
+          : dateLastDonateStr as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_DateLastDonateChange implements _DateLastDonateChange {
+  const _$_DateLastDonateChange(this.dateLastDonateStr)
+      : assert(dateLastDonateStr != null);
+
+  @override
+  final String dateLastDonateStr;
+
+  @override
+  String toString() {
+    return 'InfoFormEvent.dateLastDonateChange(dateLastDonateStr: $dateLastDonateStr)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _DateLastDonateChange &&
+            (identical(other.dateLastDonateStr, dateLastDonateStr) ||
+                const DeepCollectionEquality()
+                    .equals(other.dateLastDonateStr, dateLastDonateStr)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(dateLastDonateStr);
+
+  @JsonKey(ignore: true)
+  @override
+  _$DateLastDonateChangeCopyWith<_DateLastDonateChange> get copyWith =>
+      __$DateLastDonateChangeCopyWithImpl<_DateLastDonateChange>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Info> initialInfoOption),
+    @required TResult genderChanged(String genderStr),
+    @required TResult bloodTypeChanged(String bloodType),
+    @required TResult nameChanged(String nameStr),
+    @required TResult localizationChanged(String city, String lat, String long),
+    @required TResult photoUrlChanged(String photoUrl),
+    @required TResult bioChanged(String bioStr),
+    @required TResult isVisibleChanged(bool isVisibleBool),
+    @required TResult dateLastDonateChange(String dateLastDonateStr),
+    @required TResult neverDonatedChange(bool neverDonatedBool),
+    @required TResult saved(),
+  }) {
+    assert(initialized != null);
+    assert(genderChanged != null);
+    assert(bloodTypeChanged != null);
+    assert(nameChanged != null);
+    assert(localizationChanged != null);
+    assert(photoUrlChanged != null);
+    assert(bioChanged != null);
+    assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
+    assert(saved != null);
+    return dateLastDonateChange(dateLastDonateStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Info> initialInfoOption),
+    TResult genderChanged(String genderStr),
+    TResult bloodTypeChanged(String bloodType),
+    TResult nameChanged(String nameStr),
+    TResult localizationChanged(String city, String lat, String long),
+    TResult photoUrlChanged(String photoUrl),
+    TResult bioChanged(String bioStr),
+    TResult isVisibleChanged(bool isVisibleBool),
+    TResult dateLastDonateChange(String dateLastDonateStr),
+    TResult neverDonatedChange(bool neverDonatedBool),
+    TResult saved(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (dateLastDonateChange != null) {
+      return dateLastDonateChange(dateLastDonateStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult genderChanged(_GenderChanged value),
+    @required TResult bloodTypeChanged(_BloodTypeChanged value),
+    @required TResult nameChanged(_NameChanged value),
+    @required TResult localizationChanged(_LocalizationChanged value),
+    @required TResult photoUrlChanged(_PhotoUrlChanged value),
+    @required TResult bioChanged(_BioChanged value),
+    @required TResult isVisibleChanged(_IsVisibleChanged value),
+    @required TResult dateLastDonateChange(_DateLastDonateChange value),
+    @required TResult neverDonatedChange(_NeverDonatedChange value),
+    @required TResult saved(_Saved value),
+  }) {
+    assert(initialized != null);
+    assert(genderChanged != null);
+    assert(bloodTypeChanged != null);
+    assert(nameChanged != null);
+    assert(localizationChanged != null);
+    assert(photoUrlChanged != null);
+    assert(bioChanged != null);
+    assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
+    assert(saved != null);
+    return dateLastDonateChange(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult genderChanged(_GenderChanged value),
+    TResult bloodTypeChanged(_BloodTypeChanged value),
+    TResult nameChanged(_NameChanged value),
+    TResult localizationChanged(_LocalizationChanged value),
+    TResult photoUrlChanged(_PhotoUrlChanged value),
+    TResult bioChanged(_BioChanged value),
+    TResult isVisibleChanged(_IsVisibleChanged value),
+    TResult dateLastDonateChange(_DateLastDonateChange value),
+    TResult neverDonatedChange(_NeverDonatedChange value),
+    TResult saved(_Saved value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (dateLastDonateChange != null) {
+      return dateLastDonateChange(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DateLastDonateChange implements InfoFormEvent {
+  const factory _DateLastDonateChange(String dateLastDonateStr) =
+      _$_DateLastDonateChange;
+
+  String get dateLastDonateStr;
+  @JsonKey(ignore: true)
+  _$DateLastDonateChangeCopyWith<_DateLastDonateChange> get copyWith;
+}
+
+/// @nodoc
+abstract class _$NeverDonatedChangeCopyWith<$Res> {
+  factory _$NeverDonatedChangeCopyWith(
+          _NeverDonatedChange value, $Res Function(_NeverDonatedChange) then) =
+      __$NeverDonatedChangeCopyWithImpl<$Res>;
+  $Res call({bool neverDonatedBool});
+}
+
+/// @nodoc
+class __$NeverDonatedChangeCopyWithImpl<$Res>
+    extends _$InfoFormEventCopyWithImpl<$Res>
+    implements _$NeverDonatedChangeCopyWith<$Res> {
+  __$NeverDonatedChangeCopyWithImpl(
+      _NeverDonatedChange _value, $Res Function(_NeverDonatedChange) _then)
+      : super(_value, (v) => _then(v as _NeverDonatedChange));
+
+  @override
+  _NeverDonatedChange get _value => super._value as _NeverDonatedChange;
+
+  @override
+  $Res call({
+    Object neverDonatedBool = freezed,
+  }) {
+    return _then(_NeverDonatedChange(
+      neverDonatedBool == freezed
+          ? _value.neverDonatedBool
+          : neverDonatedBool as bool,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_NeverDonatedChange implements _NeverDonatedChange {
+  const _$_NeverDonatedChange(this.neverDonatedBool)
+      : assert(neverDonatedBool != null);
+
+  @override
+  final bool neverDonatedBool;
+
+  @override
+  String toString() {
+    return 'InfoFormEvent.neverDonatedChange(neverDonatedBool: $neverDonatedBool)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _NeverDonatedChange &&
+            (identical(other.neverDonatedBool, neverDonatedBool) ||
+                const DeepCollectionEquality()
+                    .equals(other.neverDonatedBool, neverDonatedBool)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(neverDonatedBool);
+
+  @JsonKey(ignore: true)
+  @override
+  _$NeverDonatedChangeCopyWith<_NeverDonatedChange> get copyWith =>
+      __$NeverDonatedChangeCopyWithImpl<_NeverDonatedChange>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Info> initialInfoOption),
+    @required TResult genderChanged(String genderStr),
+    @required TResult bloodTypeChanged(String bloodType),
+    @required TResult nameChanged(String nameStr),
+    @required TResult localizationChanged(String city, String lat, String long),
+    @required TResult photoUrlChanged(String photoUrl),
+    @required TResult bioChanged(String bioStr),
+    @required TResult isVisibleChanged(bool isVisibleBool),
+    @required TResult dateLastDonateChange(String dateLastDonateStr),
+    @required TResult neverDonatedChange(bool neverDonatedBool),
+    @required TResult saved(),
+  }) {
+    assert(initialized != null);
+    assert(genderChanged != null);
+    assert(bloodTypeChanged != null);
+    assert(nameChanged != null);
+    assert(localizationChanged != null);
+    assert(photoUrlChanged != null);
+    assert(bioChanged != null);
+    assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
+    assert(saved != null);
+    return neverDonatedChange(neverDonatedBool);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Info> initialInfoOption),
+    TResult genderChanged(String genderStr),
+    TResult bloodTypeChanged(String bloodType),
+    TResult nameChanged(String nameStr),
+    TResult localizationChanged(String city, String lat, String long),
+    TResult photoUrlChanged(String photoUrl),
+    TResult bioChanged(String bioStr),
+    TResult isVisibleChanged(bool isVisibleBool),
+    TResult dateLastDonateChange(String dateLastDonateStr),
+    TResult neverDonatedChange(bool neverDonatedBool),
+    TResult saved(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (neverDonatedChange != null) {
+      return neverDonatedChange(neverDonatedBool);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult genderChanged(_GenderChanged value),
+    @required TResult bloodTypeChanged(_BloodTypeChanged value),
+    @required TResult nameChanged(_NameChanged value),
+    @required TResult localizationChanged(_LocalizationChanged value),
+    @required TResult photoUrlChanged(_PhotoUrlChanged value),
+    @required TResult bioChanged(_BioChanged value),
+    @required TResult isVisibleChanged(_IsVisibleChanged value),
+    @required TResult dateLastDonateChange(_DateLastDonateChange value),
+    @required TResult neverDonatedChange(_NeverDonatedChange value),
+    @required TResult saved(_Saved value),
+  }) {
+    assert(initialized != null);
+    assert(genderChanged != null);
+    assert(bloodTypeChanged != null);
+    assert(nameChanged != null);
+    assert(localizationChanged != null);
+    assert(photoUrlChanged != null);
+    assert(bioChanged != null);
+    assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
+    assert(saved != null);
+    return neverDonatedChange(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult genderChanged(_GenderChanged value),
+    TResult bloodTypeChanged(_BloodTypeChanged value),
+    TResult nameChanged(_NameChanged value),
+    TResult localizationChanged(_LocalizationChanged value),
+    TResult photoUrlChanged(_PhotoUrlChanged value),
+    TResult bioChanged(_BioChanged value),
+    TResult isVisibleChanged(_IsVisibleChanged value),
+    TResult dateLastDonateChange(_DateLastDonateChange value),
+    TResult neverDonatedChange(_NeverDonatedChange value),
+    TResult saved(_Saved value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (neverDonatedChange != null) {
+      return neverDonatedChange(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NeverDonatedChange implements InfoFormEvent {
+  const factory _NeverDonatedChange(bool neverDonatedBool) =
+      _$_NeverDonatedChange;
+
+  bool get neverDonatedBool;
+  @JsonKey(ignore: true)
+  _$NeverDonatedChangeCopyWith<_NeverDonatedChange> get copyWith;
 }
 
 /// @nodoc
@@ -1497,6 +1970,8 @@ class _$_Saved implements _Saved {
     @required TResult photoUrlChanged(String photoUrl),
     @required TResult bioChanged(String bioStr),
     @required TResult isVisibleChanged(bool isVisibleBool),
+    @required TResult dateLastDonateChange(String dateLastDonateStr),
+    @required TResult neverDonatedChange(bool neverDonatedBool),
     @required TResult saved(),
   }) {
     assert(initialized != null);
@@ -1507,6 +1982,8 @@ class _$_Saved implements _Saved {
     assert(photoUrlChanged != null);
     assert(bioChanged != null);
     assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
     assert(saved != null);
     return saved();
   }
@@ -1522,6 +1999,8 @@ class _$_Saved implements _Saved {
     TResult photoUrlChanged(String photoUrl),
     TResult bioChanged(String bioStr),
     TResult isVisibleChanged(bool isVisibleBool),
+    TResult dateLastDonateChange(String dateLastDonateStr),
+    TResult neverDonatedChange(bool neverDonatedBool),
     TResult saved(),
     @required TResult orElse(),
   }) {
@@ -1543,6 +2022,8 @@ class _$_Saved implements _Saved {
     @required TResult photoUrlChanged(_PhotoUrlChanged value),
     @required TResult bioChanged(_BioChanged value),
     @required TResult isVisibleChanged(_IsVisibleChanged value),
+    @required TResult dateLastDonateChange(_DateLastDonateChange value),
+    @required TResult neverDonatedChange(_NeverDonatedChange value),
     @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
@@ -1553,6 +2034,8 @@ class _$_Saved implements _Saved {
     assert(photoUrlChanged != null);
     assert(bioChanged != null);
     assert(isVisibleChanged != null);
+    assert(dateLastDonateChange != null);
+    assert(neverDonatedChange != null);
     assert(saved != null);
     return saved(this);
   }
@@ -1568,6 +2051,8 @@ class _$_Saved implements _Saved {
     TResult photoUrlChanged(_PhotoUrlChanged value),
     TResult bioChanged(_BioChanged value),
     TResult isVisibleChanged(_IsVisibleChanged value),
+    TResult dateLastDonateChange(_DateLastDonateChange value),
+    TResult neverDonatedChange(_NeverDonatedChange value),
     TResult saved(_Saved value),
     @required TResult orElse(),
   }) {

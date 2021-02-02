@@ -70,6 +70,19 @@ class InfoFormBloc extends Bloc<InfoFormEvent, InfoFormState> {
           saveFailureOrSuccessOption: none(),
         );
       },
+      neverDonatedChange: (e) async* {
+        if(e.neverDonatedBool) {
+          yield state.copyWith(
+            info: state.info.copyWith(neverDonated: e.neverDonatedBool, dateLastDonate: StringSingleLine('null')),
+            saveFailureOrSuccessOption: none(),
+          );
+        } else {
+          yield state.copyWith(
+            info: state.info.copyWith(neverDonated: e.neverDonatedBool),
+            saveFailureOrSuccessOption: none(),
+          );
+        }
+      },
       genderChanged: (e) async* {
         yield state.copyWith(
           info: state.info.copyWith(gender: Gender(e.genderStr)),
@@ -79,6 +92,12 @@ class InfoFormBloc extends Bloc<InfoFormEvent, InfoFormState> {
       localizationChanged: (e) async* {
         yield state.copyWith(
           info: state.info.copyWith(city: StringSingleLine(e.city), lat: StringSingleLine(e.lat), long: StringSingleLine(e.long)),
+          saveFailureOrSuccessOption: none(),
+        );
+      },
+      dateLastDonateChange: (e) async* {
+        yield state.copyWith(
+          info: state.info.copyWith(dateLastDonate: StringSingleLine(e.dateLastDonateStr), neverDonated: false),
           saveFailureOrSuccessOption: none(),
         );
       },

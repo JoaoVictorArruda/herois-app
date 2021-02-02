@@ -56,6 +56,12 @@ class MapsPickerInputField extends HookWidget {
                       labelText: "Cidade",
                       filled: true,
                       fillColor: Color.fromARGB(255, 239, 239, 239),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: const BorderRadius.all(
+                          const Radius.circular(1000.0),
+                        ),
+                      ),
                     ),
                     onChanged: (value) => context
                         .bloc<InfoFormBloc>()

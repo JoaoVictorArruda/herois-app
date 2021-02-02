@@ -28,10 +28,7 @@ class OtherInfoCard extends StatelessWidget {
         child: Column(
           children: [
             const Text(
-              "\n\n\n\n\nVocê ainda não criou um perfil\n"
-                  "Suas requisições só\n"
-                  "serão vistas pelos outros \n"
-                  "após o cadastro",
+              "\n\n\n\n\nPerfil não encontrado",
               overflow: TextOverflow.clip,
             ),
             FlatButton(
@@ -91,7 +88,7 @@ class OtherInfoCard extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
                             buildStatColumn("Tipo Sanguineo", -1),
-                            buildStatColumn("Requisições", 3),
+                            buildStatColumn("Requisições", info.totalRequests),
                           ],
                         ),
                         OtherInfoActionOverviewBody(info: info, userId: userId,)

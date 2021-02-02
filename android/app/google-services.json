@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "786872242821-b7vritb54m7mmbilo7qh6bf1fvqjbo16.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.herois",
+            "certificate_hash": "02c32039de5dbcaf29438762cca8340d84f07722"
+          }
+        },
+        {
           "client_id": "786872242821-f9ljactkivp1tue78h078cfdvlkj5jg9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

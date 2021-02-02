@@ -5,21 +5,9 @@ import 'package:herois/domain/core/value_objects.dart';
 import 'package:herois/domain/core/value_validators.dart';
 
 
-class BloodType extends ValueObject<String> {
+class BloodType extends ValueObject<String, String> {
 
   static const List<String> predefinedBloodTypes = [
-    "A+",
-    "A-",
-    "B+",
-    "B-",
-    "AB+",
-    "AB-",
-    "O+",
-    "O-",
-    "Und",
-  ];
-
-  static const List<String> predefinedBloodTypesWithoutUndefined = [
     "A+",
     "A-",
     "B+",
@@ -44,7 +32,7 @@ class BloodType extends ValueObject<String> {
   const BloodType._(this.value);
 }
 
-class Gender extends ValueObject<String> {
+class Gender extends ValueObject<String, String> {
 
   static const List<String> predefinedGender = [
     "Male",
@@ -65,7 +53,7 @@ class Gender extends ValueObject<String> {
   const Gender._(this.value);
 }
 
-class InfoBio extends ValueObject<String> {
+class InfoBio extends ValueObject<String, String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
@@ -81,7 +69,7 @@ class InfoBio extends ValueObject<String> {
   const InfoBio._(this.value);
 }
 
-class LocalizationString extends ValueObject<String> {
+class LocalizationString extends ValueObject<String, String> {
   @override
   final Either<ValueFailure<String>, String> value;
 

@@ -17,4 +17,6 @@ abstract class IInfoRepository {
   Future<Either<InfoFailure, Unit>> update(Info info);
 
   Future<Either<InfoFailure, Unit>> delete(Info info);
+
+  Future<Either<InfoFailure, Unit>> addRequestCounter(int value);
 }

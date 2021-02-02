@@ -86,7 +86,7 @@ class InfoCard extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
                             buildStatColumn("Tipo Sanguineo", -1),
-                            buildStatColumn("Requisições", 3),
+                            buildStatColumn("Requisições", info.totalRequests),
                           ],
                         ),
                         InfoActionOverviewBody(info: info)

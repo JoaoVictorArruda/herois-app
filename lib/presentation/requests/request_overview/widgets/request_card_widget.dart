@@ -108,7 +108,7 @@ class RequestCard extends StatelessWidget {
                                               ),
                                               FlatButton(
                                                 onPressed: () {
-                                                  context.bloc<RequestActorBloc>().add(RequestActorEvent.deleted(request));
+                                                  requestActorBloc.add(RequestActorEvent.deleted(request));
                                                   Navigator.pop(context);
                                                 },
                                                 child: const Text('DELETAR'),

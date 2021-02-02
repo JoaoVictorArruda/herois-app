@@ -29,6 +29,12 @@ class NameInputField extends HookWidget {
               counterText: '',
               filled: true,
               fillColor: Color.fromARGB(255, 239, 239, 239),
+              border: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: const BorderRadius.all(
+                  const Radius.circular(1000.0),
+                ),
+              ),
             ),
             onChanged: (value) => context
                 .bloc<InfoFormBloc>()

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:herois/application/requests/request_form/request_form_bloc.dart';
 
 class NameInputField extends HookWidget {
@@ -22,31 +23,56 @@ class NameInputField extends HookWidget {
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.all(10),
-          child: TextFormField(
-            controller: textEditingController,
-            decoration: const InputDecoration(
-              labelText: 'Nome',
-              counterText: '',
-              filled: true,
-              fillColor: Color.fromARGB(255, 239, 239, 239),
-            ),
-            onChanged: (value) => context
-                .bloc<RequestFormBloc>()
-                .add(RequestFormEvent.nameChanged(value)),
-            validator: (_) => context
-                .bloc<RequestFormBloc>()
-                .state
-                .request
-                .name
-                .value
-                .fold(
-                  (f) => f.maybeMap(
-                    empty: (f) => 'Cannot be empty',
-                    exceedingLength: (f) => 'Exceeding length, max: ${f.max}',
-                    orElse: () => null,
-                  ),
-                  (_) => null,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 12.0),
+                child: Text(
+                  "Para",
+                    style: GoogleFonts.montserrat(
+                      textStyle: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.none),
+                    )
                 ),
+              ),
+              TextFormField(
+                controller: textEditingController,
+                decoration: const InputDecoration(
+                  contentPadding: const EdgeInsets.only(left: 20.0),
+                  hintText: 'Amigo',
+                  counterText: '',
+                  filled: true,
+                  fillColor: Color.fromARGB(255, 239, 239, 239),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: const BorderRadius.all(
+                      const Radius.circular(1000.0),
+                    ),
+                  ),
+                ),
+                onChanged: (value) => context
+                    .bloc<RequestFormBloc>()
+                    .add(RequestFormEvent.nameChanged(value)),
+                validator: (_) => context
+                    .bloc<RequestFormBloc>()
+                    .state
+                    .request
+                    .name
+                    .value
+                    .fold(
+                      (f) => f.maybeMap(
+                        empty: (f) => 'Cannot be empty',
+                        exceedingLength: (f) => 'Exceeding length, max: ${f.max}',
+                        orElse: () => null,
+                      ),
+                      (_) => null,
+                    ),
+              ),
+            ],
           ),
         );
       },

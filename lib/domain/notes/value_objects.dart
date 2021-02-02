@@ -7,7 +7,7 @@ import 'package:herois/domain/core/value_objects.dart';
 import 'package:herois/domain/core/value_transformers.dart';
 import 'package:herois/domain/core/value_validators.dart';
 
-class NoteBody extends ValueObject<String> {
+class NoteBody extends ValueObject<String, String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
@@ -23,7 +23,7 @@ class NoteBody extends ValueObject<String> {
   const NoteBody._(this.value);
 }
 
-class TodoName extends ValueObject<String> {
+class TodoName extends ValueObject<String, String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
@@ -41,7 +41,7 @@ class TodoName extends ValueObject<String> {
   const TodoName._(this.value);
 }
 
-class NoteColor extends ValueObject<Color> {
+class NoteColor extends ValueObject<Color, Color> {
   static const List<Color> predefinedColors = [
     Color(0xfffafafa), // canvas
     Color(0xfffa8072), // salmon
@@ -65,7 +65,7 @@ class NoteColor extends ValueObject<Color> {
   const NoteColor._(this.value);
 }
 
-class List3<T> extends ValueObject<KtList<T>> {
+class List3<T> extends ValueObject<KtList<T>, KtList<T>> {
   @override
   final Either<ValueFailure<KtList<T>>, KtList<T>> value;
 

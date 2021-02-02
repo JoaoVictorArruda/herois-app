@@ -17,12 +17,15 @@ abstract class InfoDto with _$InfoDto {
     @required String bloodType,
     @required String gender,
     @required String bio,
-    @required String photoUrl,
+    String photoUrl,
     @required String lat,
     @required String long,
-    @required String city,
+    String city,
     @required String name,
-    @required bool isVisible,
+    bool isVisible,
+    bool neverDonated,
+    int totalRequests,
+    String dateLastDonate
   }) = _InfoDto;
 
   factory InfoDto.fromDomain(Info info) {
@@ -34,10 +37,12 @@ abstract class InfoDto with _$InfoDto {
       photoUrl: info.photoUrl,
       id: info.id.getOrCrash(),
       isVisible: info.isVisible,
+      neverDonated: info.neverDonated,
       lat: info.lat.getOrCrash(),
       long: info.long.getOrCrash(),
       city: info.city.getOrCrash(),
-
+      totalRequests: info.totalRequests,
+      dateLastDonate: info.dateLastDonate.getOrCrash(),
     );
   }
 
@@ -53,9 +58,12 @@ abstract class InfoDto with _$InfoDto {
         photoUrl: photoUrl,
         bloodType: BloodType(bloodType),
         isVisible: isVisible,
+        neverDonated: neverDonated,
         city: StringSingleLine(city),
         lat: StringSingleLine(lat),
         long: StringSingleLine(long),
+        totalRequests: totalRequests,
+        dateLastDonate: StringSingleLine(dateLastDonate),
     );
   }
 

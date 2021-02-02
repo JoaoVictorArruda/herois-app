@@ -69,7 +69,8 @@ class OtherInfoOverviewBody extends StatelessWidget {
                 return CriticalFailureDisplay(
                   failure: state.infoFailure,
                 );
-              }, loadListSuccess: (LoadListSuccess value) { return Container(); },
+              },
+              loadListSuccess: (state) { return Container(); },
             );
           },
         ),

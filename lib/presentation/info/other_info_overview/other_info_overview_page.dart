@@ -5,12 +5,11 @@ import 'package:herois/application/auth/auth_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:herois/application/info/info_actor/info_actor_bloc.dart';
 import 'package:herois/application/info/info_watcher/info_watcher_bloc.dart';
-import 'package:herois/presentation/info/info_overview/widgets/info_overview_body_widget.dart';
 import 'package:herois/presentation/info/other_info_overview/widgets/other_info_overview_body_widget.dart';
-import 'package:herois/presentation/requests/request_overview/widgets/request_overview_body_widget.dart';
 import 'package:herois/presentation/home/widgets/home_bottom_navigation_bar.dart';
-import 'package:herois/application/requests/request_actor/request_actor_bloc.dart';
 import 'package:herois/application/requests/request_watcher/request_watcher_bloc.dart';
+import 'package:herois/application/requests/request_actor/request_actor_bloc.dart';
+import 'package:herois/presentation/requests/other_request_overview/widgets/other_request_overview_body_widget.dart';
 import 'package:herois/presentation/routes/router.gr.dart';
 
 import '../../../injection.dart';
@@ -30,9 +29,16 @@ class OtherInfoOverviewPage extends StatelessWidget {
         BlocProvider<InfoActorBloc>(
           create: (context) => getIt<InfoActorBloc>(),
         ),
+        BlocProvider<RequestActorBloc>(
+          create: (context) => getIt<RequestActorBloc>(),
+        ),
         BlocProvider<InfoWatcherBloc>(
           create: (context) => getIt<InfoWatcherBloc>()
             ..add(InfoWatcherEvent.watchOtherUserStarted(userId)),
+        ),
+        BlocProvider<RequestWatcherBloc>(
+          create: (context) => getIt<RequestWatcherBloc>()
+            ..add(RequestWatcherEvent.watchOtherUserStarted(userId)),
         ),
         // BlocProvider<RequestWatcherBloc>(
         //   create: (context) => getIt<RequestWatcherBloc>()
@@ -62,6 +68,7 @@ class OtherInfoOverviewPage extends StatelessWidget {
                       insufficientPermissions: (_) =>
                       'Insufficient permissions ❌',
                       unableToUpdate: (_) => 'Impossible error',
+                      unavailableToDonate: (_) => 'Unavaiable to donate'
                     ),
                   ).show(context);
                 },
@@ -111,7 +118,7 @@ class OtherInfoOverviewPage extends StatelessWidget {
             body: Column(
               children: [
                 OtherInfoOverviewBody(userId: userId),
-                // RequestOverviewBody()
+                OtherRequestOverviewBody(userId: userId)
               ],
             ),
             bottomNavigationBar: HomeBottomNavigationBar(index: index)

@@ -23,6 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   auto_route: ^0.6.9
   cloud_firestore: ^0.14.0+2
   dartz: ^0.9.1

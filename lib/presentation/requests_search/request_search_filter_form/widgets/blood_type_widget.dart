@@ -40,12 +40,12 @@ class BloodTypeWidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8),
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
-              itemCount: BloodType.predefinedBloodTypesWithoutUndefined.length,
+              itemCount: BloodType.predefinedBloodTypes.length,
               separatorBuilder: (context, index) {
                 return const SizedBox(width: 12);
               },
               itemBuilder: (context, index) {
-                final itemDescription = BloodType.predefinedBloodTypesWithoutUndefined[index];
+                final itemDescription = BloodType.predefinedBloodTypes[index];
                 return GestureDetector(
                   onTap: () {
                     context

@@ -17,6 +17,9 @@ _$_InfoDto _$_$_InfoDtoFromJson(Map<String, dynamic> json) {
     city: json['city'] as String,
     name: json['name'] as String,
     isVisible: json['isVisible'] as bool,
+    neverDonated: json['neverDonated'] as bool,
+    totalRequests: json['totalRequests'] as int,
+    dateLastDonate: json['dateLastDonate'] as String,
   );
 }
 
@@ -31,4 +34,7 @@ Map<String, dynamic> _$_$_InfoDtoToJson(_$_InfoDto instance) =>
       'city': instance.city,
       'name': instance.name,
       'isVisible': instance.isVisible,
+      'neverDonated': instance.neverDonated,
+      'totalRequests': instance.totalRequests,
+      'dateLastDonate': instance.dateLastDonate,
     };

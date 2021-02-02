@@ -3,7 +3,7 @@ import 'package:herois/domain/core/failures.dart';
 import 'package:herois/domain/core/value_objects.dart';
 import 'package:herois/domain/core/value_validators.dart';
 
-class MessageText extends ValueObject<String> {
+class MessageText extends ValueObject<String, String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
