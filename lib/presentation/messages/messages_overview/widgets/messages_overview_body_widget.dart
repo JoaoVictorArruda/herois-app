@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:herois/application/message/message_watcher/message_watcher_bloc.dart';
+import 'package:herois/presentation/core/error_card.dart';
+import 'package:herois/presentation/messages/messages_overview/widgets/critical_failure_display.dart';
 import 'package:herois/presentation/messages/messages_overview/widgets/message_card_widget.dart';
-import 'package:herois/presentation/requests/request_overview/widgets/critical_failure_display_widget.dart';
-import 'package:herois/presentation/requests/request_overview/widgets/error_request_card_widget.dart';
 
 class MessageOverviewBody extends StatelessWidget {
 
@@ -40,7 +40,7 @@ class MessageOverviewBody extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final message = state.messages[index];
                     if (message.failureOption.isSome()) {
-                      return ErrorRequestCard(request: null);
+                      return ErrorCard(errorObject: message.failureOption);
                     }
                     return MessageCard(message: message, photoUrl: photoUrl);
                   },
@@ -52,7 +52,7 @@ class MessageOverviewBody extends StatelessWidget {
           },
           loadFailure: (state) {
             return CriticalFailureDisplay(
-              failure: null,
+              failure: state.messageFailure,
             );
           },
         );

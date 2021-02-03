@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:herois/application/contact/contact_watcher/contact_watcher_bloc.dart';
 import 'package:herois/presentation/contact/contact_overview/widgets/contact_card_widget.dart';
+import 'package:herois/presentation/contact/contact_overview/widgets/critical_failure_display.dart';
+import 'package:herois/presentation/core/error_card.dart';
 
 class ContactOverviewBody extends StatelessWidget {
   @override
@@ -25,7 +27,7 @@ class ContactOverviewBody extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final contact = state.contacts[index];
                       if (contact.failureOption.isSome()) {
-                        return const Text("ErrorCard");
+                        return ErrorCard(errorObject: contact.failureOption);
                       }
                       return ContactCard(contact: contact);
                     },
@@ -33,7 +35,7 @@ class ContactOverviewBody extends StatelessWidget {
                   );
               },
               loadFailure: (state) {
-                return const Text("CriticalFailureDisplay");
+                return CriticalFailureDisplay(failure: state.contactFailure);
                 // return CriticalFailureDisplay(
                 //   failure: state.contactFailure,
                 // );

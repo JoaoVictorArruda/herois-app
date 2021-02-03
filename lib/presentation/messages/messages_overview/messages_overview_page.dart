@@ -10,6 +10,7 @@ import 'package:herois/application/message/message_form/message_form_bloc.dart';
 import 'package:herois/application/message/message_watcher/message_watcher_bloc.dart';
 import 'package:herois/domain/contact/contact.dart';
 import 'package:herois/domain/messages/message.dart';
+import 'package:herois/presentation/core/saving_progress_overlay.dart';
 import 'package:herois/presentation/home/widgets/home_bottom_navigation_bar.dart';
 import 'package:herois/presentation/info/info_form/info_form_page.dart';
 import 'package:herois/presentation/messages/messages_overview/widgets/message_input_widget.dart';

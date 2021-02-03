@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:herois/application/auth/auth_bloc.dart';
 import 'package:herois/application/info/info_watcher/info_watcher_bloc.dart';
+import 'package:herois/presentation/core/error_card.dart';
 import 'package:herois/presentation/info/info_overview/widgets/critical_failure_display_widget.dart';
-import 'package:herois/presentation/info/info_overview/widgets/error_info_card_widget.dart';
 import 'package:herois/presentation/info/info_overview/widgets/info_card_widget.dart';
 import 'package:herois/presentation/info/info_search_overview/widgets/info_search_card.dart';
-import 'package:herois/presentation/info/other_info_overview/widgets/other_info_card_widget.dart';
 
 class InfoOverviewBody extends StatelessWidget {
   @override
@@ -34,7 +33,7 @@ class InfoOverviewBody extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final info = state.info;
                       if (info.failureOption.isSome()) {
-                        return ErrorInfoCard(info: info);
+                        return ErrorCard(errorObject: info.failureOption);
                       }
                       return Column(
                         children: [
@@ -64,7 +63,7 @@ class InfoOverviewBody extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final info = state.info[index];
                       if (info.failureOption.isSome()) {
-                        return ErrorInfoCard(info: info);
+                        return ErrorCard(errorObject: info.failureOption);
                       } else if(info.id.getOrCrash() == state.userId) {
                         return Container();
                       }

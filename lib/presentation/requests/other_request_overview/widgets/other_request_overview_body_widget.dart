@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:herois/application/requests/request_watcher/request_watcher_bloc.dart';
+import 'package:herois/presentation/core/error_card.dart';
 import 'package:herois/presentation/requests/request_overview/widgets/critical_failure_display_widget.dart';
-import 'package:herois/presentation/requests/request_overview/widgets/error_request_card_widget.dart';
 import 'package:herois/presentation/requests/other_request_overview/widgets/other_request_card_widget.dart';
 
 class OtherRequestOverviewBody extends StatelessWidget {
@@ -27,7 +27,7 @@ class OtherRequestOverviewBody extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final request = state.requests[index];
                   if (request.failureOption.isSome()) {
-                    return ErrorRequestCard(request: request);
+                    return ErrorCard(errorObject: request.failureOption);
                   }
                   return OtherRequestCard(request: request);
                 },

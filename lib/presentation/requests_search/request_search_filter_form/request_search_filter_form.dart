@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:herois/injection.dart';
 import 'package:herois/application/requests_search/request_search_filter_form/request_search_filter_form_bloc.dart';
 import 'package:herois/domain/requests_search/request_search_filter.dart';
+import 'package:herois/presentation/core/saving_progress_overlay.dart';
 import 'package:herois/presentation/requests_search/request_search_filter_form/widgets/blood_type_widget.dart';
 import 'package:herois/presentation/requests_search/request_search_filter_form/widgets/maps_picker_input_field.dart';
 import 'package:herois/presentation/requests_search/request_search_filter_form/widgets/only_compatibles_checkbox_input.dart';
@@ -67,46 +68,6 @@ class RequestSearchFilterFormPage extends StatelessWidget {
             ],
           );
         },
-      ),
-    );
-  }
-}
-
-class SavingInProgressOverlay extends StatelessWidget {
-  final bool isSaving;
-
-  const SavingInProgressOverlay({
-    Key key,
-    @required this.isSaving,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return IgnorePointer(
-      ignoring: !isSaving,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 150),
-        color: isSaving ? Colors.black.withOpacity(0.8) : Colors.transparent,
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: Visibility(
-          visible: isSaving,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const CircularProgressIndicator(),
-              const SizedBox(height: 8),
-              Text(
-                'Saving',
-                // Not within a Scaffold. We have to get the TextStyle from a theme ourselves.
-                style: Theme.of(context).textTheme.bodyText2.copyWith(
-                  color: Colors.white,
-                  fontSize: 16,
-                ),
-              )
-            ],
-          ),
-        ),
       ),
     );
   }

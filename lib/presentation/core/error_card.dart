@@ -1,12 +1,14 @@
+import 'package:dartz/dartz.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:herois/domain/requests/request.dart';
+import 'package:herois/domain/core/failures.dart';
 
-class ErrorRequestCard extends StatelessWidget {
-  final Request request;
+class ErrorCard extends StatelessWidget {
 
-  const ErrorRequestCard({
-    Key key,
-    @required this.request,
+  final Option<ValueFailure<dynamic>> errorObject;
+
+  const ErrorCard({
+    Key key, this.errorObject,
   }) : super(key: key);
 
   @override
@@ -18,7 +20,7 @@ class ErrorRequestCard extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Text(
-              'Invalid request, please contact support',
+              'Erro inesperado, contate o suporte',
               textAlign: TextAlign.center,
               style: Theme.of(context)
                   .primaryTextTheme
@@ -27,12 +29,12 @@ class ErrorRequestCard extends StatelessWidget {
             ),
             const SizedBox(height: 2),
             Text(
-              'Details for nerds:',
+              'Detalhes:',
               textAlign: TextAlign.center,
               style: Theme.of(context).primaryTextTheme.bodyText2,
             ),
             Text(
-              request.failureOption.fold(() => '', (f) => f.toString()),
+              errorObject.fold(() => '', (f) => f.toString()),
               textAlign: TextAlign.center,
               style: Theme.of(context).primaryTextTheme.bodyText2,
             ),
