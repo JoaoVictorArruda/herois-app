@@ -59,7 +59,7 @@ class RequestSearchWatcherBloc extends Bloc<RequestSearchWatcherEvent, RequestSe
 
   @override
   Future<void> close() async {
-    await _requestSearchStreamSubscription.cancel();
+    await _requestSearchStreamSubscription?.cancel();
     return super.close();
   }
 }

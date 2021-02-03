@@ -24,9 +24,7 @@ class InfoOverviewBody extends StatelessWidget {
                 if (state.info.isVisible == null) {
                   return Column(
                     children: [
-                      AppBar(
-                        title: const Text(""),
-                      ),
+                      getAppBar(context),
                       const InfoCard(info: null)
                     ],
                   );
@@ -40,39 +38,8 @@ class InfoOverviewBody extends StatelessWidget {
                       }
                       return Column(
                         children: [
-                          AppBar(
-                            actions: [
-                              IconButton(
-                                icon: const Icon(Icons.exit_to_app, color: Colors.black,),
-                                onPressed: () {
-                                  showDialog(
-                                    context: context,
-                                    builder: (context) {
-                                      return AlertDialog(
-                                        title: const Text('Sair?'),
-                                        actions: <Widget>[
-                                          FlatButton(
-                                            onPressed: () => Navigator.pop(context),
-                                            child: const Text('NÃO'),
-                                          ),
-                                          FlatButton(
-                                            onPressed: () {
-                                              context.bloc<AuthBloc>().add(const AuthEvent.signedOut());
-                                            },
-                                            child: const Text('SIM'),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
-                                },
-                              ),
-                            ],
-                            title: const Text(""),
-                            elevation: 0,
-                            backgroundColor: Colors.white,
-                          ),
-                              InfoCard(info: info)
+                            getAppBar(context),
+                            InfoCard(info: info)
                           // AppBar(
                           //   title: Text(info.name.getOrCrash()),
                           // ),
@@ -113,5 +80,40 @@ class InfoOverviewBody extends StatelessWidget {
       ],
     );
     return body;
+  }
+
+  Widget getAppBar(context) {
+    return AppBar(
+       actions: [
+         IconButton(
+           icon: const Icon(Icons.exit_to_app, color: Colors.black,),
+           onPressed: () {
+             showDialog(
+               context: context,
+               builder: (context) {
+                 return AlertDialog(
+                   title: const Text('Sair?'),
+                   actions: <Widget>[
+                     FlatButton(
+                       onPressed: () => Navigator.pop(context),
+                       child: const Text('NÃO'),
+                     ),
+                     FlatButton(
+                       onPressed: () {
+                         context.bloc<AuthBloc>().add(const AuthEvent.signedOut());
+                       },
+                       child: const Text('SIM'),
+                     ),
+                   ],
+                 );
+               },
+             );
+           },
+         ),
+       ],
+       title: const Text(""),
+       elevation: 0,
+       backgroundColor: Colors.white,
+     );
   }
 }

@@ -125,8 +125,12 @@ class InfoRepository implements IInfoRepository {
 
   @override
   Future<Either<InfoFailure, Unit>> create(Info info) async {
+    bool isVisible = info.isVisible;
+    if(isVisible == null) {
+      isVisible = false;
+    }
     try {
-      if(!info.neverDonated && info.isVisible == null ? false: true) {
+      if(!info.neverDonated && isVisible && info.dateLastDonate.getOrCrash() != "null") {
         final dateLastDonate = DateTime.parse(info.dateLastDonate.getOrCrash());
         final difference = dateLastDonate.difference(DateTime.now());
         final days = info.gender.getOrCrash() == Gender.predefinedGender[0]? 90 : 60;
@@ -156,7 +160,7 @@ class InfoRepository implements IInfoRepository {
   @override
   Future<Either<InfoFailure, Unit>> update(Info info) async {
     try {
-      if(!info.neverDonated) {
+      if(!info.neverDonated && info.isVisible == null ? false: info.isVisible && info.dateLastDonate.getOrCrash() != "null") {
         final dateLastDonate = DateTime.parse(info.dateLastDonate.getOrCrash());
         final difference = dateLastDonate.difference(DateTime.now());
         final days = info.gender.getOrCrash() == Gender.predefinedGender[0]? 90 : 60;

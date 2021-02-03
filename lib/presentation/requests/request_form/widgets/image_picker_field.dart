@@ -103,8 +103,6 @@ class ImagePickerField extends HookWidget {
       Scaffold.of(parentContext)
           .showSnackBar(const SnackBar(content: Text("Salvando, aguarde um momento")));
 
-      firebase_storage.UploadTask uploadTask;
-
       final userOption = await getIt<IAuthFacade>().getSignedInUser();
       final user = userOption.getOrElse(() => throw NotAuthenticatedError());
 
@@ -117,17 +115,14 @@ class ImagePickerField extends HookWidget {
           contentType: 'image/jpeg',
           customMetadata: {'picked-file-path': pickedFile.path});
 
-      if (kIsWeb) {
-        uploadTask = ref.putData(await pickedFile.readAsBytes(), metadata);
-      } else {
-        uploadTask = ref.putFile(io.File(pickedFile.path), metadata);
-      }
-      io.sleep(const Duration(seconds: 1));
-      final url = await ref.getDownloadURL();
-      io.sleep(const Duration(seconds: 2));
-      parentContext.bloc<RequestFormBloc>() .add(RequestFormEvent.photoUrlChanged(url.toString()));
-      Navigator.pop(parentContext);
+      firebase_storage.UploadTask uploadTask = ref.putFile(io.File(pickedFile.path), metadata);
+      uploadTask.whenComplete(() async {
+        final url = await ref.getDownloadURL();
+        parentContext.bloc<RequestFormBloc>() .add(RequestFormEvent.photoUrlChanged(url.toString()));
+        Navigator.pop(parentContext);
+            Scaffold.of(parentContext).hideCurrentSnackBar();
+        }
+      );
     }
-    Scaffold.of(parentContext).hideCurrentSnackBar();
   }
 }

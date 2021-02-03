@@ -15,7 +15,7 @@ abstract class Info with _$Info {
     @required UniqueId id,
     @required StringSingleLine name,
     String photoUrl,
-    @required InfoBio bio,
+    InfoBio bio,
     @required BloodType bloodType,
     @required Gender gender,
     StringSingleLine city,
@@ -34,12 +34,12 @@ abstract class Info with _$Info {
     photoUrl: "",
     bloodType: BloodType(BloodType.predefinedBloodTypes[0]),
     isVisible: null,
-    neverDonated: false,
+    neverDonated: true,
     gender: Gender(Gender.predefinedGender[0]),
     city: StringSingleLine(""),
     lat: StringSingleLine(""),
     long: StringSingleLine(""),
-    dateLastDonate: StringSingleLine(DateTime.now().toIso8601String()),
+    dateLastDonate: StringSingleLine("null"),
     totalRequests: 0,
   );
 
