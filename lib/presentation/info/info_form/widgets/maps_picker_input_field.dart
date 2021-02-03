@@ -6,6 +6,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:herois/application/info/info_form/info_form_bloc.dart';
 import 'package:google_maps_place_picker/google_maps_place_picker.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:herois/domain/core/messages.dart';
+import 'package:herois/domain/core/secrets.dart';
 
 class MapsPickerInputField extends HookWidget {
   const MapsPickerInputField({
@@ -74,8 +76,8 @@ class MapsPickerInputField extends HookWidget {
                         .value
                         .fold(
                           (f) => f.maybeMap(
-                        empty: (f) => 'Cannot be empty',
-                        exceedingLength: (f) => 'Exceeding length, max: ${f.max}',
+                            empty: (f) => messages[CANNOT_BE_EMPTY],
+                            exceedingLength: (f) => '${messages[EXCEEDING_LENGTH]}${f.max}',
                         orElse: () => null,
                       ),
                           (_) => null,
@@ -88,7 +90,7 @@ class MapsPickerInputField extends HookWidget {
                             return PlacePicker(
                               region: 'BR',
                               searchingText: 'Selecionar aqui',
-                              apiKey: 'AIzaSyCSENeoE2SBLQvH5SyRKk_ytq9NJps8AEk',
+                              apiKey: MAPS_API_KEY,
                               initialPosition: kInitialPosition,
                               useCurrentLocation: false,
                               usePlaceDetailSearch: true,

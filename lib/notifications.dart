@@ -4,12 +4,11 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:herois/domain/core/errors.dart';
+import 'package:herois/domain/core/secrets.dart';
 import 'package:herois/domain/info/info.dart';
 import 'package:herois/domain/requests/request.dart';
 import 'package:herois/infrastructure/info/info_dtos.dart';
-import 'package:herois/infrastructure/requests_search/request_search_dtos.dart';
 import 'package:herois/injection.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
@@ -24,20 +23,13 @@ class Notifications {
 
   Future<void> sendNotification(String receiver, String title, String body) async {
     final String token = await getTokenWithUserId(receiver);
-    final key = "AAAAtzU9koU:APA91bFL2s6r-Av77aSS0pHBm2uaHeN-tNmzwOvIxodDPntZynMtnIddes2X8g-IzSBsJPAJLJn_-ae7pFAkzJ73Bj13Qt8prOEsq_ez5UleJmwYJjpu3LEwUO7xEW4J51vfy-Xk2SKY";
-    // BaseOptions options = new BaseOptions(
-    //   connectTimeout: 5000,
-    //   receiveTimeout: 3000,
-    //   headers: headers,
-    // );
-    // var postUrl = "https://fcm.googleapis.com/fcm/send";
     try {
       // final response = await Dio(options).post(postUrl, data: data);
       final response = await http.post(
           'https://fcm.googleapis.com/fcm/send',
           headers: <String, String>{
             'Content-Type': 'application/json',
-            'Authorization': 'key=$key',
+            'Authorization': 'key=$FIREBASE_API_KEY',
           },
           body: jsonEncode(
             <String, dynamic>{
@@ -74,13 +66,6 @@ class Notifications {
     final double radius = 500;
     final GeoFirePoint center = _geoflutterfire.point(latitude: double.parse(request.lat.getOrCrash()), longitude: double.parse(request.long.getOrCrash()));
 
-    final key = "AAAAtzU9koU:APA91bFL2s6r-Av77aSS0pHBm2uaHeN-tNmzwOvIxodDPntZynMtnIddes2X8g-IzSBsJPAJLJn_-ae7pFAkzJ73Bj13Qt8prOEsq_ez5UleJmwYJjpu3LEwUO7xEW4J51vfy-Xk2SKY";
-    // BaseOptions options = new BaseOptions(
-    //   connectTimeout: 5000,
-    //   receiveTimeout: 3000,
-    //   headers: headers,
-    // );
-    // var postUrl = "https://fcm.googleapis.com/fcm/send";
     _geoflutterfire
         .collection(collectionRef: usersCollection)
         .within(center: center, radius: radius, field: 'position', strictMode: false)
@@ -104,7 +89,7 @@ class Notifications {
                                         'https://fcm.googleapis.com/fcm/send',
                                         headers: <String, String>{
                                           'Content-Type': 'application/json',
-                                          'Authorization': 'key=$key',
+                                          'Authorization': 'key=$FIREBASE_API_KEY',
                                         },
                                         body: jsonEncode(
                                         <String, dynamic>{

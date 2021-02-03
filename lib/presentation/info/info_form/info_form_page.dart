@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:herois/application/info/info_form/info_form_bloc.dart';
+import 'package:herois/domain/core/messages.dart';
 import 'package:herois/domain/info/info.dart';
 import 'package:herois/presentation/core/saving_progress_overlay.dart';
 import 'package:herois/presentation/info/info_form/widgets/bio_field_widget.dart';
@@ -48,12 +49,12 @@ class InfoFormPage extends HookWidget {
                     message: failure.map(
                         // Use localized strings here in your apps
                         insufficientPermissions: (_) =>
-                            'Insufficient permissions ❌',
+                          messages[INSUFFICIENT_PERMISSIONS],
                         unableToUpdate: (_) =>
-                            "Couldn't update the note. Was it deleted from another device?",
+                          messages[UNABLE_TO_UPDATE],
                         unexpected: (_) =>
-                            'Unexpected error occured, please contact support.',
-                        unavailableToDonate: (_) => "Unavailable to donate"
+                          messages[UNEXPECTED],
+                        unavailableToDonate: (_) => messages[UNAVAILABLE_TO_DONATE]
                     ),
                   ).show(context);
                 },

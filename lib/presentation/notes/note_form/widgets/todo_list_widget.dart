@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:herois/domain/core/messages.dart';
 import 'package:implicitly_animated_reorderable_list/implicitly_animated_reorderable_list.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:herois/application/notes/note_form/note_form_bloc.dart';
@@ -159,8 +160,8 @@ class TodoTile extends HookWidget {
                         (f) => null,
                         (todoList) => todoList[index].name.value.fold(
                               (f) => f.maybeMap(
-                                empty: (_) => 'Cannot be empty',
-                                exceedingLength: (_) => 'Too long',
+                                empty: (f) => messages[CANNOT_BE_EMPTY],
+                                exceedingLength: (f) => '${messages[EXCEEDING_LENGTH]}${f.max}',
                                 multiline: (_) => 'Has to be in a single line',
                                 orElse: () => null,
                               ),

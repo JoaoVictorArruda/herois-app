@@ -4,6 +4,7 @@ import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:herois/application/notes/note_form/note_form_bloc.dart';
+import 'package:herois/domain/core/messages.dart';
 import 'package:herois/domain/notes/note.dart';
 import 'package:herois/injection.dart';
 import 'package:herois/presentation/core/saving_progress_overlay.dart';
@@ -39,12 +40,12 @@ class NoteFormPage extends StatelessWidget {
                 (failure) {
                   FlushbarHelper.createError(
                     message: failure.map(
-                      insufficientPermission: (_) =>
-                          'Insufficient permissions ❌',
-                      unableToUpdate: (_) =>
-                          "Couldn't update the note. Was it deleted from another device?",
-                      unexpected: (_) =>
-                          'Unexpected error occured, please contact support.',
+                        insufficientPermission: (_) =>
+                          messages[INSUFFICIENT_PERMISSIONS],
+                        unableToUpdate: (_) =>
+                          messages[UNABLE_TO_UPDATE],
+                        unexpected: (_) =>
+                          messages[UNEXPECTED],
                     ),
                   ).show(context);
                 },

@@ -8,6 +8,7 @@ import 'package:flutter_signin_button/button_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:herois/application/auth/auth_bloc.dart';
 import 'package:herois/application/auth/sign_in_form/sign_in_form_bloc.dart';
+import 'package:herois/domain/core/messages.dart';
 import 'package:herois/presentation/routes/router.gr.dart';
 
 class SignInForm extends StatelessWidget {
@@ -21,11 +22,11 @@ class SignInForm extends StatelessWidget {
             (failure) {
               FlushbarHelper.createError(
                 message: failure.map(
-                  cancelledByUser: (_) => 'Cancelled',
-                  serverError: (_) => 'Server error',
-                  emailAlreadyInUse: (_) => 'Email already in use',
+                  cancelledByUser: (_) => messages[CANCELLED_BY_USER],
+                  serverError: (_) => messages[SERVER_ERROR],
+                  emailAlreadyInUse: (_) => messages[EMAIL_ALREADY_IN_USE],
                   invalidEmailAndPasswordCombination: (_) =>
-                      'Invalid email and password combination',
+                      messages[INVALID_EMAIL_AND_PASSWORD_COMBINATION],
                 ),
               ).show(context);
             },

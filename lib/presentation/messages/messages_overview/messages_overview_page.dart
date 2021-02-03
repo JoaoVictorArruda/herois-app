@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:herois/application/message/message_form/message_form_bloc.dart';
 import 'package:herois/application/message/message_watcher/message_watcher_bloc.dart';
 import 'package:herois/domain/contact/contact.dart';
+import 'package:herois/domain/core/messages.dart';
 import 'package:herois/domain/messages/message.dart';
 import 'package:herois/presentation/core/saving_progress_overlay.dart';
 import 'package:herois/presentation/home/widgets/home_bottom_navigation_bar.dart';
@@ -51,12 +52,13 @@ class MessageOverviewPage extends StatelessWidget {
                         duration: const Duration(seconds: 5),
                         message: failure.map(
                           // Use localized strings here in your apps
-                            insufficientPermission: (_) =>
-                            'Insufficient permissions ❌',
-                            unableToUpdate: (_) =>
-                            "Couldn't update the note. Was it deleted from another device?",
-                            unexpected: (_) =>
-                            'Unexpected error occured, please contact support.'),
+                          insufficientPermission: (_) =>
+                            messages[INSUFFICIENT_PERMISSIONS],
+                          unableToUpdate: (_) =>
+                            messages[UNABLE_TO_UPDATE],
+                          unexpected: (_) =>
+                            messages[UNEXPECTED],
+                        ),
                       ).show(context);
                     },
                         (_) {
