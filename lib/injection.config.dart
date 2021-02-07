@@ -20,7 +20,6 @@ import 'domain/auth/i_auth_facade.dart';
 import 'infrastructure/contact/i_contact_repository.dart';
 import 'domain/info/i_info_repository.dart';
 import 'domain/messages/i_message_repository.dart';
-import 'domain/notes/i_note_repository.dart';
 import 'domain/requests/i_request_repository.dart';
 import 'domain/requests_search/i_request_search_filter_repository.dart';
 import 'application/info/info_actor/info_actor_bloc.dart';
@@ -30,11 +29,7 @@ import 'application/info/info_watcher/info_watcher_bloc.dart';
 import 'application/message/message_form/message_form_bloc.dart';
 import 'infrastructure/messages/message_repository.dart';
 import 'application/message/message_watcher/message_watcher_bloc.dart';
-import 'application/notes/note_actor/note_actor_bloc.dart';
-import 'application/notes/note_form/note_form_bloc.dart';
-import 'infrastructure/notes/note_repository.dart';
-import 'application/notes/note_watcher/note_watcher_bloc.dart';
-import 'notifications.dart';
+import 'infrastructure/core/notifications.dart';
 import 'application/requests/request_actor/request_actor_bloc.dart';
 import 'application/requests/request_form/request_form_bloc.dart';
 import 'infrastructure/requests/request_repository.dart';
@@ -65,8 +60,6 @@ GetIt $initGetIt(
       () => InfoRepository(get<FirebaseFirestore>(), get<Geoflutterfire>()));
   gh.lazySingleton<IMessageRepository>(
       () => MessageRepository(get<FirebaseFirestore>()));
-  gh.lazySingleton<INoteRepository>(
-      () => NoteRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<IRequestRepository>(
       () => RequestRepository(get<FirebaseFirestore>(), get<Geoflutterfire>()));
   gh.lazySingleton<IRequestSearchFilterRepository>(
@@ -77,9 +70,6 @@ GetIt $initGetIt(
   gh.factory<MessageFormBloc>(() => MessageFormBloc(get<IMessageRepository>()));
   gh.factory<MessageWatcherBloc>(
       () => MessageWatcherBloc(get<IMessageRepository>()));
-  gh.factory<NoteActorBloc>(() => NoteActorBloc(get<INoteRepository>()));
-  gh.factory<NoteFormBloc>(() => NoteFormBloc(get<INoteRepository>()));
-  gh.factory<NoteWatcherBloc>(() => NoteWatcherBloc(get<INoteRepository>()));
   gh.factory<Notifications>(() => Notifications(get<FirebaseFirestore>()));
   gh.factory<RequestActorBloc>(
       () => RequestActorBloc(get<IRequestRepository>()));

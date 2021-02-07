@@ -4,7 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:herois/domain/core/value_objects.dart';
 import 'package:herois/domain/messages/message.dart';
 import 'package:herois/domain/messages/value_objects.dart';
-import 'package:herois/infrastructure/notes/note_dtos.dart';
 
 part 'message_dtos.freezed.dart';
 part 'message_dtos.g.dart';
@@ -46,4 +45,16 @@ abstract class MessageDto with _$MessageDto {
   factory MessageDto.fromFirestore(DocumentSnapshot doc) {
     return MessageDto.fromJson(doc.data()).copyWith(id: doc.id);
   }
+}
+
+class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
+  const ServerTimestampConverter();
+
+  @override
+  FieldValue fromJson(Object json) {
+    return FieldValue.serverTimestamp();
+  }
+
+  @override
+  Object toJson(FieldValue fieldValue) => fieldValue;
 }

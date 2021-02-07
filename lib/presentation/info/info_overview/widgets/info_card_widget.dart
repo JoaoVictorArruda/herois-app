@@ -64,7 +64,8 @@ class InfoCard extends StatelessWidget {
                           color: Colors.black,
                           fontSize: 20.0,
                           fontWeight: FontWeight.normal,
-                          decoration: TextDecoration.none),
+                          decoration: TextDecoration.none
+                      ),
                     )
                 ),
               ),
@@ -115,7 +116,8 @@ class InfoCard extends StatelessWidget {
                         ),
                       ),
                     ],
-                  )),
+                  )
+              ),
               Container(
                 alignment: Alignment.centerLeft,
                 padding: const EdgeInsets.only(top: 1.0),

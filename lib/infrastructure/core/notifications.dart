@@ -13,7 +13,7 @@ import 'package:herois/injection.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 import 'package:herois/infrastructure/core/firestore_helpers.dart';
-import 'domain/auth/i_auth_facade.dart';
+import '../../domain/auth/i_auth_facade.dart';
 
 @injectable
 class Notifications {
@@ -59,60 +59,66 @@ class Notifications {
   }
 
   Future<void> sendNotificationToNearbyUsersWithCompatibleBloodRequest(Request request, String title, String body) async {
+    if(!request.isOpen) {
+      return;
+    }
     FirebaseFirestore _firestore = getIt<FirebaseFirestore>();
     Geoflutterfire _geoflutterfire = getIt<Geoflutterfire>();
 
     final usersCollection = await _firestore.usersCollection();
     final double radius = 500;
     final GeoFirePoint center = _geoflutterfire.point(latitude: double.parse(request.lat.getOrCrash()), longitude: double.parse(request.long.getOrCrash()));
-
+    String token;
     _geoflutterfire
         .collection(collectionRef: usersCollection)
         .within(center: center, radius: radius, field: 'position', strictMode: false)
         .forEach(
             (snapshot) {
               snapshot.forEach(
-                (doc) {
-                  _firestore.collection('users')
-                      .doc(doc.id).tokenCollection
-                      .orderBy('createdAt', descending: true)
-                      .limit(1)
-                      .get()
-                      .then(
-                          (value) {
+                (doc) async {
+                  final otherUserDoc = await _firestore.otherUserDocument(doc.id);
+                  otherUserDoc.get().then((infoSnapshot) {
+                      Info info = InfoDto.fromFirestore(infoSnapshot).toDomain();
+                      if(donateTo(request.bloodType.getOrCrash(), info.bloodType.getOrCrash()) && info.isVisible) {
+                        _firestore.collection('users')
+                            .doc(doc.id).tokenCollection
+                            .orderBy('createdAt', descending: true)
+                            .limit(1)
+                            .get()
+                            .then(
+                                (value) {
                               value.docs.forEach((e) {
-                                  Info info = InfoDto.fromFirestore(e).toDomain();
-                                  String token = info.id.getOrCrash();
-                                  if(donateTo(request.bloodType.getOrCrash(), info.bloodType.getOrCrash()) && info.isVisible) {
-                                    try {
-                                      http.post(
-                                        'https://fcm.googleapis.com/fcm/send',
-                                        headers: <String, String>{
-                                          'Content-Type': 'application/json',
-                                          'Authorization': 'key=$FIREBASE_API_KEY',
-                                        },
-                                        body: jsonEncode(
-                                        <String, dynamic>{
+                                token = e.data()["token"];
+                                try {
+                                  http.post(
+                                    'https://fcm.googleapis.com/fcm/send',
+                                    headers: <String, String>{
+                                      'Content-Type': 'application/json',
+                                      'Authorization': 'key=$FIREBASE_API_KEY',
+                                    },
+                                    body: jsonEncode(
+                                      <String, dynamic>{
                                         'notification': <String, dynamic>{
-                                        'body': body,
-                                        'title': title
+                                          'body': body,
+                                          'title': title
                                         },
                                         'priority': 'high',
                                         'data': <String, dynamic>{
-                                        'click_action': 'FLUTTER_NOTIFICATION_CLICK',
-                                        'id': '1',
-                                        'status': 'done'
+                                          'click_action': 'FLUTTER_NOTIFICATION_CLICK',
+                                          'id': '1',
+                                          'status': 'done'
                                         },
                                         'to': token,
-                                        },
-                                        ),
-                                      );
-                                    } catch (e) {
-                                      print('exception $e');
-                                    }
-                                  }
-                          });
+                                      },
+                                    ),
+                                  );
+                                } catch (e) {
+                                  print('exception $e');
+                                }
+                              });
                       });
+                  }
+                    });
               }
             );
           }

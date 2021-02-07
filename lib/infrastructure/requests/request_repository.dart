@@ -3,9 +3,8 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:herois/domain/info/i_info_repository.dart';
-import 'package:herois/infrastructure/info/info_repository.dart';
+import 'package:herois/infrastructure/core/notifications.dart';
 import 'package:herois/injection.dart';
-import 'package:herois/notifications.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:herois/domain/requests/i_request_repository.dart';
@@ -70,7 +69,7 @@ class RequestRepository implements IRequestRepository {
   @override
   Stream<Either<RequestFailure, KtList<RequestSearch>>> watchNearby(RequestSearchFilter requestSearchFilter) async* {
     final locationDoc = await _firestore.locationCollection();
-    final double radius = double.parse(requestSearchFilter.distance.getOrCrash());
+    final double radius = double.parse(requestSearchFilter.distance.getOrCrash()) * 2;
     final GeoFirePoint center = _geoflutterfire.point(latitude: double.parse(requestSearchFilter.lat.getOrCrash()), longitude: double.parse(requestSearchFilter.long.getOrCrash()));
     yield* _geoflutterfire
         .collection(collectionRef: locationDoc)

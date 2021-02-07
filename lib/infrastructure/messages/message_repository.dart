@@ -13,7 +13,7 @@ import 'package:herois/infrastructure/messages/message_dtos.dart';
 import 'package:herois/infrastructure/core/firestore_helpers.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:herois/domain/auth/i_auth_facade.dart';
-import 'package:herois/notifications.dart';
+import 'package:herois/infrastructure/core/notifications.dart';
 
 @LazySingleton(as: IMessageRepository)
 class MessageRepository implements IMessageRepository {

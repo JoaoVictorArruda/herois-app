@@ -39,4 +39,4 @@ app.*.symbols
 
 # Obfuscation related
 app.*.map.json
-/gen/br/com/herois/BuildConfig.java
+/gen/

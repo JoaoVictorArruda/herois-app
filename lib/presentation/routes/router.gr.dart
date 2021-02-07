@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 import '../../domain/contact/contact.dart';
 import '../../domain/info/info.dart';
 import '../../domain/messages/message.dart';
-import '../../domain/notes/note.dart';
 import '../../domain/requests/request.dart';
 import '../../domain/requests_search/request_search_filter.dart';
 import '../contact/contact_overview/contact_overview_page.dart';
@@ -20,8 +19,6 @@ import '../info/info_form/info_form_page.dart';
 import '../info/info_overview/info_overview_page.dart';
 import '../info/other_info_overview/other_info_overview_page.dart';
 import '../messages/messages_overview/messages_overview_page.dart';
-import '../notes/note_form/note_form_page.dart';
-import '../notes/notes_overview/notes_overview_page.dart';
 import '../requests/request_form/request_form_page.dart';
 import '../requests/request_overview/request_overview_page.dart';
 import '../requests_search/request_search_filter_form/request_search_filter_form.dart';
@@ -32,8 +29,6 @@ import '../splash/splash_page.dart';
 class Routes {
   static const String splashPage = '/';
   static const String signInPage = '/sign-in-page';
-  static const String notesOverviewPage = '/notes-overview-page';
-  static const String noteFormPage = '/note-form-page';
   static const String infoOverviewPage = '/info-overview-page';
   static const String infoFormPage = '/info-form-page';
   static const String requestsOverviewPage = '/requests-overview-page';
@@ -48,8 +43,6 @@ class Routes {
   static const all = <String>{
     splashPage,
     signInPage,
-    notesOverviewPage,
-    noteFormPage,
     infoOverviewPage,
     infoFormPage,
     requestsOverviewPage,
@@ -68,8 +61,6 @@ class Router extends RouterBase {
   final _routes = <RouteDef>[
     RouteDef(Routes.splashPage, page: SplashPage),
     RouteDef(Routes.signInPage, page: SignInPage),
-    RouteDef(Routes.notesOverviewPage, page: NotesOverviewPage),
-    RouteDef(Routes.noteFormPage, page: NoteFormPage),
     RouteDef(Routes.infoOverviewPage, page: InfoOverviewPage),
     RouteDef(Routes.infoFormPage, page: InfoFormPage),
     RouteDef(Routes.requestsOverviewPage, page: RequestsOverviewPage),
@@ -94,23 +85,6 @@ class Router extends RouterBase {
       return MaterialPageRoute<dynamic>(
         builder: (context) => SignInPage(),
         settings: data,
-      );
-    },
-    NotesOverviewPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => NotesOverviewPage(),
-        settings: data,
-      );
-    },
-    NoteFormPage: (data) {
-      final args = data.getArgs<NoteFormPageArguments>(nullOk: false);
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => NoteFormPage(
-          key: args.key,
-          editedNote: args.editedNote,
-        ),
-        settings: data,
-        fullscreenDialog: true,
       );
     },
     InfoOverviewPage: (data) {
@@ -210,18 +184,6 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushSignInPage() => push<dynamic>(Routes.signInPage);
 
-  Future<dynamic> pushNotesOverviewPage() =>
-      push<dynamic>(Routes.notesOverviewPage);
-
-  Future<dynamic> pushNoteFormPage({
-    Key key,
-    @required Note editedNote,
-  }) =>
-      push<dynamic>(
-        Routes.noteFormPage,
-        arguments: NoteFormPageArguments(key: key, editedNote: editedNote),
-      );
-
   Future<dynamic> pushInfoOverviewPage() =>
       push<dynamic>(Routes.infoOverviewPage);
 
@@ -289,13 +251,6 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
 /// ************************************************************************
 /// Arguments holder classes
 /// *************************************************************************
-
-/// NoteFormPage arguments holder class
-class NoteFormPageArguments {
-  final Key key;
-  final Note editedNote;
-  NoteFormPageArguments({this.key, @required this.editedNote});
-}
 
 /// InfoFormPage arguments holder class
 class InfoFormPageArguments {
