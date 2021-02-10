@@ -18,6 +18,7 @@ import '../contact/contact_overview/contact_overview_page.dart';
 import '../info/info_form/info_form_page.dart';
 import '../info/info_overview/info_overview_page.dart';
 import '../info/other_info_overview/other_info_overview_page.dart';
+import '../learning/learning_overview/learning_overview_page.dart';
 import '../messages/messages_overview/messages_overview_page.dart';
 import '../requests/request_form/request_form_page.dart';
 import '../requests/request_overview/request_overview_page.dart';
@@ -40,6 +41,7 @@ class Routes {
   static const String otherInfoOverviewPage = '/other-info-overview-page';
   static const String contactOverviewPage = '/contact-overview-page';
   static const String messageOverviewPage = '/message-overview-page';
+  static const String learningOverviewPage = '/learning-overview-page';
   static const all = <String>{
     splashPage,
     signInPage,
@@ -52,6 +54,7 @@ class Routes {
     otherInfoOverviewPage,
     contactOverviewPage,
     messageOverviewPage,
+    learningOverviewPage,
   };
 }
 
@@ -71,6 +74,7 @@ class Router extends RouterBase {
     RouteDef(Routes.otherInfoOverviewPage, page: OtherInfoOverviewPage),
     RouteDef(Routes.contactOverviewPage, page: ContactOverviewPage),
     RouteDef(Routes.messageOverviewPage, page: MessageOverviewPage),
+    RouteDef(Routes.learningOverviewPage, page: LearningOverviewPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -172,6 +176,12 @@ class Router extends RouterBase {
         fullscreenDialog: true,
       );
     },
+    LearningOverviewPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => LearningOverviewPage(),
+        settings: data,
+      );
+    },
   };
 }
 
@@ -246,6 +256,9 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
         arguments: MessageOverviewPageArguments(
             key: key, contact: contact, editedMessage: editedMessage),
       );
+
+  Future<dynamic> pushLearningOverviewPage() =>
+      push<dynamic>(Routes.learningOverviewPage);
 }
 
 /// ************************************************************************

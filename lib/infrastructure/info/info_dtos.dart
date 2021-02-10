@@ -60,10 +60,10 @@ abstract class InfoDto with _$InfoDto {
         isVisible: isVisible,
         neverDonated: neverDonated,
         city: StringSingleLine(city),
-        lat: StringSingleLine(lat),
-        long: StringSingleLine(long),
+        lat: LatLong(lat),
+        long: LatLong(long),
         totalRequests: totalRequests,
-        dateLastDonate: StringSingleLine(dateLastDonate),
+        dateLastDonate: CustomDate(dateLastDonate),
     );
   }
 

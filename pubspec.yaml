@@ -56,7 +56,7 @@ dependencies:
   geolocator: ^6.1.14
   firebase_messaging: ^7.0.3
   cached_network_image: ^2.5.0
-#  dio: ^3.0.10
+  grouped_list: ^3.7.1
   ###########
 
 dev_dependencies:
@@ -90,6 +90,7 @@ flutter:
     - assets/images/logo_third.png
     - assets/images/point_third.png
     - assets/images/logo_login.png
+    - assets/images/no_profile_pic.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

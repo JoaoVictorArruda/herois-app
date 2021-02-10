@@ -22,9 +22,9 @@ class _$InfoTearOff {
       @required BloodType bloodType,
       @required Gender gender,
       StringSingleLine city,
-      @required StringSingleLine lat,
-      @required StringSingleLine long,
-      StringSingleLine dateLastDonate,
+      @required LatLong lat,
+      @required LatLong long,
+      CustomDate dateLastDonate,
       bool isVisible,
       bool neverDonated,
       int totalRequests}) {
@@ -59,9 +59,9 @@ mixin _$Info {
   BloodType get bloodType;
   Gender get gender;
   StringSingleLine get city;
-  StringSingleLine get lat;
-  StringSingleLine get long;
-  StringSingleLine get dateLastDonate;
+  LatLong get lat;
+  LatLong get long;
+  CustomDate get dateLastDonate;
   bool get isVisible;
   bool get neverDonated;
   int get totalRequests;
@@ -82,9 +82,9 @@ abstract class $InfoCopyWith<$Res> {
       BloodType bloodType,
       Gender gender,
       StringSingleLine city,
-      StringSingleLine lat,
-      StringSingleLine long,
-      StringSingleLine dateLastDonate,
+      LatLong lat,
+      LatLong long,
+      CustomDate dateLastDonate,
       bool isVisible,
       bool neverDonated,
       int totalRequests});
@@ -123,11 +123,11 @@ class _$InfoCopyWithImpl<$Res> implements $InfoCopyWith<$Res> {
           bloodType == freezed ? _value.bloodType : bloodType as BloodType,
       gender: gender == freezed ? _value.gender : gender as Gender,
       city: city == freezed ? _value.city : city as StringSingleLine,
-      lat: lat == freezed ? _value.lat : lat as StringSingleLine,
-      long: long == freezed ? _value.long : long as StringSingleLine,
+      lat: lat == freezed ? _value.lat : lat as LatLong,
+      long: long == freezed ? _value.long : long as LatLong,
       dateLastDonate: dateLastDonate == freezed
           ? _value.dateLastDonate
-          : dateLastDonate as StringSingleLine,
+          : dateLastDonate as CustomDate,
       isVisible: isVisible == freezed ? _value.isVisible : isVisible as bool,
       neverDonated:
           neverDonated == freezed ? _value.neverDonated : neverDonated as bool,
@@ -151,9 +151,9 @@ abstract class _$InfoCopyWith<$Res> implements $InfoCopyWith<$Res> {
       BloodType bloodType,
       Gender gender,
       StringSingleLine city,
-      StringSingleLine lat,
-      StringSingleLine long,
-      StringSingleLine dateLastDonate,
+      LatLong lat,
+      LatLong long,
+      CustomDate dateLastDonate,
       bool isVisible,
       bool neverDonated,
       int totalRequests});
@@ -193,11 +193,11 @@ class __$InfoCopyWithImpl<$Res> extends _$InfoCopyWithImpl<$Res>
           bloodType == freezed ? _value.bloodType : bloodType as BloodType,
       gender: gender == freezed ? _value.gender : gender as Gender,
       city: city == freezed ? _value.city : city as StringSingleLine,
-      lat: lat == freezed ? _value.lat : lat as StringSingleLine,
-      long: long == freezed ? _value.long : long as StringSingleLine,
+      lat: lat == freezed ? _value.lat : lat as LatLong,
+      long: long == freezed ? _value.long : long as LatLong,
       dateLastDonate: dateLastDonate == freezed
           ? _value.dateLastDonate
-          : dateLastDonate as StringSingleLine,
+          : dateLastDonate as CustomDate,
       isVisible: isVisible == freezed ? _value.isVisible : isVisible as bool,
       neverDonated:
           neverDonated == freezed ? _value.neverDonated : neverDonated as bool,
@@ -247,11 +247,11 @@ class _$_Info extends _Info with DiagnosticableTreeMixin {
   @override
   final StringSingleLine city;
   @override
-  final StringSingleLine lat;
+  final LatLong lat;
   @override
-  final StringSingleLine long;
+  final LatLong long;
   @override
-  final StringSingleLine dateLastDonate;
+  final CustomDate dateLastDonate;
   @override
   final bool isVisible;
   @override
@@ -355,9 +355,9 @@ abstract class _Info extends Info {
       @required BloodType bloodType,
       @required Gender gender,
       StringSingleLine city,
-      @required StringSingleLine lat,
-      @required StringSingleLine long,
-      StringSingleLine dateLastDonate,
+      @required LatLong lat,
+      @required LatLong long,
+      CustomDate dateLastDonate,
       bool isVisible,
       bool neverDonated,
       int totalRequests}) = _$_Info;
@@ -377,11 +377,11 @@ abstract class _Info extends Info {
   @override
   StringSingleLine get city;
   @override
-  StringSingleLine get lat;
+  LatLong get lat;
   @override
-  StringSingleLine get long;
+  LatLong get long;
   @override
-  StringSingleLine get dateLastDonate;
+  CustomDate get dateLastDonate;
   @override
   bool get isVisible;
   @override

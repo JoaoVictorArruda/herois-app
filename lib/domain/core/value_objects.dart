@@ -80,3 +80,29 @@ class StringSingleLine extends ValueObject<String, String> {
 
   const StringSingleLine._(this.value);
 }
+
+class LatLong extends ValueObject<String, String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory LatLong(String input) {
+    return LatLong._(
+      validateSingleLine(input).flatMap(validateStringNotEmpty),
+    );
+  }
+
+  const LatLong._(this.value);
+}
+
+class CustomDate extends ValueObject<String, String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory CustomDate(String input) {
+    return CustomDate._(
+      validateSingleLine(input).flatMap(validateStringNotEmpty),
+    );
+  }
+
+  const CustomDate._(this.value);
+}

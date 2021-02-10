@@ -107,14 +107,9 @@ class MessageOverviewPage extends StatelessWidget {
                       Material(
                         child: CachedNetworkImage(
                           placeholder: (context, url) => Container(
-                            child: CircularProgressIndicator(
-                              strokeWidth: 1.0,
-                              valueColor:
-                              AlwaysStoppedAnimation<Color>(Colors.redAccent),
+                          child: Image.asset(
+                            "assets/images/no_profile_pic.png",
                             ),
-                            width: 35.0,
-                            height: 35.0,
-                            padding: EdgeInsets.all(10.0),
                           ),
                           imageUrl: contact.photoUrl,
                           width: 35.0,

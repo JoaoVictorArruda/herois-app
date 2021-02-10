@@ -19,9 +19,9 @@ abstract class Info with _$Info {
     @required BloodType bloodType,
     @required Gender gender,
     StringSingleLine city,
-    @required StringSingleLine lat,
-    @required StringSingleLine long,
-    StringSingleLine dateLastDonate,
+    @required LatLong lat,
+    @required LatLong long,
+    CustomDate dateLastDonate,
     bool isVisible,
     bool neverDonated,
     int totalRequests
@@ -37,9 +37,9 @@ abstract class Info with _$Info {
     neverDonated: true,
     gender: Gender(Gender.predefinedGender[0]),
     city: StringSingleLine(""),
-    lat: StringSingleLine(""),
-    long: StringSingleLine(""),
-    dateLastDonate: StringSingleLine("null"),
+    lat: LatLong(""),
+    long: LatLong(""),
+    dateLastDonate: CustomDate("null"),
     totalRequests: 0,
   );
 

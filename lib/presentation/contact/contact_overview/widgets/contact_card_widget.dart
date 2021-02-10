@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,10 @@ class ContactCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String photoUrl = contact.photoUrl;
+    if(photoUrl == "") {
+      photoUrl = "/assets/images/no_profile_pic.png";
+    }
     // final timestamp = DateTime.parse(contact.timestamp);
     // final now = DateTime.now();
     // final difference = now.difference(timestamp);
@@ -45,16 +50,20 @@ class ContactCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Container(
-                  width: 60.0,
-                  height: 60.0,
-                  decoration: new BoxDecoration(
-                    image: new DecorationImage(
-                      image: new NetworkImage(contact.photoUrl),
-                      fit: BoxFit.cover,
+                Material(
+                  child: CachedNetworkImage(
+                    placeholder: (context, url) => Container(
+                      child: Image.asset(
+                        "assets/images/no_profile_pic.png",
+                      ),
                     ),
-                    borderRadius: new BorderRadius.all(new Radius.circular(50.0)),
+                    imageUrl: contact.photoUrl,
+                    width: 60.0,
+                    height: 60.0,
+                    fit: BoxFit.cover,
                   ),
+                  borderRadius: new BorderRadius.all(new Radius.circular(50.0)),
+                  clipBehavior: Clip.hardEdge,
                 ),
                 Expanded(
                   child: Row(

@@ -3,6 +3,7 @@ import 'package:herois/presentation/info/info_form/info_form_page.dart';
 import 'package:herois/presentation/info/info_overview/info_overview_page.dart';
 import 'package:herois/presentation/info/other_info_overview/other_info_overview_page.dart';
 import 'package:herois/presentation/contact/contact_overview/contact_overview_page.dart';
+import 'package:herois/presentation/learning/learning_overview/learning_overview_page.dart';
 import 'package:herois/presentation/messages/messages_overview/messages_overview_page.dart';
 import 'package:herois/presentation/requests/request_form/request_form_page.dart';
 import 'package:herois/presentation/requests/request_overview/request_overview_page.dart';
@@ -25,6 +26,7 @@ import 'package:herois/presentation/splash/splash_page.dart';
     MaterialRoute(page: OtherInfoOverviewPage),
     MaterialRoute(page: ContactOverviewPage),
     MaterialRoute(page: MessageOverviewPage, fullscreenDialog: true),
+    MaterialRoute(page: LearningOverviewPage),
   ],
 )
 class $Router {}

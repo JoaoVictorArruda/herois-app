@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:herois/presentation/contact/contact_overview/contact_overview_page.dart';
 import 'package:herois/presentation/info/info_overview/info_overview_page.dart';
 import 'package:herois/presentation/info/info_search_overview/info_search_overview_page.dart';
+import 'package:herois/presentation/learning/learning_overview/learning_overview_page.dart';
 import 'package:herois/presentation/requests_search/request_search_overview/request_search_overview_page.dart';
 
 class   HomeBottomNavigationBar extends StatefulWidget {
@@ -99,13 +100,13 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
         break;
       case 4:
         // ExtendedNavigator.of(context).replace(Routes.notesOverviewPage);
-        // Navigator.pushReplacement(
-        //   context,
-        //   PageRouteBuilder(
-        //     pageBuilder: (context, animation1, animation2) => NotesOverviewPage(),
-        //     transitionDuration: const Duration(),
-        //   ),
-        // );
+        Navigator.pushReplacement(
+          context,
+          PageRouteBuilder(
+            pageBuilder: (context, animation1, animation2) => LearningOverviewPage(),
+            transitionDuration: const Duration(),
+          ),
+        );
         // Router.navigator.pushNamed(Router.notesOverviewPage);
         break;
       default:

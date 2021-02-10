@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:kt_dart/collection.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -73,7 +72,7 @@ class InfoFormBloc extends Bloc<InfoFormEvent, InfoFormState> {
       neverDonatedChange: (e) async* {
         if(e.neverDonatedBool) {
           yield state.copyWith(
-            info: state.info.copyWith(neverDonated: e.neverDonatedBool, dateLastDonate: StringSingleLine('null')),
+            info: state.info.copyWith(neverDonated: e.neverDonatedBool, dateLastDonate: CustomDate('null')),
             saveFailureOrSuccessOption: none(),
           );
         } else {
@@ -91,13 +90,13 @@ class InfoFormBloc extends Bloc<InfoFormEvent, InfoFormState> {
       },
       localizationChanged: (e) async* {
         yield state.copyWith(
-          info: state.info.copyWith(city: StringSingleLine(e.city), lat: StringSingleLine(e.lat), long: StringSingleLine(e.long)),
+          info: state.info.copyWith(city: StringSingleLine(e.city), lat: LatLong(e.lat), long: LatLong(e.long)),
           saveFailureOrSuccessOption: none(),
         );
       },
       dateLastDonateChange: (e) async* {
         yield state.copyWith(
-          info: state.info.copyWith(dateLastDonate: StringSingleLine(e.dateLastDonateStr), neverDonated: false),
+          info: state.info.copyWith(dateLastDonate: CustomDate(e.dateLastDonateStr), neverDonated: false),
           saveFailureOrSuccessOption: none(),
         );
       },

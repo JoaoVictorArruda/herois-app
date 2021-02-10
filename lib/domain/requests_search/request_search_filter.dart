@@ -42,8 +42,8 @@ abstract class RequestSearchFilter implements _$RequestSearchFilter {
     return RequestSearchFilter(
       city: info.city,
       distance: StringSingleLine('50'),
-      lat: info.lat,
-      long: info.long,
+      lat: StringSingleLine(info.lat.getOrCrash()),
+      long: StringSingleLine(info.long.getOrCrash()),
       bloodType: StringSingleLine("|"+bloods[info.bloodType.getOrCrash()].join("||") + "|")
     );
   }
