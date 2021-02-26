@@ -56,9 +56,15 @@ class InfoWatcherBloc extends Bloc<InfoWatcherEvent, InfoWatcherState> {
       },
       watchInfoSearchFiltered: (e) async* {
         await _infoListStreamSubscription?.cancel();
-        _infoListStreamSubscription = _infoRepository
-            .watchSearchInfoUserFiltered(e.query)
-            .listen((info) => add(InfoWatcherEvent.infoListReceived(info)));
+        if(e.query == "") {
+          _infoListStreamSubscription = _infoRepository
+              .watchSearchInfoUserStarted()
+              .listen((info) => add(InfoWatcherEvent.infoListReceived(info)));
+        } else {
+          _infoListStreamSubscription = _infoRepository
+              .watchSearchInfoUserFiltered(e.query)
+              .listen((info) => add(InfoWatcherEvent.infoListReceived(info)));
+        }
       },
       infoReceived: (e) async* {
         yield e.failureOrInfo.fold(

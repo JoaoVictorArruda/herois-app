@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,16 +26,21 @@ class InfoCard extends StatelessWidget {
           children: [
             const Text(
               "\n\n\n\n\nVocê ainda não criou um perfil\n"
-                  "Suas requisições só\n"
-                  "serão vistas pelos outros \n"
-                  "após o cadastro",
+                  "Você só poderá solicitar/buscar\n sangue após criar-lo",
               overflow: TextOverflow.clip,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 20,
+              ),
             ),
             FlatButton(
               color: Colors.red,
               onPressed: () {
                 ExtendedNavigator.of(context).pushInfoFormPage(editedInfo: info);
               },
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18),
+              ),
               child: const Text("Criar"),
             ),
           ],

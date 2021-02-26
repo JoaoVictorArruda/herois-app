@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:herois/application/info/info_actor/info_actor_bloc.dart';
@@ -64,7 +65,9 @@ class InfoSearchCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                            info.name.getOrCrash(),
+                            info.name.getOrCrash().length > 15
+                                ? info.name.getOrCrash().substring(0, 15).trim() + '...'
+                                : info.name.getOrCrash(),
                             style: GoogleFonts.montserrat(
                               textStyle: const TextStyle(
                                   color: Colors.black,

@@ -13,7 +13,6 @@ abstract class ValueObject<T, J> {
 
   /// Throws [UnexpectedValueError] containing the [ValueFailure]
   J getOrCrash() {
-    // id = identity - same as writing (right) => right
     return value.fold((f) => throw UnexpectedValueError(f), id);
   }
 
@@ -28,10 +27,7 @@ abstract class ValueObject<T, J> {
     );
   }
 
-  @override
-  bool isValid() {
-    return value.isRight();
-  }
+  bool isValid() => value.isRight();
 
   @override
   bool operator ==(Object o) {

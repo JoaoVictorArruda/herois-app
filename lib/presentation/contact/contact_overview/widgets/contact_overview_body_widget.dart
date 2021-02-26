@@ -6,6 +6,9 @@ import 'package:herois/presentation/contact/contact_overview/widgets/critical_fa
 import 'package:herois/presentation/core/error_card.dart';
 
 class ContactOverviewBody extends StatelessWidget {
+
+  final ScrollController _scrollController = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     final Widget body = Column(
@@ -27,16 +30,21 @@ class ContactOverviewBody extends StatelessWidget {
                     ),
                   );
                 }
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      final contact = state.contacts[index];
-                      if (contact.failureOption.isSome()) {
-                        return ErrorCard(errorObject: contact.failureOption);
-                      }
-                      return ContactCard(contact: contact);
-                    },
-                    itemCount: state.contacts.size,
+                  return Container(
+                    height: MediaQuery.of(context).size.height * 0.78,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      controller: _scrollController,
+                      scrollDirection: Axis.vertical,
+                      itemBuilder: (context, index) {
+                        final contact = state.contacts[index];
+                        if (contact.failureOption.isSome()) {
+                          return ErrorCard(errorObject: contact.failureOption);
+                        }
+                        return ContactCard(contact: contact);
+                      },
+                      itemCount: state.contacts.size,
+                    ),
                   );
               },
               loadFailure: (state) {

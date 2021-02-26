@@ -48,6 +48,9 @@ abstract class Info with _$Info {
         .andThen(name.failureOrUnit)
         .andThen(bio.failureOrUnit)
         .andThen(bloodType.failureOrUnit)
+        .andThen(lat.failureOrUnit)
+        .andThen(long.failureOrUnit)
+        .andThen(dateLastDonate.failureOrUnit)
         .fold((f) => some(f), (_) => none());
   }
 }

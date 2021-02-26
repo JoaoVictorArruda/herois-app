@@ -18,12 +18,6 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
     @required T failedValue,
     @required int max,
   }) = ListTooLong<T>;
-  const factory ValueFailure.invalidEmail({
-    @required T failedValue,
-  }) = InvalidEmail<T>;
-  const factory ValueFailure.shortPassword({
-    @required T failedValue,
-  }) = ShortPassword<T>;
   const factory ValueFailure.invalidBloodType({
     @required T failedValue,
   }) = InvalidBloodType<T>;

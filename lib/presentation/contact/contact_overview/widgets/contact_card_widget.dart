@@ -82,7 +82,7 @@ class ContactCard extends StatelessWidget {
                             Padding(padding: EdgeInsets.symmetric(vertical: 4)),
                             Text(
                                 contact.lastMessage.getOrCrash().length > 20
-                                    ? contact.lastMessage.getOrCrash().substring(0, 20) + '...'
+                                    ? contact.lastMessage.getOrCrash().substring(0, 20).trim() + '...'
                                     : contact.lastMessage.getOrCrash(),
                                 overflow: TextOverflow.ellipsis
                             ),

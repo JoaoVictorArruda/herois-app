@@ -10,12 +10,14 @@ import 'package:herois/presentation/requests/request_overview/request_overview_p
 import 'package:herois/presentation/requests_search/request_search_filter_form/request_search_filter_form.dart';
 import 'package:herois/presentation/requests_search/request_search_overview/request_search_overview_page.dart';
 import 'package:herois/presentation/sign_in/sign_in_page.dart';
+import 'package:herois/presentation/sign_in/system_presentation.dart';
 import 'package:herois/presentation/splash/splash_page.dart';
 
 @MaterialAutoRouter(
   generateNavigationHelperExtension: true,
   routes: <AutoRoute>[
     MaterialRoute(page: SplashPage, initial: true),
+    MaterialRoute(page: SystemPresentation),
     MaterialRoute(page: SignInPage),
     MaterialRoute(page: InfoOverviewPage),
     MaterialRoute(page: InfoFormPage, fullscreenDialog: true),

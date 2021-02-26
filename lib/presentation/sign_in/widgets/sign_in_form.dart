@@ -24,9 +24,6 @@ class SignInForm extends StatelessWidget {
                 message: failure.map(
                   cancelledByUser: (_) => messages[CANCELLED_BY_USER],
                   serverError: (_) => messages[SERVER_ERROR],
-                  emailAlreadyInUse: (_) => messages[EMAIL_ALREADY_IN_USE],
-                  invalidEmailAndPasswordCombination: (_) =>
-                      messages[INVALID_EMAIL_AND_PASSWORD_COMBINATION],
                 ),
               ).show(context);
             },

@@ -25,10 +25,12 @@ import '../requests/request_overview/request_overview_page.dart';
 import '../requests_search/request_search_filter_form/request_search_filter_form.dart';
 import '../requests_search/request_search_overview/request_search_overview_page.dart';
 import '../sign_in/sign_in_page.dart';
+import '../sign_in/system_presentation.dart';
 import '../splash/splash_page.dart';
 
 class Routes {
   static const String splashPage = '/';
+  static const String systemPresentation = '/system-presentation';
   static const String signInPage = '/sign-in-page';
   static const String infoOverviewPage = '/info-overview-page';
   static const String infoFormPage = '/info-form-page';
@@ -44,6 +46,7 @@ class Routes {
   static const String learningOverviewPage = '/learning-overview-page';
   static const all = <String>{
     splashPage,
+    systemPresentation,
     signInPage,
     infoOverviewPage,
     infoFormPage,
@@ -63,6 +66,7 @@ class Router extends RouterBase {
   List<RouteDef> get routes => _routes;
   final _routes = <RouteDef>[
     RouteDef(Routes.splashPage, page: SplashPage),
+    RouteDef(Routes.systemPresentation, page: SystemPresentation),
     RouteDef(Routes.signInPage, page: SignInPage),
     RouteDef(Routes.infoOverviewPage, page: InfoOverviewPage),
     RouteDef(Routes.infoFormPage, page: InfoFormPage),
@@ -83,6 +87,13 @@ class Router extends RouterBase {
       return MaterialPageRoute<dynamic>(
         builder: (context) => SplashPage(),
         settings: data,
+      );
+    },
+    SystemPresentation: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => SystemPresentation(),
+        settings: data,
+        fullscreenDialog: true,
       );
     },
     SignInPage: (data) {
@@ -191,6 +202,9 @@ class Router extends RouterBase {
 
 extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushSplashPage() => push<dynamic>(Routes.splashPage);
+
+  Future<dynamic> pushSystemPresentation() =>
+      push<dynamic>(Routes.systemPresentation);
 
   Future<dynamic> pushSignInPage() => push<dynamic>(Routes.signInPage);
 

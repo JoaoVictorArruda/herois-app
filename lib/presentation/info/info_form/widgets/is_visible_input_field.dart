@@ -16,7 +16,7 @@ class IsVisibleInputField extends StatelessWidget {
         buildWhen: (p, c) => p.info.isVisible != c.info.isVisible,
         builder: (context, state) {
           return CheckboxListTile(
-            title: const Text("Estou disponivel para salvar vidas"),
+            title: const Text("Quero receber notificações de pessoas que precisam do meu sangue."),
             value: state.info.isVisible ?? false,
             onChanged: (newValue) {
               context.bloc<InfoFormBloc>() .add(InfoFormEvent.isVisibleChanged(newValue));

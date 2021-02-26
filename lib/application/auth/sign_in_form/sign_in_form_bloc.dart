@@ -7,7 +7,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:dartz/dartz.dart';
 import 'package:herois/domain/auth/auth_failure.dart';
 import 'package:flutter/foundation.dart';
-import 'package:herois/domain/auth/value_objects.dart';
 import 'package:herois/domain/auth/i_auth_facade.dart';
 
 part 'sign_in_form_event.dart';

@@ -69,7 +69,7 @@ class RequestRepository implements IRequestRepository {
   @override
   Stream<Either<RequestFailure, KtList<RequestSearch>>> watchNearby(RequestSearchFilter requestSearchFilter) async* {
     final locationDoc = await _firestore.locationCollection();
-    final double radius = double.parse(requestSearchFilter.distance.getOrCrash()) * 2;
+    final double radius = double.parse(requestSearchFilter.distance.getOrCrash());
     final GeoFirePoint center = _geoflutterfire.point(latitude: double.parse(requestSearchFilter.lat.getOrCrash()), longitude: double.parse(requestSearchFilter.long.getOrCrash()));
     yield* _geoflutterfire
         .collection(collectionRef: locationDoc)

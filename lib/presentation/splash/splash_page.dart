@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:herois/application/auth/auth_bloc.dart';
 import 'package:herois/presentation/routes/router.gr.dart';
+import 'package:herois/presentation/sign_in/system_presentation.dart';
 
 class SplashPage extends StatelessWidget {
   @override
@@ -11,10 +12,19 @@ class SplashPage extends StatelessWidget {
       listener: (context, state) {
         state.map(
           initial: (_) {},
-          authenticated: (_) =>
-              ExtendedNavigator.of(context).replace(Routes.infoOverviewPage),
-          unauthenticated: (_) =>
-              ExtendedNavigator.of(context).replace(Routes.signInPage),
+          authenticated: (_) {
+              ExtendedNavigator.of(context).popUntilRoot();
+              ExtendedNavigator.of(context).replace(Routes.infoOverviewPage);
+          },
+          unauthenticated: (_) {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) => SystemPresentation(),
+              ),
+                  (route) => false,
+            );
+          }
         );
       },
       child: const Scaffold(
