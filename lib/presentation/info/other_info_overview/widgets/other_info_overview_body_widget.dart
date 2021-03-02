@@ -35,7 +35,6 @@ class OtherInfoOverviewBody extends StatelessWidget {
                   );
                 } else {
                   return Container(
-                    height: MediaQuery.of(context).size.height * 0.78,
                     child: ListView.builder(
                       shrinkWrap: true,
                       itemBuilder: (context, index) {

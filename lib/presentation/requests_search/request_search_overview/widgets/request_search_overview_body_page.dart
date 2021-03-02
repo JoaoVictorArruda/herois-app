@@ -16,6 +16,9 @@ class RequestSearchOverviewBody extends StatelessWidget {
             child: CircularProgressIndicator(),
           ),
           loadSuccess: (state) {
+            if(state.requests.size == 0) {
+              return Text("Nenhum resultado encontrado");
+            }
             return Expanded(
               child: ListView.builder(
                 shrinkWrap: true,
