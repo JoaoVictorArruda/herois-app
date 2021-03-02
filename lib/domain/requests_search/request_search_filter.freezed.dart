@@ -37,9 +37,13 @@ const $RequestSearchFilter = _$RequestSearchFilterTearOff();
 /// @nodoc
 mixin _$RequestSearchFilter {
   StringSingleLine get city;
+
   StringSingleLine get distance;
+
   StringSingleLine get lat;
+
   StringSingleLine get long;
+
   StringSingleLine get bloodType;
 
   @JsonKey(ignore: true)
@@ -51,6 +55,7 @@ abstract class $RequestSearchFilterCopyWith<$Res> {
   factory $RequestSearchFilterCopyWith(
           RequestSearchFilter value, $Res Function(RequestSearchFilter) then) =
       _$RequestSearchFilterCopyWithImpl<$Res>;
+
   $Res call(
       {StringSingleLine city,
       StringSingleLine distance,
@@ -65,6 +70,7 @@ class _$RequestSearchFilterCopyWithImpl<$Res>
   _$RequestSearchFilterCopyWithImpl(this._value, this._then);
 
   final RequestSearchFilter _value;
+
   // ignore: unused_field
   final $Res Function(RequestSearchFilter) _then;
 
@@ -95,6 +101,7 @@ abstract class _$RequestSearchFilterCopyWith<$Res>
   factory _$RequestSearchFilterCopyWith(_RequestSearchFilter value,
           $Res Function(_RequestSearchFilter) then) =
       __$RequestSearchFilterCopyWithImpl<$Res>;
+
   @override
   $Res call(
       {StringSingleLine city,
@@ -202,6 +209,7 @@ class _$_RequestSearchFilter extends _RequestSearchFilter {
 
 abstract class _RequestSearchFilter extends RequestSearchFilter {
   const _RequestSearchFilter._() : super._();
+
   const factory _RequestSearchFilter(
       {StringSingleLine city,
       @required StringSingleLine distance,
@@ -211,14 +219,19 @@ abstract class _RequestSearchFilter extends RequestSearchFilter {
 
   @override
   StringSingleLine get city;
+
   @override
   StringSingleLine get distance;
+
   @override
   StringSingleLine get lat;
+
   @override
   StringSingleLine get long;
+
   @override
   StringSingleLine get bloodType;
+
   @override
   @JsonKey(ignore: true)
   _$RequestSearchFilterCopyWith<_RequestSearchFilter> get copyWith;

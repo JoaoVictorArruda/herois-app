@@ -6,12 +6,14 @@ import 'package:herois/presentation/info/info_search_overview/info_search_overvi
 import 'package:herois/presentation/learning/learning_overview/learning_overview_page.dart';
 import 'package:herois/presentation/requests_search/request_search_overview/request_search_overview_page.dart';
 
-class   HomeBottomNavigationBar extends StatefulWidget {
+class HomeBottomNavigationBar extends StatefulWidget {
   final int index;
 
   const HomeBottomNavigationBar({Key key, this.index}) : super(key: key);
+
   @override
-  _HomeBottomNavigationBarState createState() => _HomeBottomNavigationBarState(index);
+  _HomeBottomNavigationBarState createState() =>
+      _HomeBottomNavigationBarState(index);
 }
 
 class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
@@ -50,6 +52,7 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
       onTap: navigationTapped,
     );
   }
+
   void navigationTapped(int page) {
     if (index == page) {
       return;
@@ -57,13 +60,14 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
     setState(() {
       index = page;
     });
-    switch(page) {
+    switch (page) {
       case 0:
         // Router.navigator.pushNamed(Router.infoOverviewPage);
         Navigator.pushReplacement(
           context,
           PageRouteBuilder(
-            pageBuilder: (context, animation1, animation2) => ContactOverviewPage(),
+            pageBuilder: (context, animation1, animation2) =>
+                ContactOverviewPage(),
             transitionDuration: const Duration(),
           ),
         );
@@ -73,7 +77,8 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
         Navigator.pushReplacement(
           context,
           PageRouteBuilder(
-            pageBuilder: (context, animation1, animation2) => InfoSearchOverviewPage(),
+            pageBuilder: (context, animation1, animation2) =>
+                InfoSearchOverviewPage(),
             transitionDuration: const Duration(),
           ),
         );
@@ -83,7 +88,8 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
         Navigator.pushReplacement(
           context,
           PageRouteBuilder(
-            pageBuilder: (context, animation1, animation2) => RequestSearchOverviewPage(),
+            pageBuilder: (context, animation1, animation2) =>
+                RequestSearchOverviewPage(),
             transitionDuration: const Duration(),
           ),
         );
@@ -93,7 +99,8 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
         Navigator.pushReplacement(
           context,
           PageRouteBuilder(
-            pageBuilder: (context, animation1, animation2) => InfoOverviewPage(),
+            pageBuilder: (context, animation1, animation2) =>
+                InfoOverviewPage(),
             transitionDuration: const Duration(),
           ),
         );
@@ -103,7 +110,8 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
         Navigator.pushReplacement(
           context,
           PageRouteBuilder(
-            pageBuilder: (context, animation1, animation2) => LearningOverviewPage(),
+            pageBuilder: (context, animation1, animation2) =>
+                LearningOverviewPage(),
             transitionDuration: const Duration(),
           ),
         );

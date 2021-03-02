@@ -23,16 +23,16 @@ abstract class RequestSearch implements _$RequestSearch {
   }) = _RequestSearch;
 
   factory RequestSearch.empty() => RequestSearch(
-      id: UniqueId(),
-      name: StringSingleLine(''),
-      city: StringSingleLine(''),
-      lat: StringSingleLine(''),
-      long: StringSingleLine(''),
-      user: StringSingleLine(''),
-      isOpen: false,
-      bloodType: BloodType(BloodType.predefinedBloodTypes[0]),
-      photoUrl: '',
-  );
+        id: UniqueId(),
+        name: StringSingleLine(''),
+        city: StringSingleLine(''),
+        lat: StringSingleLine(''),
+        long: StringSingleLine(''),
+        user: StringSingleLine(''),
+        isOpen: false,
+        bloodType: BloodType(BloodType.predefinedBloodTypes[0]),
+        photoUrl: '',
+      );
 
   Option<ValueFailure<dynamic>> get failureOption {
     return lat.failureOrUnit

@@ -3,7 +3,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:herois/application/info/info_form/info_form_bloc.dart';
-
 import 'package:herois/domain/info/value_objects.dart';
 
 class GenderWidget extends StatelessWidget {
@@ -25,7 +24,8 @@ class GenderWidget extends StatelessWidget {
             itemCount: Gender.predefinedGender.length,
             separatorBuilder: (context, index) {
               return Padding(
-                padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 20.0),
+                padding: const EdgeInsets.only(
+                    left: 16.0, right: 16.0, bottom: 20.0),
                 child: SvgPicture.string(
                   '<svg viewBox="180.0 282.7 1.0 38.4" ><path transform="translate(-1528.0, 66.0)" d="M 1708 216.7196197509766 L 1708 255.1099548339844" fill="none" stroke="#c9c9c9" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>',
                   allowDrawingOutsideViewBox: true,
@@ -34,7 +34,7 @@ class GenderWidget extends StatelessWidget {
             },
             itemBuilder: (context, index) {
               final itemGender = Gender.predefinedGender[index];
-              if(index == 0) {
+              if (index == 0) {
                 return GestureDetector(
                   onTap: () {
                     context
@@ -49,9 +49,10 @@ class GenderWidget extends StatelessWidget {
                         children: <Widget>[
                           SvgPicture.string(
                             state.info.gender.value.fold(
-                                  (_) => svgMale,
-                                  (gender) =>
-                              gender == itemGender ? svgMaleClicked : svgMale,
+                              (_) => svgMale,
+                              (gender) => gender == itemGender
+                                  ? svgMaleClicked
+                                  : svgMale,
                             ),
                             allowDrawingOutsideViewBox: true,
                           ),
@@ -59,9 +60,10 @@ class GenderWidget extends StatelessWidget {
                             "Masculino",
                             style: TextStyle(
                                 color: state.info.gender.value.fold(
-                                      (_) => const Color(0xffa2a2a2),
-                                      (gender) =>
-                                  gender == itemGender ? const Color(0xffff3257) : const Color(0xffa2a2a2),
+                                  (_) => const Color(0xffa2a2a2),
+                                  (gender) => gender == itemGender
+                                      ? const Color(0xffff3257)
+                                      : const Color(0xffa2a2a2),
                                 ),
                                 fontSize: 12.0,
                                 fontWeight: FontWeight.normal,
@@ -87,9 +89,10 @@ class GenderWidget extends StatelessWidget {
                         children: <Widget>[
                           SvgPicture.string(
                             state.info.gender.value.fold(
-                                  (_) => svgFemale,
-                                  (gender) =>
-                              gender == itemGender ? svgFemaleClicked : svgFemale,
+                              (_) => svgFemale,
+                              (gender) => gender == itemGender
+                                  ? svgFemaleClicked
+                                  : svgFemale,
                             ),
                             allowDrawingOutsideViewBox: true,
                           ),
@@ -97,9 +100,10 @@ class GenderWidget extends StatelessWidget {
                             "Feminino",
                             style: TextStyle(
                                 color: state.info.gender.value.fold(
-                                      (_) => const Color(0xffa2a2a2),
-                                      (gender) =>
-                                  gender == itemGender ? const Color(0xffff3257) : const Color(0xffa2a2a2),
+                                  (_) => const Color(0xffa2a2a2),
+                                  (gender) => gender == itemGender
+                                      ? const Color(0xffff3257)
+                                      : const Color(0xffa2a2a2),
                                 ),
                                 fontSize: 12.0,
                                 fontWeight: FontWeight.normal,

@@ -17,14 +17,13 @@ abstract class Contact implements _$Contact {
   }) = _Contact;
 
   factory Contact.empty() => Contact(
-      userId: StringSingleLine(''),
-      lastMessage: StringSingleLine(''),
-      photoUrl: '',
-      name: '',
-  );
+        userId: StringSingleLine(''),
+        lastMessage: StringSingleLine(''),
+        photoUrl: '',
+        name: '',
+      );
 
   Option<ValueFailure<dynamic>> get failureOption {
-    return userId.failureOrUnit
-        .fold((f) => some(f), (_) => none());
+    return userId.failureOrUnit.fold((f) => some(f), (_) => none());
   }
 }

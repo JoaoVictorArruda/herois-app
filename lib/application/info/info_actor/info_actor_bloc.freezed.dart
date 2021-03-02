@@ -33,15 +33,18 @@ mixin _$InfoActorEvent {
   TResult when<TResult extends Object>({
     @required TResult editProfile(Info info),
   });
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult editProfile(Info info),
     @required TResult orElse(),
   });
+
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult editProfile(_EditProfile value),
   });
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult editProfile(_EditProfile value),
@@ -57,6 +60,7 @@ abstract class $InfoActorEventCopyWith<$Res> {
   factory $InfoActorEventCopyWith(
           InfoActorEvent value, $Res Function(InfoActorEvent) then) =
       _$InfoActorEventCopyWithImpl<$Res>;
+
   $Res call({Info info});
 
   $InfoCopyWith<$Res> get info;
@@ -68,6 +72,7 @@ class _$InfoActorEventCopyWithImpl<$Res>
   _$InfoActorEventCopyWithImpl(this._value, this._then);
 
   final InfoActorEvent _value;
+
   // ignore: unused_field
   final $Res Function(InfoActorEvent) _then;
 
@@ -97,6 +102,7 @@ abstract class _$EditProfileCopyWith<$Res>
   factory _$EditProfileCopyWith(
           _EditProfile value, $Res Function(_EditProfile) then) =
       __$EditProfileCopyWithImpl<$Res>;
+
   @override
   $Res call({Info info});
 
@@ -204,6 +210,7 @@ abstract class _EditProfile implements InfoActorEvent {
 
   @override
   Info get info;
+
   @override
   @JsonKey(ignore: true)
   _$EditProfileCopyWith<_EditProfile> get copyWith;
@@ -249,6 +256,7 @@ mixin _$InfoActorState {
     @required TResult editFailure(InfoFailure infoFailure),
     @required TResult editSuccess(),
   });
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
@@ -257,6 +265,7 @@ mixin _$InfoActorState {
     TResult editSuccess(),
     @required TResult orElse(),
   });
+
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
@@ -264,6 +273,7 @@ mixin _$InfoActorState {
     @required TResult editFailure(EditFailure value),
     @required TResult editSuccess(EditSuccess value),
   });
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
@@ -287,6 +297,7 @@ class _$InfoActorStateCopyWithImpl<$Res>
   _$InfoActorStateCopyWithImpl(this._value, this._then);
 
   final InfoActorState _value;
+
   // ignore: unused_field
   final $Res Function(InfoActorState) _then;
 }
@@ -499,6 +510,7 @@ abstract class $EditFailureCopyWith<$Res> {
   factory $EditFailureCopyWith(
           EditFailure value, $Res Function(EditFailure) then) =
       _$EditFailureCopyWithImpl<$Res>;
+
   $Res call({InfoFailure infoFailure});
 
   $InfoFailureCopyWith<$Res> get infoFailure;
@@ -631,6 +643,7 @@ abstract class EditFailure implements InfoActorState {
   const factory EditFailure(InfoFailure infoFailure) = _$EditFailure;
 
   InfoFailure get infoFailure;
+
   @JsonKey(ignore: true)
   $EditFailureCopyWith<EditFailure> get copyWith;
 }

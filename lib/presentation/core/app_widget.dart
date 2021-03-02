@@ -33,10 +33,10 @@ class AppWidget extends StatelessWidget {
           primaryColor: const Color(0xffff3257),
           accentColor: const Color(0xffff4d4d),
           appBarTheme: ThemeData.light().appBarTheme.copyWith(
-            brightness: Brightness.dark,
-            color: Colors.red,
-            iconTheme: ThemeData.dark().iconTheme,
-          ),
+                brightness: Brightness.dark,
+                color: Colors.red,
+                iconTheme: ThemeData.dark().iconTheme,
+              ),
           floatingActionButtonTheme: const FloatingActionButtonThemeData(
             backgroundColor: Color(0xffff4d4d),
             foregroundColor: Colors.white,

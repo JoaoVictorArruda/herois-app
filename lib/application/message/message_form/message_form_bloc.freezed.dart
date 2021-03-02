@@ -47,6 +47,7 @@ mixin _$MessageFormEvent {
     @required TResult textChanged(String textStr),
     @required TResult saved(String userId),
   });
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(Option<Message> initialMessageOption),
@@ -54,12 +55,14 @@ mixin _$MessageFormEvent {
     TResult saved(String userId),
     @required TResult orElse(),
   });
+
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initialized(_Initialized value),
     @required TResult textChanged(_TextChanged value),
     @required TResult saved(_Saved value),
   });
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initialized(_Initialized value),
@@ -82,6 +85,7 @@ class _$MessageFormEventCopyWithImpl<$Res>
   _$MessageFormEventCopyWithImpl(this._value, this._then);
 
   final MessageFormEvent _value;
+
   // ignore: unused_field
   final $Res Function(MessageFormEvent) _then;
 }
@@ -91,6 +95,7 @@ abstract class _$InitializedCopyWith<$Res> {
   factory _$InitializedCopyWith(
           _Initialized value, $Res Function(_Initialized) then) =
       __$InitializedCopyWithImpl<$Res>;
+
   $Res call({Option<Message> initialMessageOption});
 }
 
@@ -211,6 +216,7 @@ abstract class _Initialized implements MessageFormEvent {
       _$_Initialized;
 
   Option<Message> get initialMessageOption;
+
   @JsonKey(ignore: true)
   _$InitializedCopyWith<_Initialized> get copyWith;
 }
@@ -220,6 +226,7 @@ abstract class _$TextChangedCopyWith<$Res> {
   factory _$TextChangedCopyWith(
           _TextChanged value, $Res Function(_TextChanged) then) =
       __$TextChangedCopyWithImpl<$Res>;
+
   $Res call({String textStr});
 }
 
@@ -334,6 +341,7 @@ abstract class _TextChanged implements MessageFormEvent {
   const factory _TextChanged(String textStr) = _$_TextChanged;
 
   String get textStr;
+
   @JsonKey(ignore: true)
   _$TextChangedCopyWith<_TextChanged> get copyWith;
 }
@@ -342,6 +350,7 @@ abstract class _TextChanged implements MessageFormEvent {
 abstract class _$SavedCopyWith<$Res> {
   factory _$SavedCopyWith(_Saved value, $Res Function(_Saved) then) =
       __$SavedCopyWithImpl<$Res>;
+
   $Res call({String userId});
 }
 
@@ -454,6 +463,7 @@ abstract class _Saved implements MessageFormEvent {
   const factory _Saved(String userId) = _$_Saved;
 
   String get userId;
+
   @JsonKey(ignore: true)
   _$SavedCopyWith<_Saved> get copyWith;
 }
@@ -491,9 +501,13 @@ const $MessageFormState = _$MessageFormStateTearOff();
 /// @nodoc
 mixin _$MessageFormState {
   Message get message;
+
   bool get showErrorMessages;
+
   bool get isEditing;
+
   bool get isSaving;
+
   Option<Either<MessageFailure, Unit>> get saveFailureOrSuccessOption;
 
   @JsonKey(ignore: true)
@@ -505,6 +519,7 @@ abstract class $MessageFormStateCopyWith<$Res> {
   factory $MessageFormStateCopyWith(
           MessageFormState value, $Res Function(MessageFormState) then) =
       _$MessageFormStateCopyWithImpl<$Res>;
+
   $Res call(
       {Message message,
       bool showErrorMessages,
@@ -521,6 +536,7 @@ class _$MessageFormStateCopyWithImpl<$Res>
   _$MessageFormStateCopyWithImpl(this._value, this._then);
 
   final MessageFormState _value;
+
   // ignore: unused_field
   final $Res Function(MessageFormState) _then;
 
@@ -562,6 +578,7 @@ abstract class _$MessageFormStateCopyWith<$Res>
   factory _$MessageFormStateCopyWith(
           _MessageFormState value, $Res Function(_MessageFormState) then) =
       __$MessageFormStateCopyWithImpl<$Res>;
+
   @override
   $Res call(
       {Message message,
@@ -691,14 +708,19 @@ abstract class _MessageFormState implements MessageFormState {
 
   @override
   Message get message;
+
   @override
   bool get showErrorMessages;
+
   @override
   bool get isEditing;
+
   @override
   bool get isSaving;
+
   @override
   Option<Either<MessageFailure, Unit>> get saveFailureOrSuccessOption;
+
   @override
   @JsonKey(ignore: true)
   _$MessageFormStateCopyWith<_MessageFormState> get copyWith;

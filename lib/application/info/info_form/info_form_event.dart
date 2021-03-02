@@ -7,21 +7,27 @@ abstract class InfoFormEvent with _$InfoFormEvent {
 
   const factory InfoFormEvent.genderChanged(String genderStr) = _GenderChanged;
 
-  const factory InfoFormEvent.bloodTypeChanged(String bloodType) = _BloodTypeChanged;
+  const factory InfoFormEvent.bloodTypeChanged(String bloodType) =
+      _BloodTypeChanged;
 
   const factory InfoFormEvent.nameChanged(String nameStr) = _NameChanged;
 
-  const factory InfoFormEvent.localizationChanged(String city, String lat, String long) = _LocalizationChanged;
+  const factory InfoFormEvent.localizationChanged(
+      String city, String lat, String long) = _LocalizationChanged;
 
-  const factory InfoFormEvent.photoUrlChanged(String photoUrl) = _PhotoUrlChanged;
+  const factory InfoFormEvent.photoUrlChanged(String photoUrl) =
+      _PhotoUrlChanged;
 
   const factory InfoFormEvent.bioChanged(String bioStr) = _BioChanged;
 
-  const factory InfoFormEvent.isVisibleChanged(bool isVisibleBool) = _IsVisibleChanged;
+  const factory InfoFormEvent.isVisibleChanged(bool isVisibleBool) =
+      _IsVisibleChanged;
 
-  const factory InfoFormEvent.dateLastDonateChange(String dateLastDonateStr) = _DateLastDonateChange;
+  const factory InfoFormEvent.dateLastDonateChange(String dateLastDonateStr) =
+      _DateLastDonateChange;
 
-  const factory InfoFormEvent.neverDonatedChange(bool neverDonatedBool) = _NeverDonatedChange;
+  const factory InfoFormEvent.neverDonatedChange(bool neverDonatedBool) =
+      _NeverDonatedChange;
 
   const factory InfoFormEvent.saved() = _Saved;
 }

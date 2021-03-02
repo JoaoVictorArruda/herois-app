@@ -37,6 +37,7 @@ mixin _$User {
 abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
+
   $Res call({UniqueId id});
 }
 
@@ -45,6 +46,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
   _$UserCopyWithImpl(this._value, this._then);
 
   final User _value;
+
   // ignore: unused_field
   final $Res Function(User) _then;
 
@@ -62,6 +64,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
 abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$UserCopyWith(_User value, $Res Function(_User) then) =
       __$UserCopyWithImpl<$Res>;
+
   @override
   $Res call({UniqueId id});
 }
@@ -120,6 +123,7 @@ abstract class _User implements User {
 
   @override
   UniqueId get id;
+
   @override
   @JsonKey(ignore: true)
   _$UserCopyWith<_User> get copyWith;

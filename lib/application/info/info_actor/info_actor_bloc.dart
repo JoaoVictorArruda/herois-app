@@ -7,16 +7,13 @@ import 'package:herois/domain/info/info.dart';
 import 'package:herois/domain/info/info_failure.dart';
 import 'package:injectable/injectable.dart';
 
-part 'info_actor_event.dart';
-
-part 'info_actor_state.dart';
-
 part 'info_actor_bloc.freezed.dart';
+part 'info_actor_event.dart';
+part 'info_actor_state.dart';
 
 @injectable
 class InfoActorBloc extends Bloc<InfoActorEvent, InfoActorState> {
   final IInfoRepository _infoRepository;
-
 
   InfoActorBloc(this._infoRepository) : super(const InfoActorState.initial());
 

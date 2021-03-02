@@ -53,17 +53,29 @@ const $Info = _$InfoTearOff();
 /// @nodoc
 mixin _$Info {
   UniqueId get id;
+
   StringSingleLine get name;
+
   String get photoUrl;
+
   InfoBio get bio;
+
   BloodType get bloodType;
+
   Gender get gender;
+
   StringSingleLine get city;
+
   LatLong get lat;
+
   LatLong get long;
+
   CustomDate get dateLastDonate;
+
   bool get isVisible;
+
   bool get neverDonated;
+
   int get totalRequests;
 
   @JsonKey(ignore: true)
@@ -74,6 +86,7 @@ mixin _$Info {
 abstract class $InfoCopyWith<$Res> {
   factory $InfoCopyWith(Info value, $Res Function(Info) then) =
       _$InfoCopyWithImpl<$Res>;
+
   $Res call(
       {UniqueId id,
       StringSingleLine name,
@@ -95,6 +108,7 @@ class _$InfoCopyWithImpl<$Res> implements $InfoCopyWith<$Res> {
   _$InfoCopyWithImpl(this._value, this._then);
 
   final Info _value;
+
   // ignore: unused_field
   final $Res Function(Info) _then;
 
@@ -142,6 +156,7 @@ class _$InfoCopyWithImpl<$Res> implements $InfoCopyWith<$Res> {
 abstract class _$InfoCopyWith<$Res> implements $InfoCopyWith<$Res> {
   factory _$InfoCopyWith(_Info value, $Res Function(_Info) then) =
       __$InfoCopyWithImpl<$Res>;
+
   @override
   $Res call(
       {UniqueId id,
@@ -347,6 +362,7 @@ class _$_Info extends _Info with DiagnosticableTreeMixin {
 
 abstract class _Info extends Info {
   const _Info._() : super._();
+
   const factory _Info(
       {@required UniqueId id,
       @required StringSingleLine name,
@@ -364,30 +380,43 @@ abstract class _Info extends Info {
 
   @override
   UniqueId get id;
+
   @override
   StringSingleLine get name;
+
   @override
   String get photoUrl;
+
   @override
   InfoBio get bio;
+
   @override
   BloodType get bloodType;
+
   @override
   Gender get gender;
+
   @override
   StringSingleLine get city;
+
   @override
   LatLong get lat;
+
   @override
   LatLong get long;
+
   @override
   CustomDate get dateLastDonate;
+
   @override
   bool get isVisible;
+
   @override
   bool get neverDonated;
+
   @override
   int get totalRequests;
+
   @override
   @JsonKey(ignore: true)
   _$InfoCopyWith<_Info> get copyWith;

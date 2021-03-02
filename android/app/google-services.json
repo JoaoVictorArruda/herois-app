@@ -31,6 +31,14 @@
           }
         },
         {
+          "client_id": "786872242821-svkk19l5khe5nd1to7pr2mrp4avrlh82.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.herois",
+            "certificate_hash": "450508f0a92f2a6eec01d632f3bbaa8379af60be"
+          }
+        },
+        {
           "client_id": "786872242821-0j4qo7mauvdp6trtmp6kbcqdnpj578uj.apps.googleusercontent.com",
           "client_type": 3
         }

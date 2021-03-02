@@ -1,12 +1,9 @@
-
 import 'package:dartz/dartz.dart';
 import 'package:herois/domain/core/failures.dart';
 import 'package:herois/domain/core/value_objects.dart';
 import 'package:herois/domain/core/value_validators.dart';
 
-
 class BloodType extends ValueObject<String, String> {
-
   static const List<String> predefinedBloodTypes = [
     "A+",
     "A-",
@@ -22,8 +19,7 @@ class BloodType extends ValueObject<String, String> {
   final Either<ValueFailure<String>, String> value;
 
   factory BloodType(String input) {
-    assert(input != null
-        && input is String);
+    assert(input != null && input is String);
     return BloodType._(
       validateBloodType(input),
     );
@@ -33,7 +29,6 @@ class BloodType extends ValueObject<String, String> {
 }
 
 class Gender extends ValueObject<String, String> {
-
   static const List<String> predefinedGender = [
     "Male",
     "Female",
@@ -43,8 +38,7 @@ class Gender extends ValueObject<String, String> {
   final Either<ValueFailure<String>, String> value;
 
   factory Gender(String input) {
-    assert(input != null
-        && input is String);
+    assert(input != null && input is String);
     return Gender._(
       validateGender(input),
     );

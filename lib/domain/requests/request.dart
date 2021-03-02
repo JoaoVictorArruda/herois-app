@@ -22,15 +22,14 @@ abstract class Request implements _$Request {
   }) = _Request;
 
   factory Request.empty() => Request(
-    id: UniqueId(),
-    name: StringSingleLine(''),
-    city: StringSingleLine(''),
-    lat: StringSingleLine(''),
-    long: StringSingleLine(''),
-    isOpen: true,
-    bloodType: BloodType(BloodType.predefinedBloodTypes[0]),
-    photoUrl: ''
-  );
+      id: UniqueId(),
+      name: StringSingleLine(''),
+      city: StringSingleLine(''),
+      lat: StringSingleLine(''),
+      long: StringSingleLine(''),
+      isOpen: true,
+      bloodType: BloodType(BloodType.predefinedBloodTypes[0]),
+      photoUrl: '');
 
   Option<ValueFailure<dynamic>> get failureOption {
     return lat.failureOrUnit

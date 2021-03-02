@@ -42,6 +42,7 @@ mixin _$MessageWatcherEvent {
         TResult messagesReceived(
             Either<MessageFailure, KtList<Message>> failureOrMessages),
   });
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult watchAllStarted(String userId),
@@ -49,11 +50,13 @@ mixin _$MessageWatcherEvent {
         Either<MessageFailure, KtList<Message>> failureOrMessages),
     @required TResult orElse(),
   });
+
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult watchAllStarted(_WatchAllStarted value),
     @required TResult messagesReceived(_MessagesReceived value),
   });
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult watchAllStarted(_WatchAllStarted value),
@@ -75,6 +78,7 @@ class _$MessageWatcherEventCopyWithImpl<$Res>
   _$MessageWatcherEventCopyWithImpl(this._value, this._then);
 
   final MessageWatcherEvent _value;
+
   // ignore: unused_field
   final $Res Function(MessageWatcherEvent) _then;
 }
@@ -84,6 +88,7 @@ abstract class _$WatchAllStartedCopyWith<$Res> {
   factory _$WatchAllStartedCopyWith(
           _WatchAllStarted value, $Res Function(_WatchAllStarted) then) =
       __$WatchAllStartedCopyWithImpl<$Res>;
+
   $Res call({String userId});
 }
 
@@ -195,6 +200,7 @@ abstract class _WatchAllStarted implements MessageWatcherEvent {
   const factory _WatchAllStarted(String userId) = _$_WatchAllStarted;
 
   String get userId;
+
   @JsonKey(ignore: true)
   _$WatchAllStartedCopyWith<_WatchAllStarted> get copyWith;
 }
@@ -204,6 +210,7 @@ abstract class _$MessagesReceivedCopyWith<$Res> {
   factory _$MessagesReceivedCopyWith(
           _MessagesReceived value, $Res Function(_MessagesReceived) then) =
       __$MessagesReceivedCopyWithImpl<$Res>;
+
   $Res call({Either<MessageFailure, KtList<Message>> failureOrMessages});
 }
 
@@ -322,6 +329,7 @@ abstract class _MessagesReceived implements MessageWatcherEvent {
       _$_MessagesReceived;
 
   Either<MessageFailure, KtList<Message>> get failureOrMessages;
+
   @JsonKey(ignore: true)
   _$MessagesReceivedCopyWith<_MessagesReceived> get copyWith;
 }
@@ -368,6 +376,7 @@ mixin _$MessageWatcherState {
     @required TResult loadSuccess(KtList<Message> messages),
     @required TResult loadFailure(MessageFailure messageFailure),
   });
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
@@ -376,6 +385,7 @@ mixin _$MessageWatcherState {
     TResult loadFailure(MessageFailure messageFailure),
     @required TResult orElse(),
   });
+
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
@@ -383,6 +393,7 @@ mixin _$MessageWatcherState {
     @required TResult loadSuccess(_LoadSuccess value),
     @required TResult loadFailure(_LoadFailure value),
   });
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
@@ -406,6 +417,7 @@ class _$MessageWatcherStateCopyWithImpl<$Res>
   _$MessageWatcherStateCopyWithImpl(this._value, this._then);
 
   final MessageWatcherState _value;
+
   // ignore: unused_field
   final $Res Function(MessageWatcherState) _then;
 }
@@ -619,6 +631,7 @@ abstract class _$LoadSuccessCopyWith<$Res> {
   factory _$LoadSuccessCopyWith(
           _LoadSuccess value, $Res Function(_LoadSuccess) then) =
       __$LoadSuccessCopyWithImpl<$Res>;
+
   $Res call({KtList<Message> messages});
 }
 
@@ -740,6 +753,7 @@ abstract class _LoadSuccess implements MessageWatcherState {
   const factory _LoadSuccess(KtList<Message> messages) = _$_LoadSuccess;
 
   KtList<Message> get messages;
+
   @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
@@ -749,6 +763,7 @@ abstract class _$LoadFailureCopyWith<$Res> {
   factory _$LoadFailureCopyWith(
           _LoadFailure value, $Res Function(_LoadFailure) then) =
       __$LoadFailureCopyWithImpl<$Res>;
+
   $Res call({MessageFailure messageFailure});
 
   $MessageFailureCopyWith<$Res> get messageFailure;
@@ -885,6 +900,7 @@ abstract class _LoadFailure implements MessageWatcherState {
   const factory _LoadFailure(MessageFailure messageFailure) = _$_LoadFailure;
 
   MessageFailure get messageFailure;
+
   @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

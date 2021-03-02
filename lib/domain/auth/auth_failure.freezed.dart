@@ -35,17 +35,20 @@ mixin _$AuthFailure {
     @required TResult cancelledByUser(),
     @required TResult serverError(),
   });
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult cancelledByUser(),
     TResult serverError(),
     @required TResult orElse(),
   });
+
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult cancelledByUser(CancelledByUser value),
     @required TResult serverError(ServerError value),
   });
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult cancelledByUser(CancelledByUser value),
@@ -66,6 +69,7 @@ class _$AuthFailureCopyWithImpl<$Res> implements $AuthFailureCopyWith<$Res> {
   _$AuthFailureCopyWithImpl(this._value, this._then);
 
   final AuthFailure _value;
+
   // ignore: unused_field
   final $Res Function(AuthFailure) _then;
 }

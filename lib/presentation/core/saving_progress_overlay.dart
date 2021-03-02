@@ -29,9 +29,9 @@ class SavingInProgressOverlay extends StatelessWidget {
                 'Salvando',
                 // Not within a Scaffold. We have to get the TextStyle from a theme ourselves.
                 style: Theme.of(context).textTheme.bodyText2.copyWith(
-                  color: Colors.white,
-                  fontSize: 16,
-                ),
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
               )
             ],
           ),

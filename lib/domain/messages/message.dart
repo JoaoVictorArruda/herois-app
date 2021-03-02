@@ -18,14 +18,13 @@ abstract class Message implements _$Message {
   }) = _Message;
 
   factory Message.empty() => Message(
-      id: UniqueId(),
-      text: MessageText(''),
-      // dateTime: DateTime.now(),
-      sentByMe: true,
-  );
+        id: UniqueId(),
+        text: MessageText(''),
+        // dateTime: DateTime.now(),
+        sentByMe: true,
+      );
 
   Option<ValueFailure<dynamic>> get failureOption {
-    return text.failureOrUnit
-        .fold((f) => some(f), (_) => none());
+    return text.failureOrUnit.fold((f) => some(f), (_) => none());
   }
 }

@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:meta/meta.dart';
-import 'package:uuid/uuid.dart';
 import 'package:herois/domain/core/errors.dart';
 import 'package:herois/domain/core/failures.dart';
 import 'package:herois/domain/core/value_validators.dart';
+import 'package:meta/meta.dart';
+import 'package:uuid/uuid.dart';
 
 @immutable
 abstract class ValueObject<T, J> {
@@ -22,8 +22,8 @@ abstract class ValueObject<T, J> {
 
   Either<ValueFailure<dynamic>, Unit> get failureOrUnit {
     return value.fold(
-          (l) => left(l),
-          (r) => right(unit),
+      (l) => left(l),
+      (r) => right(unit),
     );
   }
 

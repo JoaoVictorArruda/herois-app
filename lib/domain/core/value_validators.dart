@@ -33,7 +33,8 @@ Either<ValueFailure<String>, String> validateSingleLine(String input) {
 
 Either<ValueFailure<String>, int> validateGreaterThanZero(int input) {
   if (input > 0) {
-    return left(ValueFailure.exceedingLength(failedValue: input.toString(), max: 1));
+    return left(
+        ValueFailure.exceedingLength(failedValue: input.toString(), max: 1));
   } else {
     return right(input);
   }

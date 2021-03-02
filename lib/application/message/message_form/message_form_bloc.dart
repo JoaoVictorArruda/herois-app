@@ -7,17 +7,15 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:herois/domain/messages/i_message_repository.dart';
 import 'package:herois/domain/messages/message.dart';
 import 'package:herois/domain/messages/message_failure.dart';
+import 'package:herois/domain/messages/value_objects.dart';
+import 'package:herois/infrastructure/core/firestore_helpers.dart';
 import 'package:herois/injection.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
-import 'package:herois/infrastructure/core/firestore_helpers.dart';
-import 'package:herois/domain/messages/value_objects.dart';
-
-part 'message_form_event.dart';
-
-part 'message_form_state.dart';
 
 part 'message_form_bloc.freezed.dart';
+part 'message_form_event.dart';
+part 'message_form_state.dart';
 
 @injectable
 class MessageFormBloc extends Bloc<MessageFormEvent, MessageFormState> {

@@ -47,6 +47,7 @@ mixin _$InfoFailure {
     @required TResult unableToUpdate(),
     @required TResult unavailableToDonate(),
   });
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult unexpected(),
@@ -55,6 +56,7 @@ mixin _$InfoFailure {
     TResult unavailableToDonate(),
     @required TResult orElse(),
   });
+
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult unexpected(Unexpected value),
@@ -62,6 +64,7 @@ mixin _$InfoFailure {
     @required TResult unableToUpdate(UnableToUpdate value),
     @required TResult unavailableToDonate(UnavailableToDonate value),
   });
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult unexpected(Unexpected value),
@@ -84,6 +87,7 @@ class _$InfoFailureCopyWithImpl<$Res> implements $InfoFailureCopyWith<$Res> {
   _$InfoFailureCopyWithImpl(this._value, this._then);
 
   final InfoFailure _value;
+
   // ignore: unused_field
   final $Res Function(InfoFailure) _then;
 }

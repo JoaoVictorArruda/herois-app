@@ -43,12 +43,19 @@ const $Request = _$RequestTearOff();
 /// @nodoc
 mixin _$Request {
   UniqueId get id;
+
   StringSingleLine get city;
+
   StringSingleLine get name;
+
   StringSingleLine get lat;
+
   StringSingleLine get long;
+
   BloodType get bloodType;
+
   String get photoUrl;
+
   bool get isOpen;
 
   @JsonKey(ignore: true)
@@ -59,6 +66,7 @@ mixin _$Request {
 abstract class $RequestCopyWith<$Res> {
   factory $RequestCopyWith(Request value, $Res Function(Request) then) =
       _$RequestCopyWithImpl<$Res>;
+
   $Res call(
       {UniqueId id,
       StringSingleLine city,
@@ -75,6 +83,7 @@ class _$RequestCopyWithImpl<$Res> implements $RequestCopyWith<$Res> {
   _$RequestCopyWithImpl(this._value, this._then);
 
   final Request _value;
+
   // ignore: unused_field
   final $Res Function(Request) _then;
 
@@ -107,6 +116,7 @@ class _$RequestCopyWithImpl<$Res> implements $RequestCopyWith<$Res> {
 abstract class _$RequestCopyWith<$Res> implements $RequestCopyWith<$Res> {
   factory _$RequestCopyWith(_Request value, $Res Function(_Request) then) =
       __$RequestCopyWithImpl<$Res>;
+
   @override
   $Res call(
       {UniqueId id,
@@ -238,6 +248,7 @@ class _$_Request extends _Request {
 
 abstract class _Request extends Request {
   const _Request._() : super._();
+
   const factory _Request(
       {@required UniqueId id,
       StringSingleLine city,
@@ -250,20 +261,28 @@ abstract class _Request extends Request {
 
   @override
   UniqueId get id;
+
   @override
   StringSingleLine get city;
+
   @override
   StringSingleLine get name;
+
   @override
   StringSingleLine get lat;
+
   @override
   StringSingleLine get long;
+
   @override
   BloodType get bloodType;
+
   @override
   String get photoUrl;
+
   @override
   bool get isOpen;
+
   @override
   @JsonKey(ignore: true)
   _$RequestCopyWith<_Request> get copyWith;

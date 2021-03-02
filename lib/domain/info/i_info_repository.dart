@@ -10,7 +10,8 @@ abstract class IInfoRepository {
 
   Stream<Either<InfoFailure, KtList<Info>>> watchSearchInfoUserStarted();
 
-  Stream<Either<InfoFailure, KtList<Info>>> watchSearchInfoUserFiltered(String query);
+  Stream<Either<InfoFailure, KtList<Info>>> watchSearchInfoUserFiltered(
+      String query);
 
   Future<Either<InfoFailure, Unit>> create(Info info);
 

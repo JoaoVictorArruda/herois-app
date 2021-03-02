@@ -41,6 +41,7 @@ mixin _$MessageFailure {
     @required TResult insufficientPermission(),
     @required TResult unableToUpdate(),
   });
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult unexpected(),
@@ -48,12 +49,14 @@ mixin _$MessageFailure {
     TResult unableToUpdate(),
     @required TResult orElse(),
   });
+
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult unexpected(_Unexpected value),
     @required TResult insufficientPermission(_InsufficientPermission value),
     @required TResult unableToUpdate(_UnableToUpdate value),
   });
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult unexpected(_Unexpected value),
@@ -76,6 +79,7 @@ class _$MessageFailureCopyWithImpl<$Res>
   _$MessageFailureCopyWithImpl(this._value, this._then);
 
   final MessageFailure _value;
+
   // ignore: unused_field
   final $Res Function(MessageFailure) _then;
 }

@@ -34,34 +34,37 @@ class OtherInfoOverviewBody extends StatelessWidget {
                     ],
                   );
                 } else {
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      final info = state.info;
-                      if (info.failureOption.isSome()) {
-                        return ErrorCard(errorObject: info.failureOption);
-                      }
-                      return Column(
-                        children: [
-                          AppBar(
-                            title: const Text(""),
-                            elevation: 0,
-                            backgroundColor: Colors.white,
-                            leading: IconButton(
-                              icon: const Icon(Icons.arrow_back, color: Colors.black,),
-                              onPressed: () {
-                                ExtendedNavigator.of(context).pop();
-                              },
+                  return Container(
+                    height: MediaQuery.of(context).size.height * 0.78,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        final info = state.info;
+                        if (info.failureOption.isSome()) {
+                          return ErrorCard(errorObject: info.failureOption);
+                        }
+                        return Column(
+                          children: [
+                            AppBar(
+                              title: const Text(""),
+                              elevation: 0,
+                              backgroundColor: Colors.white,
+                              leading: IconButton(
+                                icon: const Icon(Icons.arrow_back, color: Colors.black,),
+                                onPressed: () {
+                                  ExtendedNavigator.of(context).pop();
+                                },
+                              ),
                             ),
-                          ),
-                            OtherInfoCard(info: info, userId: userId)
-                          // AppBar(
-                          //   title: Text(info.name.getOrCrash()),
-                          // ),
-                        ],
-                      );
-                    },
-                    itemCount: 1,
+                              OtherInfoCard(info: info, userId: userId)
+                            // AppBar(
+                            //   title: Text(info.name.getOrCrash()),
+                            // ),
+                          ],
+                        );
+                      },
+                      itemCount: 1,
+                    ),
                   );
                 }
               },

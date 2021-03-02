@@ -33,6 +33,7 @@ const $Message = _$MessageTearOff();
 /// @nodoc
 mixin _$Message {
   UniqueId get id;
+
   MessageText get text; // @required DateTime dateTime,
   bool get sentByMe;
 
@@ -44,6 +45,7 @@ mixin _$Message {
 abstract class $MessageCopyWith<$Res> {
   factory $MessageCopyWith(Message value, $Res Function(Message) then) =
       _$MessageCopyWithImpl<$Res>;
+
   $Res call({UniqueId id, MessageText text, bool sentByMe});
 }
 
@@ -52,6 +54,7 @@ class _$MessageCopyWithImpl<$Res> implements $MessageCopyWith<$Res> {
   _$MessageCopyWithImpl(this._value, this._then);
 
   final Message _value;
+
   // ignore: unused_field
   final $Res Function(Message) _then;
 
@@ -73,6 +76,7 @@ class _$MessageCopyWithImpl<$Res> implements $MessageCopyWith<$Res> {
 abstract class _$MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
   factory _$MessageCopyWith(_Message value, $Res Function(_Message) then) =
       __$MessageCopyWithImpl<$Res>;
+
   @override
   $Res call({UniqueId id, MessageText text, bool sentByMe});
 }
@@ -149,6 +153,7 @@ class _$_Message extends _Message {
 
 abstract class _Message extends Message {
   const _Message._() : super._();
+
   const factory _Message(
       {@required UniqueId id,
       @required MessageText text,
@@ -156,10 +161,13 @@ abstract class _Message extends Message {
 
   @override
   UniqueId get id;
+
   @override
   MessageText get text;
+
   @override // @required DateTime dateTime,
   bool get sentByMe;
+
   @override
   @JsonKey(ignore: true)
   _$MessageCopyWith<_Message> get copyWith;

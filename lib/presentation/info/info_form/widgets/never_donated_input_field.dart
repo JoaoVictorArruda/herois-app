@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:herois/application/info/info_form/info_form_bloc.dart';
 
-
 class NeverDonatedInputField extends StatelessWidget {
   const NeverDonatedInputField({
     Key key,
@@ -19,7 +18,9 @@ class NeverDonatedInputField extends StatelessWidget {
             title: const Text("Nunca doei"),
             value: state.info.neverDonated ?? false,
             onChanged: (newValue) {
-              context.bloc<InfoFormBloc>() .add(InfoFormEvent.neverDonatedChange(newValue));
+              context
+                  .bloc<InfoFormBloc>()
+                  .add(InfoFormEvent.neverDonatedChange(newValue));
             },
             controlAffinity: ListTileControlAffinity.leading,
           );

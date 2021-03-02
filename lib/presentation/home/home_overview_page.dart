@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 
 class Destination {
   const Destination(this.index, this.title, this.icon, this.color);
+
   final int index;
   final String title;
   final IconData icon;
@@ -17,7 +18,7 @@ const List<Destination> allDestinations = <Destination>[
 ];
 
 class RootPage extends StatelessWidget {
-  const RootPage({ Key key, this.destination }) : super(key: key);
+  const RootPage({Key key, this.destination}) : super(key: key);
 
   final Destination destination;
 
@@ -44,13 +45,24 @@ class RootPage extends StatelessWidget {
 }
 
 class ListPage extends StatelessWidget {
-  const ListPage({ Key key, this.destination }) : super(key: key);
+  const ListPage({Key key, this.destination}) : super(key: key);
 
   final Destination destination;
 
   @override
   Widget build(BuildContext context) {
-    const List<int> shades = <int>[50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+    const List<int> shades = <int>[
+      50,
+      100,
+      200,
+      300,
+      400,
+      500,
+      600,
+      700,
+      800,
+      900
+    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -71,7 +83,8 @@ class ListPage extends StatelessWidget {
                     Navigator.pushNamed(context, "/text");
                   },
                   child: Center(
-                    child: Text('Item $index', style: Theme.of(context).primaryTextTheme.display1),
+                    child: Text('Item $index',
+                        style: Theme.of(context).primaryTextTheme.display1),
                   ),
                 ),
               ),
@@ -84,7 +97,7 @@ class ListPage extends StatelessWidget {
 }
 
 class TextPage extends StatefulWidget {
-  const TextPage({ Key key, this.destination }) : super(key: key);
+  const TextPage({Key key, this.destination}) : super(key: key);
 
   final Destination destination;
 
@@ -126,7 +139,6 @@ class _TextPageState extends State<TextPage> {
   }
 }
 
-
 class ViewNavigatorObserver extends NavigatorObserver {
   ViewNavigatorObserver(this.onNavigation);
 
@@ -135,13 +147,15 @@ class ViewNavigatorObserver extends NavigatorObserver {
   void didPop(Route<dynamic> route, Route<dynamic> previousRoute) {
     onNavigation();
   }
+
   void didPush(Route<dynamic> route, Route<dynamic> previousRoute) {
     onNavigation();
   }
 }
 
 class DestinationView extends StatefulWidget {
-  const DestinationView({ Key key, this.destination, this.onNavigation }) : super(key: key);
+  const DestinationView({Key key, this.destination, this.onNavigation})
+      : super(key: key);
 
   final Destination destination;
   final VoidCallback onNavigation;
@@ -161,7 +175,6 @@ class _DestinationViewState extends State<DestinationView> {
         return MaterialPageRoute(
           settings: settings,
           builder: (context) => RootPage(destination: widget.destination),
-
         );
       },
     );
@@ -173,7 +186,8 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with TickerProviderStateMixin<HomePage> {
+class _HomePageState extends State<HomePage>
+    with TickerProviderStateMixin<HomePage> {
   List<Key> _destinationKeys;
   List<AnimationController> _faders;
   AnimationController _hide;
@@ -183,18 +197,21 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin<HomeP
   void initState() {
     super.initState();
 
-    _faders = allDestinations.map<AnimationController>((Destination destination) {
-      return AnimationController(vsync: this, duration: Duration(milliseconds: 200));
+    _faders =
+        allDestinations.map<AnimationController>((Destination destination) {
+      return AnimationController(
+          vsync: this, duration: Duration(milliseconds: 200));
     }).toList();
     _faders[_currentIndex].value = 1.0;
-    _destinationKeys = List<Key>.generate(allDestinations.length, (int index) => GlobalKey()).toList();
+    _destinationKeys =
+        List<Key>.generate(allDestinations.length, (int index) => GlobalKey())
+            .toList();
     _hide = AnimationController(vsync: this, duration: kThemeAnimationDuration);
   }
 
   @override
   void dispose() {
-    for (AnimationController controller in _faders)
-      controller.dispose();
+    for (AnimationController controller in _faders) controller.dispose();
     _hide.dispose();
     super.dispose();
   }
@@ -229,7 +246,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin<HomeP
             fit: StackFit.expand,
             children: allDestinations.map((Destination destination) {
               final Widget view = FadeTransition(
-                opacity: _faders[destination.index].drive(CurveTween(curve: Curves.fastOutSlowIn)),
+                opacity: _faders[destination.index]
+                    .drive(CurveTween(curve: Curves.fastOutSlowIn)),
                 child: KeyedSubtree(
                   key: _destinationKeys[destination.index],
                   child: DestinationView(
@@ -268,8 +286,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin<HomeP
                 return BottomNavigationBarItem(
                     icon: Icon(destination.icon),
                     backgroundColor: destination.color,
-                    title: Text(destination.title)
-                );
+                    title: Text(destination.title));
               }).toList(),
             ),
           ),

@@ -11,11 +11,9 @@ import 'package:herois/domain/requests/request_failure.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
-part 'request_form_event.dart';
-
-part 'request_form_state.dart';
-
 part 'request_form_bloc.freezed.dart';
+part 'request_form_event.dart';
+part 'request_form_state.dart';
 
 @injectable
 class RequestFormBloc extends Bloc<RequestFormEvent, RequestFormState> {
@@ -66,7 +64,10 @@ class RequestFormBloc extends Bloc<RequestFormEvent, RequestFormState> {
       },
       localizationChanged: (e) async* {
         yield state.copyWith(
-          request: state.request.copyWith(city: StringSingleLine(e.city), lat: StringSingleLine(e.lat), long: StringSingleLine(e.long)),
+          request: state.request.copyWith(
+              city: StringSingleLine(e.city),
+              lat: StringSingleLine(e.lat),
+              long: StringSingleLine(e.long)),
           saveFailureOrSuccessOption: none(),
         );
       },

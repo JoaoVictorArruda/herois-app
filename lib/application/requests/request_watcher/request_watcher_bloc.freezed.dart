@@ -48,6 +48,7 @@ mixin _$RequestWatcherEvent {
         TResult requestReceived(
             Either<RequestFailure, KtList<Request>> failureOrRequest),
   });
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult watchAllStarted(),
@@ -56,12 +57,14 @@ mixin _$RequestWatcherEvent {
         Either<RequestFailure, KtList<Request>> failureOrRequest),
     @required TResult orElse(),
   });
+
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult watchAllStarted(_WatchAllStarted value),
     @required TResult watchOtherUserStarted(_WatchOtherUserStarted value),
     @required TResult requestReceived(_RequestReceived value),
   });
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult watchAllStarted(_WatchAllStarted value),
@@ -84,6 +87,7 @@ class _$RequestWatcherEventCopyWithImpl<$Res>
   _$RequestWatcherEventCopyWithImpl(this._value, this._then);
 
   final RequestWatcherEvent _value;
+
   // ignore: unused_field
   final $Res Function(RequestWatcherEvent) _then;
 }
@@ -193,6 +197,7 @@ abstract class _$WatchOtherUserStartedCopyWith<$Res> {
   factory _$WatchOtherUserStartedCopyWith(_WatchOtherUserStarted value,
           $Res Function(_WatchOtherUserStarted) then) =
       __$WatchOtherUserStartedCopyWithImpl<$Res>;
+
   $Res call({String userId});
 }
 
@@ -312,6 +317,7 @@ abstract class _WatchOtherUserStarted implements RequestWatcherEvent {
       _$_WatchOtherUserStarted;
 
   String get userId;
+
   @JsonKey(ignore: true)
   _$WatchOtherUserStartedCopyWith<_WatchOtherUserStarted> get copyWith;
 }
@@ -321,6 +327,7 @@ abstract class _$RequestReceivedCopyWith<$Res> {
   factory _$RequestReceivedCopyWith(
           _RequestReceived value, $Res Function(_RequestReceived) then) =
       __$RequestReceivedCopyWithImpl<$Res>;
+
   $Res call({Either<RequestFailure, KtList<Request>> failureOrRequest});
 }
 
@@ -445,6 +452,7 @@ abstract class _RequestReceived implements RequestWatcherEvent {
       _$_RequestReceived;
 
   Either<RequestFailure, KtList<Request>> get failureOrRequest;
+
   @JsonKey(ignore: true)
   _$RequestReceivedCopyWith<_RequestReceived> get copyWith;
 }
@@ -491,6 +499,7 @@ mixin _$RequestWatcherState {
     @required TResult loadSuccess(KtList<Request> requests),
     @required TResult loadFailure(RequestFailure requestFailure),
   });
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
@@ -499,6 +508,7 @@ mixin _$RequestWatcherState {
     TResult loadFailure(RequestFailure requestFailure),
     @required TResult orElse(),
   });
+
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
@@ -506,6 +516,7 @@ mixin _$RequestWatcherState {
     @required TResult loadSuccess(LoadSuccess value),
     @required TResult loadFailure(LoadFailure value),
   });
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
@@ -529,6 +540,7 @@ class _$RequestWatcherStateCopyWithImpl<$Res>
   _$RequestWatcherStateCopyWithImpl(this._value, this._then);
 
   final RequestWatcherState _value;
+
   // ignore: unused_field
   final $Res Function(RequestWatcherState) _then;
 }
@@ -742,6 +754,7 @@ abstract class $LoadSuccessCopyWith<$Res> {
   factory $LoadSuccessCopyWith(
           LoadSuccess value, $Res Function(LoadSuccess) then) =
       _$LoadSuccessCopyWithImpl<$Res>;
+
   $Res call({KtList<Request> requests});
 }
 
@@ -863,6 +876,7 @@ abstract class LoadSuccess implements RequestWatcherState {
   const factory LoadSuccess(KtList<Request> requests) = _$LoadSuccess;
 
   KtList<Request> get requests;
+
   @JsonKey(ignore: true)
   $LoadSuccessCopyWith<LoadSuccess> get copyWith;
 }
@@ -872,6 +886,7 @@ abstract class $LoadFailureCopyWith<$Res> {
   factory $LoadFailureCopyWith(
           LoadFailure value, $Res Function(LoadFailure) then) =
       _$LoadFailureCopyWithImpl<$Res>;
+
   $Res call({RequestFailure requestFailure});
 
   $RequestFailureCopyWith<$Res> get requestFailure;
@@ -1008,6 +1023,7 @@ abstract class LoadFailure implements RequestWatcherState {
   const factory LoadFailure(RequestFailure requestFailure) = _$LoadFailure;
 
   RequestFailure get requestFailure;
+
   @JsonKey(ignore: true)
   $LoadFailureCopyWith<LoadFailure> get copyWith;
 }

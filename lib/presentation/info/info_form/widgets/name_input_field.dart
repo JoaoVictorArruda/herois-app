@@ -40,20 +40,16 @@ class NameInputField extends HookWidget {
             onChanged: (value) => context
                 .bloc<InfoFormBloc>()
                 .add(InfoFormEvent.nameChanged(value)),
-            validator: (_) => context
-                .bloc<InfoFormBloc>()
-                .state
-                .info
-                .name
-                .value
-                .fold(
-                  (f) => f.maybeMap(
-                    empty: (f) => messages[CANNOT_BE_EMPTY],
-                    exceedingLength: (f) => '${messages[EXCEEDING_LENGTH]}${f.max}',
-                    orElse: () => null,
-                  ),
-                  (_) => null,
-                ),
+            validator: (_) =>
+                context.bloc<InfoFormBloc>().state.info.name.value.fold(
+                      (f) => f.maybeMap(
+                        empty: (f) => messages[CANNOT_BE_EMPTY],
+                        exceedingLength: (f) =>
+                            '${messages[EXCEEDING_LENGTH]}${f.max}',
+                        orElse: () => null,
+                      ),
+                      (_) => null,
+                    ),
           ),
         );
       },

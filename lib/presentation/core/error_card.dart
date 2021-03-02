@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:herois/domain/core/failures.dart';
 
 class ErrorCard extends StatelessWidget {
-
   final Option<ValueFailure<dynamic>> errorObject;
 
   const ErrorCard({
-    Key key, this.errorObject,
+    Key key,
+    this.errorObject,
   }) : super(key: key);
 
   @override

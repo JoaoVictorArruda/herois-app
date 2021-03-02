@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:herois/application/info/info_form/info_form_bloc.dart';
-
 import 'package:herois/domain/info/value_objects.dart';
 
 class BloodTypeWidget extends StatelessWidget {

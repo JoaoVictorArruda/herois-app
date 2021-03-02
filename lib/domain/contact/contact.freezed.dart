@@ -35,8 +35,11 @@ const $Contact = _$ContactTearOff();
 /// @nodoc
 mixin _$Contact {
   StringSingleLine get userId;
+
   StringSingleLine get lastMessage;
+
   String get photoUrl;
+
   String get name;
 
   @JsonKey(ignore: true)
@@ -47,6 +50,7 @@ mixin _$Contact {
 abstract class $ContactCopyWith<$Res> {
   factory $ContactCopyWith(Contact value, $Res Function(Contact) then) =
       _$ContactCopyWithImpl<$Res>;
+
   $Res call(
       {StringSingleLine userId,
       StringSingleLine lastMessage,
@@ -59,6 +63,7 @@ class _$ContactCopyWithImpl<$Res> implements $ContactCopyWith<$Res> {
   _$ContactCopyWithImpl(this._value, this._then);
 
   final Contact _value;
+
   // ignore: unused_field
   final $Res Function(Contact) _then;
 
@@ -84,6 +89,7 @@ class _$ContactCopyWithImpl<$Res> implements $ContactCopyWith<$Res> {
 abstract class _$ContactCopyWith<$Res> implements $ContactCopyWith<$Res> {
   factory _$ContactCopyWith(_Contact value, $Res Function(_Contact) then) =
       __$ContactCopyWithImpl<$Res>;
+
   @override
   $Res call(
       {StringSingleLine userId,
@@ -176,6 +182,7 @@ class _$_Contact extends _Contact {
 
 abstract class _Contact extends Contact {
   const _Contact._() : super._();
+
   const factory _Contact(
       {@required StringSingleLine userId,
       @required StringSingleLine lastMessage,
@@ -184,12 +191,16 @@ abstract class _Contact extends Contact {
 
   @override
   StringSingleLine get userId;
+
   @override
   StringSingleLine get lastMessage;
+
   @override
   String get photoUrl;
+
   @override
   String get name;
+
   @override
   @JsonKey(ignore: true)
   _$ContactCopyWith<_Contact> get copyWith;
