@@ -41,20 +41,17 @@ mixin _$RequestActorEvent {
     @required TResult editRequest(Request request),
     @required TResult deleted(Request request),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult editRequest(Request request),
     TResult deleted(Request request),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult editRequest(_EditRequest value),
     @required TResult deleted(_Deleted value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult editRequest(_EditRequest value),
@@ -71,7 +68,6 @@ abstract class $RequestActorEventCopyWith<$Res> {
   factory $RequestActorEventCopyWith(
           RequestActorEvent value, $Res Function(RequestActorEvent) then) =
       _$RequestActorEventCopyWithImpl<$Res>;
-
   $Res call({Request request});
 
   $RequestCopyWith<$Res> get request;
@@ -83,7 +79,6 @@ class _$RequestActorEventCopyWithImpl<$Res>
   _$RequestActorEventCopyWithImpl(this._value, this._then);
 
   final RequestActorEvent _value;
-
   // ignore: unused_field
   final $Res Function(RequestActorEvent) _then;
 
@@ -113,7 +108,6 @@ abstract class _$EditRequestCopyWith<$Res>
   factory _$EditRequestCopyWith(
           _EditRequest value, $Res Function(_EditRequest) then) =
       __$EditRequestCopyWithImpl<$Res>;
-
   @override
   $Res call({Request request});
 
@@ -227,7 +221,6 @@ abstract class _EditRequest implements RequestActorEvent {
 
   @override
   Request get request;
-
   @override
   @JsonKey(ignore: true)
   _$EditRequestCopyWith<_EditRequest> get copyWith;
@@ -238,7 +231,6 @@ abstract class _$DeletedCopyWith<$Res>
     implements $RequestActorEventCopyWith<$Res> {
   factory _$DeletedCopyWith(_Deleted value, $Res Function(_Deleted) then) =
       __$DeletedCopyWithImpl<$Res>;
-
   @override
   $Res call({Request request});
 
@@ -350,7 +342,6 @@ abstract class _Deleted implements RequestActorEvent {
 
   @override
   Request get request;
-
   @override
   @JsonKey(ignore: true)
   _$DeletedCopyWith<_Deleted> get copyWith;
@@ -410,7 +401,6 @@ mixin _$RequestActorState {
     @required TResult editSuccess(),
     @required TResult deleteSuccess(),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
@@ -421,7 +411,6 @@ mixin _$RequestActorState {
     TResult deleteSuccess(),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
@@ -431,7 +420,6 @@ mixin _$RequestActorState {
     @required TResult editSuccess(EditSuccess value),
     @required TResult deleteSuccess(DeleteSuccess value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
@@ -457,7 +445,6 @@ class _$RequestActorStateCopyWithImpl<$Res>
   _$RequestActorStateCopyWithImpl(this._value, this._then);
 
   final RequestActorState _value;
-
   // ignore: unused_field
   final $Res Function(RequestActorState) _then;
 }
@@ -694,7 +681,6 @@ abstract class $EditFailureCopyWith<$Res> {
   factory $EditFailureCopyWith(
           EditFailure value, $Res Function(EditFailure) then) =
       _$EditFailureCopyWithImpl<$Res>;
-
   $Res call({RequestFailure requestFailure});
 
   $RequestFailureCopyWith<$Res> get requestFailure;
@@ -843,7 +829,6 @@ abstract class EditFailure implements RequestActorState {
   const factory EditFailure(RequestFailure requestFailure) = _$EditFailure;
 
   RequestFailure get requestFailure;
-
   @JsonKey(ignore: true)
   $EditFailureCopyWith<EditFailure> get copyWith;
 }
@@ -853,7 +838,6 @@ abstract class $DeleteFailureCopyWith<$Res> {
   factory $DeleteFailureCopyWith(
           DeleteFailure value, $Res Function(DeleteFailure) then) =
       _$DeleteFailureCopyWithImpl<$Res>;
-
   $Res call({RequestFailure requestFailure});
 
   $RequestFailureCopyWith<$Res> get requestFailure;
@@ -1002,7 +986,6 @@ abstract class DeleteFailure implements RequestActorState {
   const factory DeleteFailure(RequestFailure requestFailure) = _$DeleteFailure;
 
   RequestFailure get requestFailure;
-
   @JsonKey(ignore: true)
   $DeleteFailureCopyWith<DeleteFailure> get copyWith;
 }

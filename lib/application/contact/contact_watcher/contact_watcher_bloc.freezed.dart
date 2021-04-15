@@ -40,7 +40,6 @@ mixin _$ContactWatcherEvent {
         TResult contactsReceived(
             Either<ContactFailure, KtList<Contact>> failureOrContacts),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult watchAllStarted(),
@@ -48,13 +47,11 @@ mixin _$ContactWatcherEvent {
         Either<ContactFailure, KtList<Contact>> failureOrContacts),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult watchAllStarted(_WatchAllStarted value),
     @required TResult contactsReceived(_ContactsReceived value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult watchAllStarted(_WatchAllStarted value),
@@ -76,7 +73,6 @@ class _$ContactWatcherEventCopyWithImpl<$Res>
   _$ContactWatcherEventCopyWithImpl(this._value, this._then);
 
   final ContactWatcherEvent _value;
-
   // ignore: unused_field
   final $Res Function(ContactWatcherEvent) _then;
 }
@@ -180,7 +176,6 @@ abstract class _$ContactsReceivedCopyWith<$Res> {
   factory _$ContactsReceivedCopyWith(
           _ContactsReceived value, $Res Function(_ContactsReceived) then) =
       __$ContactsReceivedCopyWithImpl<$Res>;
-
   $Res call({Either<ContactFailure, KtList<Contact>> failureOrContacts});
 }
 
@@ -299,7 +294,6 @@ abstract class _ContactsReceived implements ContactWatcherEvent {
       _$_ContactsReceived;
 
   Either<ContactFailure, KtList<Contact>> get failureOrContacts;
-
   @JsonKey(ignore: true)
   _$ContactsReceivedCopyWith<_ContactsReceived> get copyWith;
 }
@@ -346,7 +340,6 @@ mixin _$ContactWatcherState {
     @required TResult loadSuccess(KtList<Contact> contacts),
     @required TResult loadFailure(ContactFailure contactFailure),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
@@ -355,7 +348,6 @@ mixin _$ContactWatcherState {
     TResult loadFailure(ContactFailure contactFailure),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
@@ -363,7 +355,6 @@ mixin _$ContactWatcherState {
     @required TResult loadSuccess(_LoadSuccess value),
     @required TResult loadFailure(_LoadFailure value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
@@ -387,7 +378,6 @@ class _$ContactWatcherStateCopyWithImpl<$Res>
   _$ContactWatcherStateCopyWithImpl(this._value, this._then);
 
   final ContactWatcherState _value;
-
   // ignore: unused_field
   final $Res Function(ContactWatcherState) _then;
 }
@@ -601,7 +591,6 @@ abstract class _$LoadSuccessCopyWith<$Res> {
   factory _$LoadSuccessCopyWith(
           _LoadSuccess value, $Res Function(_LoadSuccess) then) =
       __$LoadSuccessCopyWithImpl<$Res>;
-
   $Res call({KtList<Contact> contacts});
 }
 
@@ -723,7 +712,6 @@ abstract class _LoadSuccess implements ContactWatcherState {
   const factory _LoadSuccess(KtList<Contact> contacts) = _$_LoadSuccess;
 
   KtList<Contact> get contacts;
-
   @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
@@ -733,7 +721,6 @@ abstract class _$LoadFailureCopyWith<$Res> {
   factory _$LoadFailureCopyWith(
           _LoadFailure value, $Res Function(_LoadFailure) then) =
       __$LoadFailureCopyWithImpl<$Res>;
-
   $Res call({ContactFailure contactFailure});
 
   $ContactFailureCopyWith<$Res> get contactFailure;
@@ -870,7 +857,6 @@ abstract class _LoadFailure implements ContactWatcherState {
   const factory _LoadFailure(ContactFailure contactFailure) = _$_LoadFailure;
 
   ContactFailure get contactFailure;
-
   @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

@@ -1,2 +1,3 @@
-const MAPS_API_KEY = 'secret';
-const FIREBASE_API_KEY = 'secret';
+const MAPS_API_KEY = 'AIzaSyCSENeoE2SBLQvH5SyRKk_ytq9NJps8AEk';
+const FIREBASE_API_KEY =
+    'AAAAtzU9koU:APA91bFL2s6r-Av77aSS0pHBm2uaHeN-tNmzwOvIxodDPntZynMtnIddes2X8g-IzSBsJPAJLJn_-ae7pFAkzJ73Bj13Qt8prOEsq_ez5UleJmwYJjpu3LEwUO7xEW4J51vfy-Xk2SKY';

@@ -45,21 +45,13 @@ const $RequestSearch = _$RequestSearchTearOff();
 /// @nodoc
 mixin _$RequestSearch {
   UniqueId get id;
-
   StringSingleLine get name;
-
   StringSingleLine get city;
-
   StringSingleLine get lat;
-
   StringSingleLine get long;
-
   BloodType get bloodType;
-
   String get photoUrl;
-
   bool get isOpen;
-
   StringSingleLine get user;
 
   @JsonKey(ignore: true)
@@ -71,7 +63,6 @@ abstract class $RequestSearchCopyWith<$Res> {
   factory $RequestSearchCopyWith(
           RequestSearch value, $Res Function(RequestSearch) then) =
       _$RequestSearchCopyWithImpl<$Res>;
-
   $Res call(
       {UniqueId id,
       StringSingleLine name,
@@ -90,7 +81,6 @@ class _$RequestSearchCopyWithImpl<$Res>
   _$RequestSearchCopyWithImpl(this._value, this._then);
 
   final RequestSearch _value;
-
   // ignore: unused_field
   final $Res Function(RequestSearch) _then;
 
@@ -127,7 +117,6 @@ abstract class _$RequestSearchCopyWith<$Res>
   factory _$RequestSearchCopyWith(
           _RequestSearch value, $Res Function(_RequestSearch) then) =
       __$RequestSearchCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {UniqueId id,
@@ -271,7 +260,6 @@ class _$_RequestSearch extends _RequestSearch {
 
 abstract class _RequestSearch extends RequestSearch {
   const _RequestSearch._() : super._();
-
   const factory _RequestSearch(
       {@required UniqueId id,
       @required StringSingleLine name,
@@ -285,31 +273,22 @@ abstract class _RequestSearch extends RequestSearch {
 
   @override
   UniqueId get id;
-
   @override
   StringSingleLine get name;
-
   @override
   StringSingleLine get city;
-
   @override
   StringSingleLine get lat;
-
   @override
   StringSingleLine get long;
-
   @override
   BloodType get bloodType;
-
   @override
   String get photoUrl;
-
   @override
   bool get isOpen;
-
   @override
   StringSingleLine get user;
-
   @override
   @JsonKey(ignore: true)
   _$RequestSearchCopyWith<_RequestSearch> get copyWith;

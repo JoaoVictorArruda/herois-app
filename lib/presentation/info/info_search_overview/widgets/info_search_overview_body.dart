@@ -4,6 +4,6 @@ import 'package:herois/presentation/info/info_overview/widgets/info_overview_bod
 class InfoSearchOverviewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return InfoOverviewBody();
+    return InfoOverviewBody(resize: true,);
   }
 }

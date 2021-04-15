@@ -73,7 +73,6 @@ mixin _$RequestSearchFilterFormEvent {
     @required TResult localizationChanged(String city, String lat, String long),
     @required TResult saved(),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(
@@ -85,7 +84,6 @@ mixin _$RequestSearchFilterFormEvent {
     TResult saved(),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initialized(_Initialized value),
@@ -95,7 +93,6 @@ mixin _$RequestSearchFilterFormEvent {
     @required TResult localizationChanged(_LocalizationChanged value),
     @required TResult saved(_Saved value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initialized(_Initialized value),
@@ -122,7 +119,6 @@ class _$RequestSearchFilterFormEventCopyWithImpl<$Res>
   _$RequestSearchFilterFormEventCopyWithImpl(this._value, this._then);
 
   final RequestSearchFilterFormEvent _value;
-
   // ignore: unused_field
   final $Res Function(RequestSearchFilterFormEvent) _then;
 }
@@ -132,7 +128,6 @@ abstract class _$InitializedCopyWith<$Res> {
   factory _$InitializedCopyWith(
           _Initialized value, $Res Function(_Initialized) then) =
       __$InitializedCopyWithImpl<$Res>;
-
   $Res call({Option<RequestSearchFilter> initialRequestSearchFilterOption});
 }
 
@@ -277,7 +272,6 @@ abstract class _Initialized implements RequestSearchFilterFormEvent {
       _$_Initialized;
 
   Option<RequestSearchFilter> get initialRequestSearchFilterOption;
-
   @JsonKey(ignore: true)
   _$InitializedCopyWith<_Initialized> get copyWith;
 }
@@ -287,7 +281,6 @@ abstract class _$BloodTypeChangedCopyWith<$Res> {
   factory _$BloodTypeChangedCopyWith(
           _BloodTypeChanged value, $Res Function(_BloodTypeChanged) then) =
       __$BloodTypeChangedCopyWithImpl<$Res>;
-
   $Res call({String bloodType});
 }
 
@@ -424,7 +417,6 @@ abstract class _BloodTypeChanged implements RequestSearchFilterFormEvent {
   const factory _BloodTypeChanged(String bloodType) = _$_BloodTypeChanged;
 
   String get bloodType;
-
   @JsonKey(ignore: true)
   _$BloodTypeChangedCopyWith<_BloodTypeChanged> get copyWith;
 }
@@ -434,7 +426,6 @@ abstract class _$DistanceChangedCopyWith<$Res> {
   factory _$DistanceChangedCopyWith(
           _DistanceChanged value, $Res Function(_DistanceChanged) then) =
       __$DistanceChangedCopyWithImpl<$Res>;
-
   $Res call({String distanceStr});
 }
 
@@ -571,7 +562,6 @@ abstract class _DistanceChanged implements RequestSearchFilterFormEvent {
   const factory _DistanceChanged(String distanceStr) = _$_DistanceChanged;
 
   String get distanceStr;
-
   @JsonKey(ignore: true)
   _$DistanceChangedCopyWith<_DistanceChanged> get copyWith;
 }
@@ -699,7 +689,6 @@ abstract class _$LocalizationChangedCopyWith<$Res> {
   factory _$LocalizationChangedCopyWith(_LocalizationChanged value,
           $Res Function(_LocalizationChanged) then) =
       __$LocalizationChangedCopyWithImpl<$Res>;
-
   $Res call({String city, String lat, String long});
 }
 
@@ -855,11 +844,8 @@ abstract class _LocalizationChanged implements RequestSearchFilterFormEvent {
       _$_LocalizationChanged;
 
   String get city;
-
   String get lat;
-
   String get long;
-
   @JsonKey(ignore: true)
   _$LocalizationChangedCopyWith<_LocalizationChanged> get copyWith;
 }
@@ -1013,13 +999,9 @@ const $RequestSearchFilterFormState = _$RequestSearchFilterFormStateTearOff();
 /// @nodoc
 mixin _$RequestSearchFilterFormState {
   RequestSearchFilter get requestSearchFilter;
-
   bool get showErrorMessages;
-
   bool get isEditing;
-
   bool get isSaving;
-
   Option<Either<RequestFailure, Unit>> get saveFailureOrSuccessOption;
 
   @JsonKey(ignore: true)
@@ -1033,7 +1015,6 @@ abstract class $RequestSearchFilterFormStateCopyWith<$Res> {
           RequestSearchFilterFormState value,
           $Res Function(RequestSearchFilterFormState) then) =
       _$RequestSearchFilterFormStateCopyWithImpl<$Res>;
-
   $Res call(
       {RequestSearchFilter requestSearchFilter,
       bool showErrorMessages,
@@ -1050,7 +1031,6 @@ class _$RequestSearchFilterFormStateCopyWithImpl<$Res>
   _$RequestSearchFilterFormStateCopyWithImpl(this._value, this._then);
 
   final RequestSearchFilterFormState _value;
-
   // ignore: unused_field
   final $Res Function(RequestSearchFilterFormState) _then;
 
@@ -1096,7 +1076,6 @@ abstract class _$RequestSearchFilterFormStateCopyWith<$Res>
           _RequestSearchFilterFormState value,
           $Res Function(_RequestSearchFilterFormState) then) =
       __$RequestSearchFilterFormStateCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {RequestSearchFilter requestSearchFilter,
@@ -1232,19 +1211,14 @@ abstract class _RequestSearchFilterFormState
 
   @override
   RequestSearchFilter get requestSearchFilter;
-
   @override
   bool get showErrorMessages;
-
   @override
   bool get isEditing;
-
   @override
   bool get isSaving;
-
   @override
   Option<Either<RequestFailure, Unit>> get saveFailureOrSuccessOption;
-
   @override
   @JsonKey(ignore: true)
   _$RequestSearchFilterFormStateCopyWith<_RequestSearchFilterFormState>

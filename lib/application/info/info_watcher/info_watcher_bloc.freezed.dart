@@ -70,7 +70,6 @@ mixin _$InfoWatcherEvent {
         TResult infoListReceived(
             Either<InfoFailure, KtList<Info>> failureOrInfo),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult watchAllStarted(),
@@ -81,7 +80,6 @@ mixin _$InfoWatcherEvent {
     TResult infoListReceived(Either<InfoFailure, KtList<Info>> failureOrInfo),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult watchAllStarted(_WatchAllStarted value),
@@ -91,7 +89,6 @@ mixin _$InfoWatcherEvent {
     @required TResult infoReceived(_InfoReceived value),
     @required TResult infoListReceived(_InfoListReceived value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult watchAllStarted(_WatchAllStarted value),
@@ -117,7 +114,6 @@ class _$InfoWatcherEventCopyWithImpl<$Res>
   _$InfoWatcherEventCopyWithImpl(this._value, this._then);
 
   final InfoWatcherEvent _value;
-
   // ignore: unused_field
   final $Res Function(InfoWatcherEvent) _then;
 }
@@ -244,7 +240,6 @@ abstract class _$WatchOtherUserStartedCopyWith<$Res> {
   factory _$WatchOtherUserStartedCopyWith(_WatchOtherUserStarted value,
           $Res Function(_WatchOtherUserStarted) then) =
       __$WatchOtherUserStartedCopyWithImpl<$Res>;
-
   $Res call({String userId});
 }
 
@@ -381,7 +376,6 @@ abstract class _WatchOtherUserStarted implements InfoWatcherEvent {
       _$_WatchOtherUserStarted;
 
   String get userId;
-
   @JsonKey(ignore: true)
   _$WatchOtherUserStartedCopyWith<_WatchOtherUserStarted> get copyWith;
 }
@@ -508,7 +502,6 @@ abstract class _$WatchInfoSearchFilteredCopyWith<$Res> {
   factory _$WatchInfoSearchFilteredCopyWith(_WatchInfoSearchFiltered value,
           $Res Function(_WatchInfoSearchFiltered) then) =
       __$WatchInfoSearchFilteredCopyWithImpl<$Res>;
-
   $Res call({String query});
 }
 
@@ -646,7 +639,6 @@ abstract class _WatchInfoSearchFiltered implements InfoWatcherEvent {
       _$_WatchInfoSearchFiltered;
 
   String get query;
-
   @JsonKey(ignore: true)
   _$WatchInfoSearchFilteredCopyWith<_WatchInfoSearchFiltered> get copyWith;
 }
@@ -656,7 +648,6 @@ abstract class _$InfoReceivedCopyWith<$Res> {
   factory _$InfoReceivedCopyWith(
           _InfoReceived value, $Res Function(_InfoReceived) then) =
       __$InfoReceivedCopyWithImpl<$Res>;
-
   $Res call({Either<InfoFailure, Info> failureOrInfo});
 }
 
@@ -795,7 +786,6 @@ abstract class _InfoReceived implements InfoWatcherEvent {
       _$_InfoReceived;
 
   Either<InfoFailure, Info> get failureOrInfo;
-
   @JsonKey(ignore: true)
   _$InfoReceivedCopyWith<_InfoReceived> get copyWith;
 }
@@ -805,7 +795,6 @@ abstract class _$InfoListReceivedCopyWith<$Res> {
   factory _$InfoListReceivedCopyWith(
           _InfoListReceived value, $Res Function(_InfoListReceived) then) =
       __$InfoListReceivedCopyWithImpl<$Res>;
-
   $Res call({Either<InfoFailure, KtList<Info>> failureOrInfo});
 }
 
@@ -944,7 +933,6 @@ abstract class _InfoListReceived implements InfoWatcherEvent {
       Either<InfoFailure, KtList<Info>> failureOrInfo) = _$_InfoListReceived;
 
   Either<InfoFailure, KtList<Info>> get failureOrInfo;
-
   @JsonKey(ignore: true)
   _$InfoListReceivedCopyWith<_InfoListReceived> get copyWith;
 }
@@ -1000,7 +988,6 @@ mixin _$InfoWatcherState {
     @required TResult loadListSuccess(KtList<Info> info, String userId),
     @required TResult loadFailure(InfoFailure infoFailure),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>(
     TResult $default(), {
@@ -1010,7 +997,6 @@ mixin _$InfoWatcherState {
     TResult loadFailure(InfoFailure infoFailure),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>(
     TResult $default(_InfoWatcherState value), {
@@ -1019,7 +1005,6 @@ mixin _$InfoWatcherState {
     @required TResult loadListSuccess(LoadListSuccess value),
     @required TResult loadFailure(LoadFailure value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
     TResult $default(_InfoWatcherState value), {
@@ -1044,7 +1029,6 @@ class _$InfoWatcherStateCopyWithImpl<$Res>
   _$InfoWatcherStateCopyWithImpl(this._value, this._then);
 
   final InfoWatcherState _value;
-
   // ignore: unused_field
   final $Res Function(InfoWatcherState) _then;
 }
@@ -1272,7 +1256,6 @@ abstract class $LoadSuccessCopyWith<$Res> {
   factory $LoadSuccessCopyWith(
           LoadSuccess value, $Res Function(LoadSuccess) then) =
       _$LoadSuccessCopyWithImpl<$Res>;
-
   $Res call({Info info});
 
   $InfoCopyWith<$Res> get info;
@@ -1411,7 +1394,6 @@ abstract class LoadSuccess implements InfoWatcherState {
   const factory LoadSuccess(Info info) = _$LoadSuccess;
 
   Info get info;
-
   @JsonKey(ignore: true)
   $LoadSuccessCopyWith<LoadSuccess> get copyWith;
 }
@@ -1421,7 +1403,6 @@ abstract class $LoadListSuccessCopyWith<$Res> {
   factory $LoadListSuccessCopyWith(
           LoadListSuccess value, $Res Function(LoadListSuccess) then) =
       _$LoadListSuccessCopyWithImpl<$Res>;
-
   $Res call({KtList<Info> info, String userId});
 }
 
@@ -1559,9 +1540,7 @@ abstract class LoadListSuccess implements InfoWatcherState {
       _$LoadListSuccess;
 
   KtList<Info> get info;
-
   String get userId;
-
   @JsonKey(ignore: true)
   $LoadListSuccessCopyWith<LoadListSuccess> get copyWith;
 }
@@ -1571,7 +1550,6 @@ abstract class $LoadFailureCopyWith<$Res> {
   factory $LoadFailureCopyWith(
           LoadFailure value, $Res Function(LoadFailure) then) =
       _$LoadFailureCopyWithImpl<$Res>;
-
   $Res call({InfoFailure infoFailure});
 
   $InfoFailureCopyWith<$Res> get infoFailure;
@@ -1711,7 +1689,6 @@ abstract class LoadFailure implements InfoWatcherState {
   const factory LoadFailure(InfoFailure infoFailure) = _$LoadFailure;
 
   InfoFailure get infoFailure;
-
   @JsonKey(ignore: true)
   $LoadFailureCopyWith<LoadFailure> get copyWith;
 }

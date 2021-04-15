@@ -112,7 +112,6 @@ mixin _$InfoFormEvent {
     @required TResult neverDonatedChange(bool neverDonatedBool),
     @required TResult saved(),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(Option<Info> initialInfoOption),
@@ -128,7 +127,6 @@ mixin _$InfoFormEvent {
     TResult saved(),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initialized(_Initialized value),
@@ -143,7 +141,6 @@ mixin _$InfoFormEvent {
     @required TResult neverDonatedChange(_NeverDonatedChange value),
     @required TResult saved(_Saved value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initialized(_Initialized value),
@@ -174,7 +171,6 @@ class _$InfoFormEventCopyWithImpl<$Res>
   _$InfoFormEventCopyWithImpl(this._value, this._then);
 
   final InfoFormEvent _value;
-
   // ignore: unused_field
   final $Res Function(InfoFormEvent) _then;
 }
@@ -184,7 +180,6 @@ abstract class _$InitializedCopyWith<$Res> {
   factory _$InitializedCopyWith(
           _Initialized value, $Res Function(_Initialized) then) =
       __$InitializedCopyWithImpl<$Res>;
-
   $Res call({Option<Info> initialInfoOption});
 }
 
@@ -351,7 +346,6 @@ abstract class _Initialized implements InfoFormEvent {
   const factory _Initialized(Option<Info> initialInfoOption) = _$_Initialized;
 
   Option<Info> get initialInfoOption;
-
   @JsonKey(ignore: true)
   _$InitializedCopyWith<_Initialized> get copyWith;
 }
@@ -361,7 +355,6 @@ abstract class _$GenderChangedCopyWith<$Res> {
   factory _$GenderChangedCopyWith(
           _GenderChanged value, $Res Function(_GenderChanged) then) =
       __$GenderChangedCopyWithImpl<$Res>;
-
   $Res call({String genderStr});
 }
 
@@ -525,7 +518,6 @@ abstract class _GenderChanged implements InfoFormEvent {
   const factory _GenderChanged(String genderStr) = _$_GenderChanged;
 
   String get genderStr;
-
   @JsonKey(ignore: true)
   _$GenderChangedCopyWith<_GenderChanged> get copyWith;
 }
@@ -535,7 +527,6 @@ abstract class _$BloodTypeChangedCopyWith<$Res> {
   factory _$BloodTypeChangedCopyWith(
           _BloodTypeChanged value, $Res Function(_BloodTypeChanged) then) =
       __$BloodTypeChangedCopyWithImpl<$Res>;
-
   $Res call({String bloodType});
 }
 
@@ -699,7 +690,6 @@ abstract class _BloodTypeChanged implements InfoFormEvent {
   const factory _BloodTypeChanged(String bloodType) = _$_BloodTypeChanged;
 
   String get bloodType;
-
   @JsonKey(ignore: true)
   _$BloodTypeChangedCopyWith<_BloodTypeChanged> get copyWith;
 }
@@ -709,7 +699,6 @@ abstract class _$NameChangedCopyWith<$Res> {
   factory _$NameChangedCopyWith(
           _NameChanged value, $Res Function(_NameChanged) then) =
       __$NameChangedCopyWithImpl<$Res>;
-
   $Res call({String nameStr});
 }
 
@@ -871,7 +860,6 @@ abstract class _NameChanged implements InfoFormEvent {
   const factory _NameChanged(String nameStr) = _$_NameChanged;
 
   String get nameStr;
-
   @JsonKey(ignore: true)
   _$NameChangedCopyWith<_NameChanged> get copyWith;
 }
@@ -881,7 +869,6 @@ abstract class _$LocalizationChangedCopyWith<$Res> {
   factory _$LocalizationChangedCopyWith(_LocalizationChanged value,
           $Res Function(_LocalizationChanged) then) =
       __$LocalizationChangedCopyWithImpl<$Res>;
-
   $Res call({String city, String lat, String long});
 }
 
@@ -1064,11 +1051,8 @@ abstract class _LocalizationChanged implements InfoFormEvent {
       _$_LocalizationChanged;
 
   String get city;
-
   String get lat;
-
   String get long;
-
   @JsonKey(ignore: true)
   _$LocalizationChangedCopyWith<_LocalizationChanged> get copyWith;
 }
@@ -1078,7 +1062,6 @@ abstract class _$PhotoUrlChangedCopyWith<$Res> {
   factory _$PhotoUrlChangedCopyWith(
           _PhotoUrlChanged value, $Res Function(_PhotoUrlChanged) then) =
       __$PhotoUrlChangedCopyWithImpl<$Res>;
-
   $Res call({String photoUrl});
 }
 
@@ -1242,7 +1225,6 @@ abstract class _PhotoUrlChanged implements InfoFormEvent {
   const factory _PhotoUrlChanged(String photoUrl) = _$_PhotoUrlChanged;
 
   String get photoUrl;
-
   @JsonKey(ignore: true)
   _$PhotoUrlChangedCopyWith<_PhotoUrlChanged> get copyWith;
 }
@@ -1252,7 +1234,6 @@ abstract class _$BioChangedCopyWith<$Res> {
   factory _$BioChangedCopyWith(
           _BioChanged value, $Res Function(_BioChanged) then) =
       __$BioChangedCopyWithImpl<$Res>;
-
   $Res call({String bioStr});
 }
 
@@ -1414,7 +1395,6 @@ abstract class _BioChanged implements InfoFormEvent {
   const factory _BioChanged(String bioStr) = _$_BioChanged;
 
   String get bioStr;
-
   @JsonKey(ignore: true)
   _$BioChangedCopyWith<_BioChanged> get copyWith;
 }
@@ -1424,7 +1404,6 @@ abstract class _$IsVisibleChangedCopyWith<$Res> {
   factory _$IsVisibleChangedCopyWith(
           _IsVisibleChanged value, $Res Function(_IsVisibleChanged) then) =
       __$IsVisibleChangedCopyWithImpl<$Res>;
-
   $Res call({bool isVisibleBool});
 }
 
@@ -1588,7 +1567,6 @@ abstract class _IsVisibleChanged implements InfoFormEvent {
   const factory _IsVisibleChanged(bool isVisibleBool) = _$_IsVisibleChanged;
 
   bool get isVisibleBool;
-
   @JsonKey(ignore: true)
   _$IsVisibleChangedCopyWith<_IsVisibleChanged> get copyWith;
 }
@@ -1598,7 +1576,6 @@ abstract class _$DateLastDonateChangeCopyWith<$Res> {
   factory _$DateLastDonateChangeCopyWith(_DateLastDonateChange value,
           $Res Function(_DateLastDonateChange) then) =
       __$DateLastDonateChangeCopyWithImpl<$Res>;
-
   $Res call({String dateLastDonateStr});
 }
 
@@ -1768,7 +1745,6 @@ abstract class _DateLastDonateChange implements InfoFormEvent {
       _$_DateLastDonateChange;
 
   String get dateLastDonateStr;
-
   @JsonKey(ignore: true)
   _$DateLastDonateChangeCopyWith<_DateLastDonateChange> get copyWith;
 }
@@ -1778,7 +1754,6 @@ abstract class _$NeverDonatedChangeCopyWith<$Res> {
   factory _$NeverDonatedChangeCopyWith(
           _NeverDonatedChange value, $Res Function(_NeverDonatedChange) then) =
       __$NeverDonatedChangeCopyWithImpl<$Res>;
-
   $Res call({bool neverDonatedBool});
 }
 
@@ -1947,7 +1922,6 @@ abstract class _NeverDonatedChange implements InfoFormEvent {
       _$_NeverDonatedChange;
 
   bool get neverDonatedBool;
-
   @JsonKey(ignore: true)
   _$NeverDonatedChangeCopyWith<_NeverDonatedChange> get copyWith;
 }
@@ -2122,13 +2096,9 @@ const $InfoFormState = _$InfoFormStateTearOff();
 /// @nodoc
 mixin _$InfoFormState {
   Info get info;
-
   bool get showErrorMessages;
-
   bool get isEditing;
-
   bool get isSaving;
-
   Option<Either<InfoFailure, Unit>> get saveFailureOrSuccessOption;
 
   @JsonKey(ignore: true)
@@ -2140,7 +2110,6 @@ abstract class $InfoFormStateCopyWith<$Res> {
   factory $InfoFormStateCopyWith(
           InfoFormState value, $Res Function(InfoFormState) then) =
       _$InfoFormStateCopyWithImpl<$Res>;
-
   $Res call(
       {Info info,
       bool showErrorMessages,
@@ -2157,7 +2126,6 @@ class _$InfoFormStateCopyWithImpl<$Res>
   _$InfoFormStateCopyWithImpl(this._value, this._then);
 
   final InfoFormState _value;
-
   // ignore: unused_field
   final $Res Function(InfoFormState) _then;
 
@@ -2199,7 +2167,6 @@ abstract class _$InfoFormStateCopyWith<$Res>
   factory _$InfoFormStateCopyWith(
           _InfoFormState value, $Res Function(_InfoFormState) then) =
       __$InfoFormStateCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {Info info,
@@ -2328,19 +2295,14 @@ abstract class _InfoFormState implements InfoFormState {
 
   @override
   Info get info;
-
   @override
   bool get showErrorMessages;
-
   @override
   bool get isEditing;
-
   @override
   bool get isSaving;
-
   @override
   Option<Either<InfoFailure, Unit>> get saveFailureOrSuccessOption;
-
   @override
   @JsonKey(ignore: true)
   _$InfoFormStateCopyWith<_InfoFormState> get copyWith;

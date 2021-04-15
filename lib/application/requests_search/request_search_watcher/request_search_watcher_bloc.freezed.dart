@@ -43,7 +43,6 @@ mixin _$RequestSearchWatcherEvent {
             Either<RequestFailure, KtList<RequestSearch>> failureOrRequest,
             RequestSearchFilter requestSearchFilter),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult watchNearbyStarted(),
@@ -52,13 +51,11 @@ mixin _$RequestSearchWatcherEvent {
         RequestSearchFilter requestSearchFilter),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult watchNearbyStarted(_WatchNearbyStarted value),
     @required TResult requestSearchReceived(_RequestSearchReceived value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult watchNearbyStarted(_WatchNearbyStarted value),
@@ -80,7 +77,6 @@ class _$RequestSearchWatcherEventCopyWithImpl<$Res>
   _$RequestSearchWatcherEventCopyWithImpl(this._value, this._then);
 
   final RequestSearchWatcherEvent _value;
-
   // ignore: unused_field
   final $Res Function(RequestSearchWatcherEvent) _then;
 }
@@ -186,7 +182,6 @@ abstract class _$RequestSearchReceivedCopyWith<$Res> {
   factory _$RequestSearchReceivedCopyWith(_RequestSearchReceived value,
           $Res Function(_RequestSearchReceived) then) =
       __$RequestSearchReceivedCopyWithImpl<$Res>;
-
   $Res call(
       {Either<RequestFailure, KtList<RequestSearch>> failureOrRequest,
       RequestSearchFilter requestSearchFilter});
@@ -335,9 +330,7 @@ abstract class _RequestSearchReceived implements RequestSearchWatcherEvent {
       RequestSearchFilter requestSearchFilter) = _$_RequestSearchReceived;
 
   Either<RequestFailure, KtList<RequestSearch>> get failureOrRequest;
-
   RequestSearchFilter get requestSearchFilter;
-
   @JsonKey(ignore: true)
   _$RequestSearchReceivedCopyWith<_RequestSearchReceived> get copyWith;
 }
@@ -389,7 +382,6 @@ mixin _$RequestSearchWatcherState {
             RequestSearchFilter requestSearchFilter),
     @required TResult loadFailure(RequestFailure requestFailure),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
@@ -399,7 +391,6 @@ mixin _$RequestSearchWatcherState {
     TResult loadFailure(RequestFailure requestFailure),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
@@ -407,7 +398,6 @@ mixin _$RequestSearchWatcherState {
     @required TResult loadSuccess(LoadSuccess value),
     @required TResult loadFailure(LoadFailure value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
@@ -431,7 +421,6 @@ class _$RequestSearchWatcherStateCopyWithImpl<$Res>
   _$RequestSearchWatcherStateCopyWithImpl(this._value, this._then);
 
   final RequestSearchWatcherState _value;
-
   // ignore: unused_field
   final $Res Function(RequestSearchWatcherState) _then;
 }
@@ -651,7 +640,6 @@ abstract class $LoadSuccessCopyWith<$Res> {
   factory $LoadSuccessCopyWith(
           LoadSuccess value, $Res Function(LoadSuccess) then) =
       _$LoadSuccessCopyWithImpl<$Res>;
-
   $Res call(
       {KtList<RequestSearch> requests,
       String userId,
@@ -814,11 +802,8 @@ abstract class LoadSuccess implements RequestSearchWatcherState {
       RequestSearchFilter requestSearchFilter) = _$LoadSuccess;
 
   KtList<RequestSearch> get requests;
-
   String get userId;
-
   RequestSearchFilter get requestSearchFilter;
-
   @JsonKey(ignore: true)
   $LoadSuccessCopyWith<LoadSuccess> get copyWith;
 }
@@ -828,7 +813,6 @@ abstract class $LoadFailureCopyWith<$Res> {
   factory $LoadFailureCopyWith(
           LoadFailure value, $Res Function(LoadFailure) then) =
       _$LoadFailureCopyWithImpl<$Res>;
-
   $Res call({RequestFailure requestFailure});
 
   $RequestFailureCopyWith<$Res> get requestFailure;
@@ -968,7 +952,6 @@ abstract class LoadFailure implements RequestSearchWatcherState {
   const factory LoadFailure(RequestFailure requestFailure) = _$LoadFailure;
 
   RequestFailure get requestFailure;
-
   @JsonKey(ignore: true)
   $LoadFailureCopyWith<LoadFailure> get copyWith;
 }

@@ -80,7 +80,6 @@ mixin _$RequestFormEvent {
     @required TResult photoUrlChanged(String photoUrl),
     @required TResult saved(),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(Option<Request> initialRequestOption),
@@ -92,7 +91,6 @@ mixin _$RequestFormEvent {
     TResult saved(),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initialized(_Initialized value),
@@ -103,7 +101,6 @@ mixin _$RequestFormEvent {
     @required TResult photoUrlChanged(_PhotoUrlChanged value),
     @required TResult saved(_Saved value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initialized(_Initialized value),
@@ -130,7 +127,6 @@ class _$RequestFormEventCopyWithImpl<$Res>
   _$RequestFormEventCopyWithImpl(this._value, this._then);
 
   final RequestFormEvent _value;
-
   // ignore: unused_field
   final $Res Function(RequestFormEvent) _then;
 }
@@ -140,7 +136,6 @@ abstract class _$InitializedCopyWith<$Res> {
   factory _$InitializedCopyWith(
           _Initialized value, $Res Function(_Initialized) then) =
       __$InitializedCopyWithImpl<$Res>;
-
   $Res call({Option<Request> initialRequestOption});
 }
 
@@ -285,7 +280,6 @@ abstract class _Initialized implements RequestFormEvent {
       _$_Initialized;
 
   Option<Request> get initialRequestOption;
-
   @JsonKey(ignore: true)
   _$InitializedCopyWith<_Initialized> get copyWith;
 }
@@ -295,7 +289,6 @@ abstract class _$BloodTypeChangedCopyWith<$Res> {
   factory _$BloodTypeChangedCopyWith(
           _BloodTypeChanged value, $Res Function(_BloodTypeChanged) then) =
       __$BloodTypeChangedCopyWithImpl<$Res>;
-
   $Res call({String bloodType});
 }
 
@@ -435,7 +428,6 @@ abstract class _BloodTypeChanged implements RequestFormEvent {
   const factory _BloodTypeChanged(String bloodType) = _$_BloodTypeChanged;
 
   String get bloodType;
-
   @JsonKey(ignore: true)
   _$BloodTypeChangedCopyWith<_BloodTypeChanged> get copyWith;
 }
@@ -445,7 +437,6 @@ abstract class _$NameChangedCopyWith<$Res> {
   factory _$NameChangedCopyWith(
           _NameChanged value, $Res Function(_NameChanged) then) =
       __$NameChangedCopyWithImpl<$Res>;
-
   $Res call({String nameStr});
 }
 
@@ -584,7 +575,6 @@ abstract class _NameChanged implements RequestFormEvent {
   const factory _NameChanged(String nameStr) = _$_NameChanged;
 
   String get nameStr;
-
   @JsonKey(ignore: true)
   _$NameChangedCopyWith<_NameChanged> get copyWith;
 }
@@ -594,7 +584,6 @@ abstract class _$LocalizationChangedCopyWith<$Res> {
   factory _$LocalizationChangedCopyWith(_LocalizationChanged value,
           $Res Function(_LocalizationChanged) then) =
       __$LocalizationChangedCopyWithImpl<$Res>;
-
   $Res call({String city, String lat, String long});
 }
 
@@ -753,11 +742,8 @@ abstract class _LocalizationChanged implements RequestFormEvent {
       _$_LocalizationChanged;
 
   String get city;
-
   String get lat;
-
   String get long;
-
   @JsonKey(ignore: true)
   _$LocalizationChangedCopyWith<_LocalizationChanged> get copyWith;
 }
@@ -767,7 +753,6 @@ abstract class _$IsOpenChangedCopyWith<$Res> {
   factory _$IsOpenChangedCopyWith(
           _IsOpenChanged value, $Res Function(_IsOpenChanged) then) =
       __$IsOpenChangedCopyWithImpl<$Res>;
-
   $Res call({bool isOpen});
 }
 
@@ -906,7 +891,6 @@ abstract class _IsOpenChanged implements RequestFormEvent {
   const factory _IsOpenChanged(bool isOpen) = _$_IsOpenChanged;
 
   bool get isOpen;
-
   @JsonKey(ignore: true)
   _$IsOpenChangedCopyWith<_IsOpenChanged> get copyWith;
 }
@@ -916,7 +900,6 @@ abstract class _$PhotoUrlChangedCopyWith<$Res> {
   factory _$PhotoUrlChangedCopyWith(
           _PhotoUrlChanged value, $Res Function(_PhotoUrlChanged) then) =
       __$PhotoUrlChangedCopyWithImpl<$Res>;
-
   $Res call({String photoUrl});
 }
 
@@ -1056,7 +1039,6 @@ abstract class _PhotoUrlChanged implements RequestFormEvent {
   const factory _PhotoUrlChanged(String photoUrl) = _$_PhotoUrlChanged;
 
   String get photoUrl;
-
   @JsonKey(ignore: true)
   _$PhotoUrlChangedCopyWith<_PhotoUrlChanged> get copyWith;
 }
@@ -1212,13 +1194,9 @@ const $RequestFormState = _$RequestFormStateTearOff();
 /// @nodoc
 mixin _$RequestFormState {
   Request get request;
-
   bool get showErrorMessages;
-
   bool get isEditing;
-
   bool get isSaving;
-
   Option<Either<RequestFailure, Unit>> get saveFailureOrSuccessOption;
 
   @JsonKey(ignore: true)
@@ -1230,7 +1208,6 @@ abstract class $RequestFormStateCopyWith<$Res> {
   factory $RequestFormStateCopyWith(
           RequestFormState value, $Res Function(RequestFormState) then) =
       _$RequestFormStateCopyWithImpl<$Res>;
-
   $Res call(
       {Request request,
       bool showErrorMessages,
@@ -1247,7 +1224,6 @@ class _$RequestFormStateCopyWithImpl<$Res>
   _$RequestFormStateCopyWithImpl(this._value, this._then);
 
   final RequestFormState _value;
-
   // ignore: unused_field
   final $Res Function(RequestFormState) _then;
 
@@ -1289,7 +1265,6 @@ abstract class _$RequestFormStateCopyWith<$Res>
   factory _$RequestFormStateCopyWith(
           _RequestFormState value, $Res Function(_RequestFormState) then) =
       __$RequestFormStateCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {Request request,
@@ -1419,19 +1394,14 @@ abstract class _RequestFormState implements RequestFormState {
 
   @override
   Request get request;
-
   @override
   bool get showErrorMessages;
-
   @override
   bool get isEditing;
-
   @override
   bool get isSaving;
-
   @override
   Option<Either<RequestFailure, Unit>> get saveFailureOrSuccessOption;
-
   @override
   @JsonKey(ignore: true)
   _$RequestFormStateCopyWith<_RequestFormState> get copyWith;

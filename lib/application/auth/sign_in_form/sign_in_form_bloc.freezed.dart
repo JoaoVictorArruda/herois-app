@@ -29,18 +29,15 @@ mixin _$SignInFormEvent {
   TResult when<TResult extends Object>({
     @required TResult signInWithGooglePressed(),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult signInWithGooglePressed(),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult signInWithGooglePressed(SignInWithGooglePressed value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult signInWithGooglePressed(SignInWithGooglePressed value),
@@ -61,7 +58,6 @@ class _$SignInFormEventCopyWithImpl<$Res>
   _$SignInFormEventCopyWithImpl(this._value, this._then);
 
   final SignInFormEvent _value;
-
   // ignore: unused_field
   final $Res Function(SignInFormEvent) _then;
 }
@@ -185,9 +181,7 @@ const $SignInFormState = _$SignInFormStateTearOff();
 /// @nodoc
 mixin _$SignInFormState {
   bool get showErrorMessages;
-
   bool get isSubmitting;
-
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
 
   @JsonKey(ignore: true)
@@ -199,7 +193,6 @@ abstract class $SignInFormStateCopyWith<$Res> {
   factory $SignInFormStateCopyWith(
           SignInFormState value, $Res Function(SignInFormState) then) =
       _$SignInFormStateCopyWithImpl<$Res>;
-
   $Res call(
       {bool showErrorMessages,
       bool isSubmitting,
@@ -212,7 +205,6 @@ class _$SignInFormStateCopyWithImpl<$Res>
   _$SignInFormStateCopyWithImpl(this._value, this._then);
 
   final SignInFormState _value;
-
   // ignore: unused_field
   final $Res Function(SignInFormState) _then;
 
@@ -241,7 +233,6 @@ abstract class _$SignInFormStateCopyWith<$Res>
   factory _$SignInFormStateCopyWith(
           _SignInFormState value, $Res Function(_SignInFormState) then) =
       __$SignInFormStateCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {bool showErrorMessages,
@@ -356,13 +347,10 @@ abstract class _SignInFormState implements SignInFormState {
 
   @override
   bool get showErrorMessages;
-
   @override
   bool get isSubmitting;
-
   @override
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
-
   @override
   @JsonKey(ignore: true)
   _$SignInFormStateCopyWith<_SignInFormState> get copyWith;

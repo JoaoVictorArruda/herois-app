@@ -35,20 +35,17 @@ mixin _$AuthEvent {
     @required TResult authCheckRequested(),
     @required TResult signedOut(),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult authCheckRequested(),
     TResult signedOut(),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult authCheckRequested(AuthCheckRequested value),
     @required TResult signedOut(SignedOut value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult authCheckRequested(AuthCheckRequested value),
@@ -68,7 +65,6 @@ class _$AuthEventCopyWithImpl<$Res> implements $AuthEventCopyWith<$Res> {
   _$AuthEventCopyWithImpl(this._value, this._then);
 
   final AuthEvent _value;
-
   // ignore: unused_field
   final $Res Function(AuthEvent) _then;
 }
@@ -284,7 +280,6 @@ mixin _$AuthState {
     @required TResult authenticated(),
     @required TResult unauthenticated(),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
@@ -292,14 +287,12 @@ mixin _$AuthState {
     TResult unauthenticated(),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult authenticated(Authenticated value),
     @required TResult unauthenticated(Unauthenticated value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
@@ -320,7 +313,6 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   _$AuthStateCopyWithImpl(this._value, this._then);
 
   final AuthState _value;
-
   // ignore: unused_field
   final $Res Function(AuthState) _then;
 }

@@ -8,6 +8,11 @@ import 'package:herois/presentation/info/info_overview/widgets/info_card_widget.
 import 'package:herois/presentation/info/info_search_overview/widgets/info_search_card.dart';
 
 class InfoOverviewBody extends StatelessWidget {
+
+  final bool resize;
+
+  const InfoOverviewBody({Key key, this.resize}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final Widget body = Column(
@@ -58,18 +63,21 @@ class InfoOverviewBody extends StatelessWidget {
                 if (state.info.size == 0) {
                   return const Text("Nenhum resultado encontrado");
                 } else {
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      final info = state.info[index];
-                      if (info.failureOption.isSome()) {
-                        return ErrorCard(errorObject: info.failureOption);
-                      } else if(info.id.getOrCrash() == state.userId) {
-                        return Container();
-                      }
-                      return InfoSearchCard(info: info, userId: state.userId,);
-                    },
-                    itemCount: state.info.size,
+                  return Container(
+                    height: MediaQuery.of(context).size.height * 0.78,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        final info = state.info[index];
+                        if (info.failureOption.isSome()) {
+                          return ErrorCard(errorObject: info.failureOption);
+                        } else if(info.id.getOrCrash() == state.userId) {
+                          return Container();
+                        }
+                        return InfoSearchCard(info: info, userId: state.userId,);
+                      },
+                      itemCount: state.info.size,
+                    ),
                   );
                 }
               },
