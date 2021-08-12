@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+import 'package:auto_route/auto_route.dart' hide BuildContext;
 import 'package:flutter/material.dart';
 import 'package:herois/presentation/routes/router.gr.dart';
 import 'package:herois/presentation/sign_in/widgets/custom_curve_paint.dart';

@@ -6,7 +6,7 @@
 
 // ignore_for_file: public_member_api_docs
 
-import 'package:auto_route/auto_route.dart';
+import 'package:auto_route/auto_route.dart' hide BuildContext;
 import 'package:flutter/material.dart';
 
 import '../../domain/contact/contact.dart';
